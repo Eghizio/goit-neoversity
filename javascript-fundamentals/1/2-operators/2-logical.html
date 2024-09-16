@@ -1,0 +1,96 @@
+<title>Logical operators</title>
+
+<script id="OR operator">
+
+    // const atLeastOneIsTrue =    true || true;   /* true */
+    // const atLeastOneIsTrue1 =   true || false;  /* true */
+    // const atLeastOneIsTrue2 =   false || true;  /* true */
+    // const atLeastOneIsTrue3 =   false || false; /* false */
+
+    // // 1 || 1 === true     /* 1 */
+    // // 1 || 0 === true     /* 1 */
+    // // 0 || 1 === true     /* 1 */
+    // // 0 || 0 === false    /* 0 */
+
+    // console.log(
+    //     true || true,
+    //     true || false,
+    //     false || true,
+    //     false || false,
+    // );
+
+    // const hasCyclingLicence = false;
+    // const hasDrivingLicence = true;
+    // const isAllowedToRideBike = hasCyclingLicence || hasDrivingLicence; /* true */
+
+</script>
+
+<script id="AND operator">
+
+    // const bothAreTrue  =    true && true;    /* true */
+    // const bothAreTrue1 =    true && false;   /* false */
+    // const bothAreTrue2 =    false && true;   /* false */
+    // const bothAreTrue3 =    false && false;  /* false */
+
+    // 1 && 1 === true     /* 1 */
+    // 1 && 0 === false    /* 0 */
+    // 0 && 1 === false    /* 0 */
+    // 0 && 0 === false    /* 0 */
+
+    // console.log(
+    //     true && true,
+    //     true && false,
+    //     false && true,
+    //     false && false,
+    // );
+
+</script>
+
+<script id="Combining logical expressions">
+
+    // const result = true || false && true;
+    // const result = (true || true) && false; /* true && false */
+    // console.log(result);
+
+</script>
+
+<script id="Logical expression Examples">
+
+    // console.log(true && 2);                 // 2
+
+    // console.log(false && 1);                // false
+
+    // console.log(true && 3 && 'Hello');      // "Hello"
+
+    // console.log(true && 0 && 'There');      // 0
+
+    // console.log(true || 1);                 // true
+
+    // console.log(true || 3 || 3);            // true
+
+    // console.log(true || false || 7);        // true
+
+    // console.log(null || 42 || undefined);   // 42
+
+    // console.log((1 && null && 2) > 0);      // false
+
+    // console.log(null || (1 && 2) || 3);     // 2
+
+</script>
+
+<script id="Default value with OR and Nullush Coalescing Operator">
+
+    // const userInputValue = 0;
+    // // const userInputValue = 1;
+    // const DEFAULT_VALUE = 42;
+
+    // const value = userInputValue || DEFAULT_VALUE;
+
+    // const anotherValue = userInputValue ?? DEFAULT_VALUE; /* nullish coalescing operator */
+
+
+    // const val = 0 && 42;
+    // const val = 1 && 42;
+    // const val = 1 && 0;
+
+</script>

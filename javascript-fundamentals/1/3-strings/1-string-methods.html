@@ -1,0 +1,45 @@
+<title>String methods</title>
+
+<a
+    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+    target="_blank"
+>
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+</a>
+
+<script id="String methods">
+    
+    const x = "Ala ma kota i 2 kotki!";
+    console.log(x);
+
+    console.log(x.at(0));
+    console.log(x.charAt(0));
+    console.log(x.charCodeAt(0));
+    console.log(x.concat("!!", "???"));
+    console.log(x.endsWith("!"));
+    console.log(x.startsWith("!"));
+    console.log(x.includes("kot"));
+    console.log(x.indexOf("kot"));
+    console.log(x.lastIndexOf("kot"));
+    console.log(x.match(/\d/g));
+    console.log(x.padEnd(25, "."));
+    console.log(x.padStart(25, "."));
+    console.log("x".repeat(25));
+    console.log(x.replace("Ala", "Maciej"));
+    console.log(x.replace("kot", "pies"));
+    console.log(x.replace("2 ", ""));
+    console.log(x.replaceAll("kot", "pies"));
+    console.log(x.slice(2, 6));
+    console.log(x.slice(-2, -6));
+    console.log(x.slice(-6, -2));
+    console.log(x.split("2"));
+    console.log(x.split("a"));
+    console.log("50px".split("px")[0]);
+    console.log(x.substring(0, 6));
+    console.log(x.toLowerCase());
+    console.log(x.toUpperCase());
+    console.log("a" + " abc ".trim() + "a");
+    console.log("a" + " abc ".trimEnd() + "a");
+    console.log("a" + " abc ".trimStart() + "a");
+
+</script>
