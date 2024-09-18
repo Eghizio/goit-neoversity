@@ -1,0 +1,205 @@
+<title>Ternary Operator</title>
+
+<script id="Classic If/Else">
+
+    // // const score = 51;
+    // const score = 50;
+    // // const score = 49;
+
+    // let pass;
+        
+    // if (score >= 50) {
+    //     pass = true;
+    // } else {
+    //     pass = false;
+    // }
+
+    // /* Accidental reasignment */
+    // // pass = true;
+    // pass = false;
+
+    // console.log({ pass });
+
+</script>
+
+<script id="Boolean value based on condition">
+
+    // const score = 51;
+
+    // function isPassing(points) {
+    //     if (points >= 50) return true;
+    //     else return false;
+    // }
+
+    // function isPassing(points) {
+    //     return points >= 50;
+    // }
+
+    // const pass = isPassing(score);
+
+
+
+    // const pass = score >= 50;
+
+    // console.log({ pass });
+
+</script>
+
+<script id="The problem with mutable value">
+
+    // const isRed = true;
+    // const isRed = false;
+
+    // let color = "some default color";
+
+    // if (isRed) {
+    //     color = "red";
+    // } // for example: else set default color
+
+
+    /* Oh no! Evil coder reasigned our variable! */
+    // // color = "LOL NOPE! Some other colour as it is not const!";
+
+    // console.log({ color });
+
+</script>
+
+<script id="Ternary operator - syntax">
+
+    // // const isBlue = true;
+    // const isBlue = false;
+
+    // /* Ternary operator - Operator trójkowy */
+    // const myColor = (isBlue === true) ? "I am blue" : "I am some default color";
+
+    // const ourColor = isBlue
+    //     ? "Blueeee"
+    //     : "foo bar baz and other gizmos :D";
+
+    // console.log({ myColor, ourColor });
+
+</script>
+
+<script id="Nested Ternary Operators">
+
+    // function buyBeerAsAmerican(age) {
+    //     return age >= 21 ? "Beer" : "No beer";
+    // }
+
+    // function buyBeerAsEuropean(age) {
+    //     return age >= 18 ? "Beer" : "No beer";
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     return isAmerican ? buyBeerAsAmerican(age) : buyBeerAsEuropean(age);
+    // }
+
+
+    // function buyBeer(age, isAmerican) {
+    //     return isAmerican
+    //         ? (
+    //             age >= 21 
+    //                 ? "Beer"
+    //                 : "No beer"
+    //         )
+    //         : (
+    //             age >= 18
+    //                 ? "Beer"
+    //                 : "No beer"
+    //         );
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     return isAmerican
+    //         ? age >= 21 
+    //             ? "Beer"
+    //             : "No beer"
+    //         : age >= 18
+    //             ? "Beer"
+    //             : "No beer";
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     const legalDrinkingAge = isAmerican ? 21 : 18;
+    //     return age >= legalDrinkingAge ? "Beer" : "No beer";
+    // }
+
+
+    // const american = true;
+    // const european = false;
+
+    // console.log("Americans: 16, 18, 42");
+    // console.log( buyBeer(16, american) );
+    // console.log( buyBeer(18, american) );
+    // console.log( buyBeer(42, american) );
+
+    // console.log("Europeans: 16, 18, 42");
+    // console.log( buyBeer(16, european) );
+    // console.log( buyBeer(18, european) );
+    // console.log( buyBeer(42, european) );
+
+</script>
+
+<script id="Inlined ternary operator">
+
+    // const age = 15;
+    // const age = 21;
+
+    // const canVote = age >= 18;
+    // const message = canVote ? "I can vote" : "I can't vote";
+    // console.log(message);
+
+
+    // const msg = age >= 18 ? "I can vote" : "I can't vote";
+    // console.log(msg);
+    
+    
+    // console.log(age >= 18 ? "I can vote" : "I can't vote");
+
+
+    // (age >= 18)
+    //     ? console.log("I can vote")
+    //     : console.log("I can't vote");
+
+</script>
+
+<script id="Ternary operator in action">
+
+    // const a = 42;
+    // const b = 57;
+
+
+    /* Implement with ternary based on a & b values. */
+    // const min = a <= b ? a : b;
+    // const max = a >= b ? a : b;
+
+    // const max = Infinity;
+    // const min = -Infinity;
+
+    // console.log({ min, max });
+
+
+    
+    // function getMin(x, y) {
+    //     return x <= y ? x : y;
+    // }
+
+    // console.log(getMin(a, b));
+    // console.log(Math.min(a, b, 51));
+
+    // console.log(getMin(b, a));
+    // console.log(Math.min(b, a, 51));
+
+
+
+    // function getMax(x, y) {
+    //     return x >= y ? x : y;
+    // }
+
+    // console.log(getMax(a, b));
+    // console.log(Math.max(a, b, 51));
+
+    // console.log(getMax(b, a));
+    // console.log(Math.max(b, a, 51));
+
+</script>

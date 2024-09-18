@@ -1,0 +1,19 @@
+<title>Logical operators - revisited</title>
+
+<script id="Logical expressions evaluation - falsy & truthy values">
+
+    const a = null && true; // null
+
+    const x = null || true; // true
+    const x2 = null || false; // false
+
+    const b = "false" && 0; // 0
+    const b2 = "false" || 0; // "false"
+
+    const c = "Adam" && "Beth"; // "Beth"
+    const c2 = "Adam" || "Beth"; // "Adam"
+
+    const z = "Adam" ? "Adam" : null; // "Adam"
+    const z2 = "" ? "Adam" : null; // null
+    
+</script>

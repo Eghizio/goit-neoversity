@@ -1,0 +1,105 @@
+<title>For Loop</title>
+
+<script id="For loop">
+
+    // let i = 10;
+
+    // while (i < 20) {
+    //     i++;
+    //     console.log("Sub added");
+    // }
+
+    
+
+    // for (let i = 10; i<20; i++) {
+    //     console.log(i);
+    // }
+
+    // for (let i = 10, j = 5; i<20; i=i+2, j++) {
+    //     console.log(i, j);
+    // }
+
+</script>
+
+<script id="Iterate over string">
+
+    // const text = "Hello There!";
+
+    // for (let i = 0; i < text.length; i++) {
+    //     console.log( i, text[i] );
+    // }
+
+</script>
+
+<script id="Loop usage examples">
+
+    // function findIndexOfInsensitiveChar(text, char) {
+    //     let index = -1; // null
+
+    //     // no need to lowerCase it many times.
+    //     const targetChar = char.toLowerCase();
+
+    //     for (let i=0; i<text.length; i++) {
+    //         const currentLetter = text[i];
+
+    //         if (currentLetter.toLowerCase() === targetChar) {
+    //             index = i;
+    //             break;
+    //         }
+    //     }
+
+    //     return index;
+    // }
+
+    // function findIndexOfInsensitiveChar(text, char) {
+    //     for (let i=0; i<text.length; i++) {
+    //         const currentLetter = text[i];
+
+    //         if (currentLetter.toLowerCase() === char.toLowerCase()) {
+    //             return i;
+    //         }   
+    //     }
+
+    //     return -1;
+    // }
+
+    // function findIndexOfInsensitiveChar(text, char) {
+    //     const targetChar = char.toLowerCase();
+
+    //     for (let i=0; i<text.length; i++) {
+    //         if (text[i].toLowerCase() === targetChar) return i;
+    //     }
+
+    //     return -1;
+    // }
+
+    // console.log( findIndexOfInsensitiveChar("Hello There!", "e") );
+    // console.log( findIndexOfInsensitiveChar("Hello There!", "z") );
+
+</script>
+
+<script id="Infinite loop">
+
+    /* Run in Node.js */
+
+    // for(;;) {
+    //     console.log("Infinite loop " + Date.now());
+    // }
+
+</script>
+
+<script id="Recursion">
+
+    document.title = "Recursion";
+
+    function recursion(x) {
+        console.log(x);
+
+        if (x > 0) recursion(x - 1);
+        // recursion(x - 1); /* Run in Node.js */
+    }
+
+    recursion(10);
+    // recursion(1_000_000); /* RangeError: Maximum call stack size exceeded */
+
+</script>

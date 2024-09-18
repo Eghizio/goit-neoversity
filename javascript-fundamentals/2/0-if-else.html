@@ -1,0 +1,389 @@
+<title>If Else statement</title>
+
+<script id="If statement - conditional">
+
+    // const password = "admin1234";
+    // const password = "admin123";
+    // const password = prompt("Please provide your password.");
+
+
+    // if (password === "admin123") {
+    //     console.log("You are logged in!");
+    // }
+
+    // console.log("Done.");
+
+
+
+    // const password = prompt("Please provide your password.");
+    // const CORRECT_PASSWORD = "admin123";
+    // const isPasswordCorrect = (password === CORRECT_PASSWORD);
+
+    // if (isPasswordCorrect) {
+    //     console.log("You are logged in!");
+    // }
+
+    // console.log("Done.");
+
+</script>
+
+<script id="Condition evaluation - boolean">
+
+    // const isAdmin = true;
+    // const isAdmin = false;
+    // const isAdmin = "false"; // truthy
+    // const isAdmin = "true"; // truthy
+    // const isAdmin = ""; // falsy
+    // const isAdmin = 0; // falsy
+    // const isAdmin = 1; // truthy
+    // const isAdmin = 1337; // truthy
+    // const isAdmin = -1337; // truthy
+    // const isAdmin = NaN; // falsy
+    // const isAdmin = null; // falsy
+    // const isAdmin = undefined; // falsy
+    // let isAdmin; // falsy
+    // const isAdmin = []; // truthy
+    // const isAdmin = [1,2,3]; // truthy
+    // const isAdmin = {}; // truthy
+    // const isAdmin = { hello: "there" }; // truthy
+
+
+
+    // if (isAdmin == true) {
+    //     console.log("1. You can manage other users.");
+    // }
+
+    // if (isAdmin === true) {
+    //     console.log("2. You can manage other users.");
+    // }
+
+    // if (isAdmin) {
+    //     console.log("3. You can manage other users.");
+    // }
+
+    // console.log("Something");
+
+</script>
+
+<script id="Else branch">
+
+    // const isPremium = true;
+    // const isPremium = false;
+
+    // if (isPremium) {
+    //     console.log("You can skip unlimited amount of songs!");
+    // } else {
+    //     console.log("You are only allowed to skip 5 songs per hour.");
+    //     console.log("Update to premium to unlock limitless song skipping.");
+    // }
+
+    // console.log("Done.");
+
+</script>
+
+<script id="Conditional function return & Early return">
+
+    // function buyBeer(age) {
+    //     if (age >= 18) {
+    //         return "Beer";
+    //     } else {
+    //         return "No beer";
+    //     }
+    // }
+
+    // function buyBeer(age) {
+    //     const isAdult = age >= 18;
+        
+    //     if (isAdult) {
+    //         return "Beer";
+    //     } else {
+    //         return "No beer";
+    //     }
+    // }
+
+    // function buyBeer(age) {
+    //     const isAdult = age >= 18;
+        
+    //     if (isAdult) {
+    //         // return console.log("Beer");
+    //         return "Beer";
+    //     } else {
+    //         // return console.log("No beer");
+    //         return "No beer";
+    //     }
+    // }
+
+    // function buyBeer(age) {
+    //     if (age >= 18) {
+    //         return console.log("Beer");
+    //         // console.log("Beer");
+    //     }
+    //     return console.log("No beer");
+    //     // console.log("No beer");
+    // }
+
+    // function buyBeer(age) {
+    //     if (age >= 18) return "Beer";
+    //     return "No beer";
+    // }
+
+
+
+    // buyBeer(2); // prints nothing.
+
+    // const result = buyBeer(2); // returns value and saves it to the variable.
+    // const result = buyBeer(21); // returns value and saves it to the variable.
+    // console.log(result);
+
+
+    // console.log( buyBeer(16) );
+    // console.log( buyBeer(18) );
+    // console.log( buyBeer(42) );
+
+
+
+    // const result = console.log("something");
+    // console.log({ result });
+
+</script>
+
+<script id="If Braces evaluation">
+
+    // function doSomething(condition) {
+    //     // if (condition)
+    //     // console.log("Condition satisfied");
+    //     // console.log("Doin something anyways");
+
+    //     // if (condition)
+    //     //     console.log("Condition satisfied");
+    //     // console.log("Doin something anyways");
+
+    //     // if (condition) console.log("Condition satisfied");
+    //     // console.log("Doin something anyways");
+
+    //     // if (condition) console.log("Condition satisfied");
+    //     // else console.log("Condition unsatisfied");
+    //     // console.log("Doin something anyways");
+    // }
+
+    // doSomething(true);
+    // doSomething(false);
+    
+</script>
+
+<script id="Nested if/else statements - examples">
+
+    // function buyBeer(age) {
+    //     if (age >= 18) return "Beer";
+    //     return "No beer";
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     if (isAmerican) {
+    //         if (age >= 21) return "Beer";
+    //         else return "No Beer";
+    //     } else {
+    //         if (age >= 18) return "Beer";
+    //         else return "No beer";
+    //     }
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     if (isAmerican) {
+    //         if (age >= 21) console.log("Beer");
+    //         console.log("No Beer");
+    //     }
+
+    //     if (age >= 18) console.log("Beer");
+    //     console.log("No beer");
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     if (isAmerican) {
+    //         if (age >= 21) return console.log("Beer");
+    //         return console.log("No Beer");
+    //     }
+
+    //     if (age >= 18) return console.log("Beer");
+    //     return console.log("No beer");
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     if (isAmerican && age >= 21) return "Beer";
+    //     if (!isAmerican && age >= 18) return "Beer";
+    //     return "No beer";
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     if ((isAmerican && age >= 21) || (!isAmerican && age >= 18)) return "Beer";
+    //     return "No beer";
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     const isOfLegalDrinkingAge = (isAmerican && age >= 21) || (!isAmerican && age >= 18);
+    //     if (isOfLegalDrinkingAge) return "Beer";
+    //     return "No beer";
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     const canDrinkInAmerica = isAmerican && (age >= 21);
+    //     const canDrinkInEurope = !isAmerican && (age >= 18);
+        
+    //     // if (canDrinkInAmerica || canDrinkInEurope) return "Beer";
+    //     // return "No beer";
+
+    //     const canDrink = canDrinkInAmerica || canDrinkInEurope;
+        
+    //     if (canDrink) return "Beer";
+    //     return "No beer";
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     let legalDrinkingAge;
+
+    //     if (isAmerican) {
+    //         legalDrinkingAge = 21;
+    //     } else {
+    //         legalDrinkingAge = 18;
+    //     }
+
+    //     if (age >= legalDrinkingAge) return "Beer";
+    //     return "No beer";
+    // }
+
+    // function buyBeer(age, isAmerican) {
+    //     let legalDrinkingAge = 18;
+
+    //     if (isAmerican) {
+    //         legalDrinkingAge = 21;
+    //     }
+
+    //     if (age >= legalDrinkingAge) return "Beer";
+    //     return "No beer";
+    // }
+
+
+
+    // const american = true;
+    // const european = false;
+
+    // console.log("Americans: 16, 18, 42");
+    // console.log( buyBeer(16, american) );
+    // console.log( buyBeer(18, american) );
+    // console.log( buyBeer(42, american) );
+
+    // console.log("Europeans: 16, 18, 42");
+    // console.log( buyBeer(16, european) );
+    // console.log( buyBeer(18, european) );
+    // console.log( buyBeer(42, european) );
+
+</script>
+
+<script id="Else if - elif">
+
+    // const points = 42;
+    // const points = 91;
+    // const points = 72;
+    // const points = 69;
+
+    // let rating = "";
+
+    // // if (points >= 90) rating = "Excelent!";
+    // // if (points >= 70) rating = "Well Done!";
+
+    // if (points >= 90) {
+    //     rating = "Excelent!";
+    // } else if (points >= 70) {
+    //     rating = "Well done!";
+    // } else if (points >= 50) {
+    //     rating = "Passed.";
+    // } else {
+    //     rating = "Failed...";
+    // }
+
+    // console.log(`Achieved ${points} points. ${rating}`);
+
+</script>
+
+<script id="Conditional value assignment/return">
+
+    // function rateStudent(score) {
+    //     let rating = "";
+
+    //     if (score >= 90) {
+    //         rating = "Excelent!";
+    //     } else if (score >= 70) {
+    //         rating = "Well done!";
+    //     } else if (score >= 50) {
+    //         rating = "Passed.";
+    //     } else {
+    //         rating = "Failed...";
+    //     }
+
+    //     return rating;
+    // }
+
+
+
+    /* better */
+    // function rateStudent(score) {
+    //     let rating = "Failed...";
+
+    //     if (score >= 90) {
+    //         rating = "Excelent!";
+    //     } else if (score >= 70) {
+    //         rating = "Well done!";
+    //     } else if (score >= 50) {
+    //         rating = "Passed.";
+    //     }
+
+    //     return rating;
+    // }
+
+
+    // // const studentPoints = 99;
+    // const studentPoints = 72;
+    // // const studentPoints = 69;
+    // // const studentPoints = 49;
+
+    // const studentRating = rateStudent(studentPoints);
+    // console.log(`Achieved ${studentPoints} points. ${studentRating}`);
+
+</script>
+
+<script id="Early return - syntax">
+
+    // function betterRateStudent(score) {
+    //     if (score >= 90) {
+    //         return "Excelent!";
+    //     } else if (score >= 70) {
+    //         return "Well done!";
+    //     } else if (score >= 50) {
+    //         return "Passed.";
+    //     } else {
+    //         return "Failed...";
+    //     }
+
+    //     // if (score >= 90) return "Excelent!";
+    //     // else if (score >= 70) return "Well done!";
+    //     // else if (score >= 50) return "Passed.";
+    //     // else return "Failed...";
+
+    //     // if (score >= 90) return "Excelent!";
+    //     // if (score >= 70) return "Well done!";
+    //     // if (score >= 50) return "Passed.";
+    //     // return "Failed...";
+
+    //     // console.log("Unreachable dead code!"); /* Could be deleted. */
+    // }
+
+
+    // const myStudentPoints = 49;
+    // const myStudentPoints = 51;
+    // const myStudentPoints = 72;
+    // const myStudentPoints = 90;
+    // const betterStudentRating = betterRateStudent(myStudentPoints);
+
+    // console.log(`Achieved ${myStudentPoints} points. ${betterStudentRating}`);
+
+</script>

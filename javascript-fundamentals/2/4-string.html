@@ -1,0 +1,129 @@
+<title>String - properties & methods</title>
+
+<script id="String - length & indexing">
+
+    // const msg = "Hello";
+    // const msg = 'Hello';
+    // const msg = `Hello`;
+
+    // console.log(`Message value: "${msg}"`);
+    // console.log(`Message length: ${msg.length}`);
+    // console.log(`Message first character: ${msg[0]}`);
+    // console.log(`Message last character: ${msg[msg.length - 1]}`);
+
+</script>
+
+<script id="String comparison - case insensitive">
+
+    // function isHello(text) {
+    //     // return text.toLowerCase() === "hello";
+    //     // return text.toUpperCase() === "HELLO";
+    //     return text.toUpperCase() === "hello".toUpperCase();
+    // }
+
+
+    // // const x = "HELLo";
+    // // const x = "HELLO";
+    // const x = "hello";
+    // // const x = "dupa";
+
+
+    // // if (isHello(x)) {
+    // //     console.log("Messages are matching!");
+    // // } else {
+    // //     console.log("Messages are not matching :c");
+    // // }
+
+    // const output = isHello(x)
+    //     ? "Messages are matching!"
+    //     : "Messages are not matching :c";
+
+    // console.log(output);
+
+
+
+    // function compareStringsInsensitive(first, second) {
+    //     return first.toLowerCase() === second.toLowerCase();
+    // }
+
+    // console.log( compareStringsInsensitive("abc", "ABC") );
+    // console.log( compareStringsInsensitive("xYZ", "XyZ") );
+    // console.log( compareStringsInsensitive("dupa", "apud") );
+
+</script>
+
+<script id="Substrings">
+
+    // function getLettersOnly(text, from, to) {
+    //     // let result = text.slice(from, to);
+    //     // result = result.trim();
+    //     // return result;
+
+    //     // const fragment = text.slice(from, to);
+    //     // const result = fragment.trim();
+    //     // return result;
+
+    //     return text
+    //         .slice(from, to)
+    //         .trim();
+    // }
+
+    // console.log( "'" + getLettersOnly("Hello World", 5, 11) + "'" );
+
+    // const lettersOnly = getLettersOnly("Hello World", 5, 11);
+    // console.log(`'${lettersOnly}'`);
+
+    // console.log(`'${getLettersOnly("Hello World", 5, 11)}'`);
+
+</script>
+
+<script id="Email validation - combined methods">
+
+    // function isValidEmail(email) {
+    //     return email.includes("@")
+    //         && email.includes(".")
+    //         && !email.startsWith("@")
+    //         && !email.endsWith("@");
+    // }
+
+    // function checkEmail(email) {
+    //     // console.log(
+    //     //     `${isValidEmail(email) ? "✅" : "❌"} Email "${email}" is ${isValidEmail(email) ? "valid" : "invalid"}`
+    //     // );
+
+    //     const isValid = isValidEmail(email);
+    //     const msg = `Email "${email}" is ${isValid ? "valid" : "invalid"}`;
+
+    //     console.log((isValid ? "✅" : "❌") + " " + msg);
+    // }
+
+    // checkEmail("someone@test.com");
+    // checkEmail("some.one@testcom");
+    // checkEmail("someone@testcom");
+    // checkEmail("someonetest.com");
+    // checkEmail("@.");
+    // checkEmail(".@");
+
+</script>
+
+<script id="Email domain validation - endsWith">
+
+    // function isEmailFromAllowedDomain(email, domain) {
+    //     return email.endsWith(domain);
+    // }
+
+    // function checkEmailAgain(email, domain) {
+    //     const isValid = isEmailFromAllowedDomain(email, domain);
+    //     const msg = `Email "${email}" is from ${isValid ? "valid" : "invalid"} domain`;
+
+    //     console.log((isValid ? "✅ " : "❌ ") + msg);
+    // }
+
+
+    // checkEmailAgain("some.one@test.com", ".com");
+    // checkEmailAgain("some.one@test.com", ".pl");
+    // checkEmailAgain("some.one@test.com", ".eu");
+    // checkEmailAgain("some.one@test.com", ".de");
+    // checkEmailAgain("some.one@test.se", ".se");
+
+</script>
