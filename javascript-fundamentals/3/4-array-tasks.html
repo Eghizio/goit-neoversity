@@ -1,0 +1,126 @@
+<title>Array tasks</title>
+
+<script id="Reverse string using array methods OR for loop with index">
+
+    // function reverseTextWithLoop(str) {
+    //     /* Your code */
+    //     let reversed = "";
+
+    //     for (let i=str.length-1; i>=0; i--) {
+    //         const letter = str[i];
+    //         // console.log(letter);
+    //         reversed = reversed + letter;
+    //     }
+
+    //     return reversed;
+    // }
+
+    // function reverseTextWithLoop(str) {
+    //     /* Your code */
+    //     const reversed = [];
+
+    //     for (let i=str.length-1; i>=0; i--) {
+    //         const letter = str[i];
+    //         reversed.push(letter);
+    //     }
+
+    //     return reversed.join("");
+    // }
+
+    // function reverseTextWithLoop(str) {
+    //     /* Your code */
+    //     // let reversed = "";
+    //     const reversed = [];
+
+    //     for (const letter of str.split("").toReversed()) {
+    //         // reversed = reversed + letter;
+    //         reversed.push(letter);
+    //     }
+
+    //     // return reversed;
+    //     return reversed.join("");
+    // }
+
+    // function reverseText(str) {
+    //     /* Your code */
+    //     return str.split("").toReversed().join("");
+    // }
+
+    // const reverseString = (str) => str.split("").toReversed().join("");
+    // reverseText = reverseString;
+
+
+    // const text = "Welcome!";
+
+    // /* Unit tests */
+    // console.log("Is matching: ", reverseTextWithLoop(text) === "!emocleW");
+    // console.log("Is matching: ", reverseTextWithLoop("abc") === "cba");
+    // console.log("Is matching: ", reverseTextWithLoop("321123") === "321123");
+
+    // /* Unit tests */
+    // console.log("Is matching: ", reverseText(text) === "!emocleW");
+    // console.log("Is matching: ", reverseText("abc") === "cba");
+    // console.log("Is matching: ", reverseText("321123") === "321123");
+
+</script>
+
+<script id="Function - Find min and max number in array of numbers">
+
+    function getMin(nums) {
+        /* Your code */
+        let min = Infinity;
+
+        for (const number of nums) {
+            if (number < min) {
+                // console.log(number, min);
+                min = number;
+            }
+        }
+
+        // console.log({ min });
+        return min;
+    }
+    
+
+    function getMax(nums) {
+        /* Your code */
+        let max = -Infinity;
+
+        for (const number of nums) {
+            if (number > max) {
+                max = number;
+            }
+        }
+
+        return max;
+    }
+
+
+
+    const numbers = [2, 17, 94, 1, 23, 37];
+
+    /* Bubble Sort Algorithm: O(n) - O(n^2) - n=6 => [6 - 36]
+        2 > 17 ? 2 : 17     -> 17
+        17 > 94 ? 17 : 94   -> 94
+        94 > 1 ? 94 : 1     -> 94 [2, 17, 1, 94, ...]
+        ...
+        [2, 17, 1, 23, 37, 94]
+        ...
+        [2, 1, 17, 23, 37, 94]
+        ...
+        [1, 2, 17, 23, 37, 94]
+        ...check if sorted
+            -> then end
+            -> if not - continue.
+    */
+
+    /* Unit tests */
+    console.log("Is matching: ", getMin([]) === Infinity);
+    console.log("Is matching: ", getMin(numbers) === 1);
+    console.log("Is matching: ", getMin(numbers) === Math.min(...numbers));
+
+    console.log("Is matching: ", getMax([]) === -Infinity);
+    console.log("Is matching: ", getMax(numbers) === 94);
+    console.log("Is matching: ", getMax(numbers) === Math.max(...numbers));
+
+</script>

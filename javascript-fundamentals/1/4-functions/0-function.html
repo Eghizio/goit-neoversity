@@ -142,10 +142,21 @@
 <script id="Task">
     /* Time parsing function from miliseconds to minutes and seconds. */
 
-    function formatTime(miliseconds) {
-        /* Your code here */
+    function pad(number) {
+        return number.toString().padStart(2, "0");
+        // return `${number}`.padStart(2, "0");
     }
 
-    console.log(formatTime(121000)); /* "02:01 (mm:ss)"" */
+    function formatTime(miliseconds) {
+        /* Your code here */
+        const minutes = Math.floor(miliseconds / 60_000);
+        
+        const seconds = (miliseconds - minutes * 60_000) / 1_000;
+        
+        return `${pad(minutes)}:${pad(seconds)} (mm:ss)`;
+    }
+
+    console.log(formatTime(121_000)); /* "02:01 (mm:ss)" */
+    console.log(formatTime(612_000)); /* "10:12 (mm:ss)" */
 
 </script>

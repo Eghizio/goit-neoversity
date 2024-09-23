@@ -1,0 +1,254 @@
+<title>Array methods</title>
+
+<a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">
+    Array Documentation
+</a>
+
+<script id="Join array of elements into one string">
+
+    // const numbers = [1,2,3];
+    // const _123 = numbers.join("");
+    
+    // console.log(_123, typeof _123);
+
+    // console.log( ["Hello", "there", "-", "General", "Kenobi!"].join(" ") );
+    // console.log( ["Hello", "there", "-", "General", "Kenobi!"].join("_") );
+
+</script>
+
+<script id="Split string on delimiter into array elements">
+
+    // const csvRow = "Adam;42;JavaScript;Pizza";
+
+    // function parseCsvRowIntoUserData(row) {
+    //     const userData = row.split(";");
+    //     console.log({ userData });
+
+    //     const userName = userData[0];
+    //     const age = parseInt(userData[1], 10);
+    //     const skill = userData[2];
+    //     const favouriteFood = userData[3];
+
+    //     return [userName, age];
+    // }
+
+    // console.log( parseCsvRowIntoUserData(csvRow) );
+
+    
+
+    // const encodedSentence = "h%e%l%l%o%_%t%h%e%r%e";
+
+    // function decode(encoded, cipher, space) {
+    //     // const withSpace = encoded.replace(space, " ");
+    //     // return withSpace.split(cipher).join("");
+    //     // return withSpace.replace(cipher, "");
+    //     // return withSpace.replaceAll(cipher, "");
+
+    //     return encoded.replaceAll(space, " ").replaceAll(cipher, "");
+    // }
+
+    // const message = decode(encodedSentence, "%", "_");
+    // console.log(message);
+
+
+
+    // function countLetters(text) {
+    //     // return text.split(" ").join("").length;
+    //     return text.replaceAll(" ", "").length;
+    // }
+
+    // const msg = "Hello World";
+    // console.log(countLetters(msg), msg.length);
+
+</script>
+
+<script id="Sorting array">
+
+    // const nums = [1, 3, 2, 5, 4];
+    // console.log(nums);
+
+    // const sorted = nums.sort();
+    // const sorted = nums.toSorted();
+    // console.log(nums, sorted);
+
+
+
+    // const letters = ["a", "c", "b"];
+    // const letters = ["10", "12", "101", "11"];
+    // console.log(letters);
+
+    // letters.sort();
+    // console.log(letters);
+
+
+
+    // const numberos = [1, 3, 2, 5, 4];
+
+    // const result = numberos.sort(function (a, b) {
+    //     // return a - b;
+    //     // return b - a;
+    //     return a > b ? 1 : -1;
+    // });
+
+
+    // function sortDescending(a, b) {
+    //     return b - a;
+    // }
+
+    // const result = numberos.toSorted(sortDescending);
+
+    // console.log(numberos, result);
+
+</script>
+
+<script id="Reversing array">
+
+    // const nums = [1, 2, 3];
+    // console.log(nums);
+
+    // const reversedNums = nums.reverse();
+    // console.log(nums, reversedNums);
+
+
+
+    // const letters = ["a", "b", "c"];
+    // console.log(letters);
+    
+    // const reversedLetters = letters.toReversed();
+    // console.log(letters, reversedLetters);
+
+</script>
+
+<script id="Slicing array">
+
+    // const queue = ["Adam", "Beth", "Cecil", "Dorthy"];
+
+    // const afterFirstUser = queue.slice(1);
+    // const afterFirstUser = queue.slice(1, 2);
+    // console.log(afterFirstUser);
+
+
+    // const lastUser = queue.slice(-2);
+    // console.log(lastUser);
+
+</script>
+
+<script id="Concat new queue state">
+
+    // const queue = ["Adam", "Beth", "Cecil", "Dorthy"];
+
+    /* Adam leaves queue */
+    // const afterFirstUser = queue.slice(1);
+    // console.log(afterFirstUser);
+
+    /* 2 new users join the end of the queue (enqueue) */
+    // const newUsers = ["Edmund", "Fredric"];
+
+    // const updatedQueue = afterFirstUser.concat(newUsers);
+    // console.log(updatedQueue);
+    
+    // afterFirstUser.push("Edmund", "Fredric");
+    // afterFirstUser.push(...newUsers);
+    // console.log(afterFirstUser);
+
+
+
+    // const updatedArray = [...afterFirstUser, ...newUsers];
+    // console.log(updatedArray);
+
+</script>
+
+<script id="Index of element - remaining queue">
+
+    // const queue = ["Adam", "Beth", "Cecil", "Dorthy", "Edmund", "Fredric"];
+
+    // function getQueueAfter(name) {
+    //     const index = queue.indexOf(name);
+
+    //     if (index === -1) return queue;
+
+    //     return queue.slice(index);
+    // }
+
+    // console.log(getQueueAfter("Dorthy"));
+    // console.log(getQueueAfter("Zeke"));
+
+</script>
+
+<script id="Array inserting and removing students">
+
+    // const students = ["Adam", "Beth", "Cecil"];
+    // console.log(students);
+
+    // students.push("Dorthy"); /* Add element at the end */
+    // console.log("Push: ", students);
+
+    // const first = students.shift(); /* Take out first element */
+    // console.log("Shift: ", students, first);
+
+    // students.unshift(first); /* Insert element at the start */
+    // console.log("Unshift: ", students);
+
+    // const last = students.pop(); /* Take out last element */
+    // console.log("Pop: ", students, last);
+
+    // students.push(last);
+    // console.log(students);
+
+
+    // const priorityStudent = "Jakub";
+
+    // const newQueue = [students[0], priorityStudent, ...students.slice(1)];
+
+
+    // const newQueue = [].concat(students);
+    // const head = newQueue.shift();
+    // newQueue.unshift(priorityStudent);
+    // newQueue.unshift(head);
+
+
+    // const [head, ...tail] = students;
+    // const newQueue = [head, priorityStudent, ...tail];
+
+    // console.log(newQueue);
+
+</script>
+
+<script id="Includes">
+
+    // const guestList = ["Adam", "Dorthy", "Zeke"];
+
+    // function isAllowed(name) {
+    //     return guestList.includes(name);
+    // }
+
+
+    // // const nameToCheck = "Beth";
+    // const nameToCheck = "Dorthy";
+
+    // console.log(`Is ${nameToCheck} allowed to enter? ` + isAllowed(nameToCheck));
+
+</script>
+
+<script id="Challenge - Priority Enqueue">
+
+    /* Challenge: Put prio-client at specific index inside the array */
+
+    function enqueueWithPriority(queue, client, index) {
+        /* Your code */
+        
+    }
+
+
+    const ourQueue = ["Adam", "Beth", "Cecil", "Dorthy", "Edmund", "Fredric"];
+    const priorityClient = "Jakub";
+
+
+    const result = enqueueWithPriority(ourQueue, priorityClient, 3);    
+    console.log(result); /* ['Adam', 'Beth', 'Cecil', 'Jakub', 'Dorthy', 'Edmund', 'Fredric'] */
+    
+
+    const result2 = enqueueWithPriority(ourQueue, priorityClient, 0);
+    console.log(result2); /* ['Jakub', 'Adam', 'Beth', 'Cecil', 'Dorthy', 'Edmund', 'Fredric'] */
+
+</script>
