@@ -1,0 +1,111 @@
+<title>Default function arguments</title>
+
+<script id="Default arguments">
+
+    // function power(a, x) {
+    //     return Math.pow(a, x);
+    // }
+
+    // console.log( power(5, 2) );
+    // console.log( power(5) );
+
+
+
+    // function logAbc(a, b, c) {
+    //     console.log({ a, b, c });
+    // }
+    
+    // logAbc(4, 2);
+
+
+
+    // function powerDefault(a, x = 2) {
+    //     return Math.pow(a, x);
+    // }
+
+    // console.log( powerDefault(5, 2) );
+    // console.log( powerDefault(5) );
+    // console.log( powerDefault(5, 3) );
+    
+    // console.log( powerDefault(5, undefined) );
+    // console.log( powerDefault(5) );
+
+
+
+    // function powerDefault(a = 2, x, y = 5) {
+    //     return Math.pow(a, x);
+    // }
+     
+    // console.log( powerDefault(, 2, ) ); /* oopsie. */
+    // console.log( powerDefault(undefined, 2, ) );
+
+</script>
+
+<script id="Arguments validation">
+
+    // function isNum(x) {
+    //     return typeof x === "number" && !isNaN(x);
+    // }
+
+    // function sum(a, b) {
+    //     console.log({ a, b });
+    //     // if (a === undefined) a = 0;
+    //     // if (b === undefined) b = 0;
+
+    //     // if (a === undefined || typeof a !== "number") a = 0;
+    //     // if (b === undefined || typeof b !== "number") b = 0;
+
+    //     if (!isNum(a)) a = 0;
+    //     if (!isNum(b)) b = 0;
+    //     return a + b;
+    // }
+
+
+    // function nullable(x) {
+    //     return x ?? 0;
+    // }
+
+    // function sum(a, b) {
+    //     // return (a ?? 0) + (b ?? 0);
+    //     return nullable(a) + nullable(b);
+    // }
+
+
+
+    // function sum() {
+    //     let suma = 0;
+        
+    //     for (const arg of arguments) {
+    //         if (Number.isInteger(arg)) suma += arg;
+    //     }
+        
+    //     return suma;
+    // }
+
+
+
+    // const sum = function() {
+    //     return Array.from(arguments)
+    //         .filter((arg) => Number.isInteger(arg))
+    //         .reduce((acc, n) => acc + n, 0);
+    // };
+
+
+    // const sum = function() {
+    //     return Array.from(arguments)
+    //         .filter((arg) => typeof arg === "number" && !isNaN(arg))
+    //         .reduce((acc, n) => acc + n, 0);
+    // }
+
+
+    // console.log( sum(2, 3) );
+    // console.log( sum(2) );
+    // console.log( sum(2, null) );
+    // console.log( sum() );
+
+    // console.log( sum("a", "b") );
+    
+    // console.log( sum(2, 3, undefined, 5) );
+    // console.log( sum(3, 0.1415) );
+
+</script>

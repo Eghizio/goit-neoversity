@@ -1,0 +1,28 @@
+<title>Call Stack</title>
+
+<script id="Callstack exception">
+
+    function callMeMaybe(x) {
+        if (x > 0) {
+            console.log("Calling " + x);
+            return callMeMaybe(--x);
+        } else {
+            console.log("Out of credit");
+        }
+    }
+
+    // function callMeMaybe(x) {
+    //     if (x <= 0) return console.log("Out of credit");
+
+    //     console.log("Calling " + x);
+    //     return callMeMaybe(--x);
+    // }
+
+
+
+    // callMeMaybe(10);
+
+    // callMeMaybe(1_000_000);
+    // callMeMaybe(100_000);
+
+</script>

@@ -1,0 +1,154 @@
+<title>Function arguments</title>
+
+<script id="Function arguments keyword">
+
+    // function something() {
+    //     console.log(arguments);
+    //     // return arguments;
+    // }
+
+    // function something(...args) {
+    //     console.log(args);
+    // }
+
+
+    // something();
+    // something(1, 2, 3);
+
+</script>
+
+<script id="Arguments iteration">
+
+    // function iterateOverArguments() {
+    //     console.log("Length: " + arguments.length);
+
+    //     for (let i=0; i<arguments.length; i++) {
+    //         console.log( arguments[i] );
+    //     }
+
+    //     // for (const arg of arguments) {
+    //     //     console.log(arg);
+    //     // }
+
+    //     // for (const index in arguments) {
+    //     //     console.log(arguments[index]);
+    //     // }
+
+    //     // arguments.forEach(function(arg) {
+    //     //     console.log(arg); /* Error */
+    //     // })
+    // }
+
+    // iterateOverArguments();
+    // iterateOverArguments(3, 2, 1);
+
+</script>
+
+<script id="Iterating over arguments - pseudoarray">
+
+    // function iterateOverArgumentsAgain() {
+    //     for (const arg of arguments) {
+    //         console.log( arg );
+    //     }
+    // }
+
+    // iterateOverArgumentsAgain();
+    // iterateOverArgumentsAgain(1, 2, 3);
+
+
+
+    // function double() {
+    //     // return [1, 2, 3].map(function (x) { return x * 2 });
+    //     // return arguments.map(function (x) { return x * 2 });
+
+    //     // return [...arguments].map(function (x) { return x * 2 });
+    //     return Array.from(arguments).map(function (x) { return x * 2 });
+    // }
+
+    // console.log(double());
+    // console.log(double(1, 2, 3));
+
+
+
+    // function makeArray() {
+    //     const arr = [];
+
+    //     for (const arg of arguments) {
+    //         arr.push(arg);
+    //     }
+
+    //     return arr;
+    // }
+
+    // const nums = makeArray(1, 2, 3, 4, 5);
+    // console.log(nums, nums.join("_"));
+
+</script>
+
+<script id="Converting args into array">
+
+    // function returnArgs() {
+    //     return arguments;
+    // }
+
+    // function returnArgsArray() {
+    //     return Array.from(arguments);
+    // }
+
+
+    // console.log( returnArgs() );
+    // console.log( returnArgs(1, 2, 3) );
+    // console.log( returnArgs("a", "b", "c").toReversed().join("_") );
+
+
+    // console.log( returnArgsArray() );
+    // console.log( returnArgsArray(1, 2, 3) );
+    // console.log( returnArgsArray("a", "b", "c").toReversed().join("_") );
+
+</script>
+
+<script id="Function arguments spread">
+
+    // function sum() {
+    //     let sum = 0;
+
+    //     for(const item of arguments) {
+    //         sum += item;
+    //     }
+
+    //     return sum;
+    // }
+
+
+    // function sum(...items) {
+    //     let sum = 0;
+
+    //     for(const item of items) {
+    //         sum += item;
+    //     }
+
+    //     return sum;
+    // }
+
+
+    // function sum() {
+    //     return Array.from(arguments).reduce(function(acc, item) {
+    //         return acc + item;
+    //     }, 0);
+    // }
+    
+    // function sum(...items) {
+    //     return items.reduce(function(acc, item) {
+    //         return acc + item;
+    //     }, 0);
+    // }
+
+    // const sum = (...items) => items.reduce((acc, item) => acc + item, 0);
+
+
+    // console.log( sum() );
+    // console.log( sum(1, 2, 3) );
+    // console.log( sum(-1, -2, -3) );
+    // console.log( sum(1, 2, 3, 4, 5) );
+
+</script>
