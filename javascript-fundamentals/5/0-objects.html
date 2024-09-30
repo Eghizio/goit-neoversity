@@ -1,0 +1,265 @@
+<title>Objects</title>
+
+<script id="Multiple values for common entity">
+
+    // const userName = "Maciek";
+    // const age = 42;
+    // const hobbies = ["Coding", "Cooking"];
+    // const gpa = 5.2;
+
+    // console.log(userName);
+    // console.log(age);
+    // console.log(hobbies);
+    // console.log(gpa);
+    // console.log({ userName, age, hobbies, gpa });
+
+
+
+    // const user = [
+    //     "Maciek",
+    //     42,
+    //     ["Coding", "Cooking"],
+    //     5.2,
+    // ];
+
+    // const name = user[0];
+    // const secondHobby = user[2][1];
+    // console.log({ name, secondHobby });
+
+
+
+    // const users = [
+    //     [
+    //         "Maciek",
+    //         42,
+    //         ["Coding", "Cooking"],
+    //         4.5,
+    //     ],
+    //     [
+    //         "Adam",
+    //         36,
+    //         ["Sports", "Running"],
+    //         4.1,
+    //     ]
+    // ];
+
+    // const secondUserSecondHobby = users[1][2][1]; /* wtf */
+    // console.log({ secondUserSecondHobby });
+
+</script>
+
+<script id="Object for grouping values - Key Value pairs">
+
+    /* Object literall */
+    // const user = {
+    //     name: "Maciek",
+    //     age: 42,
+    //     hobbies: ["Coding", "Cooking"],
+    //     gpa: 4.5,
+    // };
+
+    // console.log( user.name, user.hobbies[1] );
+
+    // console.log( { something: "awesome" } );
+
+</script>
+
+<script id="Array of objects">
+
+    // const users = [
+    //     {
+    //         name: "Maciek",
+    //         age: 42,
+    //         hobbies: ["Coding", "Cooking"],
+    //         gpa: 5.5
+    //     },
+    //     {
+    //         name: "Adam",
+    //         age: 36,
+    //         hobbies: ["Sports", "Running"],
+    //         gpa: 4.5
+    //     }
+    // ];
+
+    // console.log( users[1].hobbies[1] );
+
+</script>
+
+<script id="Nested objects & computed property accessor">
+
+    // const student = {
+    //     name: "Maciek",
+    //     age: 42,
+    //     hobbies: ["Coding", "Cooking"],
+    //     gpa: 6.0,
+    //     grades: {
+    //         "math": 6,
+    //         sports: 5,
+    //         ["physics"]: 4,
+    //         // "physics": 4,
+    //         // physics: 4,
+    //         chemistry: 3,
+    //         non_existing_key: 42,
+    //         // non_existing_key: undefined,
+    //     }
+    // };
+
+    // console.log( typeof student.grades.physics );
+
+    // console.log( student.grades.chemistry );
+    // console.log( student.grades["chemistry"] );
+    // console.log( student["grades"]["chemistry"] );
+
+
+
+    // const key = "sports";
+    // const key = "chemistry";
+
+    // console.log( student.grades[key] );
+    // console.log( student.grades["non_existing_key"] );
+
+
+
+    // const someProperty = "hello";
+    // const anotherField = "there";
+    // const andOneMoreKey = "General Kenobi";
+
+    // const obj = {
+        // someProperty: "helloooo",
+        // anotherField: "thereeee",
+        // andOneMoreKey: "General Kenobiiii",
+        // someProperty: someProperty,
+        // anotherField: anotherField,
+        // andOneMoreKey: andOneMoreKey,
+        // someProperty,
+        // anotherField,
+        // andOneMoreKey,
+    // };
+
+    
+    // console.log( obj );
+    // console.log({ someProperty, anotherField, andOneMoreKey });
+
+</script>
+
+<script id="Modyfing objects">
+
+    // const username = "Michael";
+    // username = "MichaelNY42";
+
+
+
+    // const player = {
+    //     username: "Michael",
+    //     level: 100,
+    //     friends: ["Arthur", "Tommy"],
+    //     status: "Hello there",
+    //     42: "everything",
+    // };
+
+    // player = { x: "D" }; /* Ooopsie */
+    
+
+    // Object.freeze(player);
+    // player.username = "MichaelNY42";
+    
+    // player.level++;
+
+    // player.friends.push("Grace");
+
+    
+    
+    // player.rating = 5;
+    // player.rating = player.rating + 5;
+
+    // player[1] = "something";
+    // player["something else"] = "something else";
+
+    // console.log( player );
+
+
+
+    // delete player.status;
+
+    // console.log( player );
+
+</script>
+
+<script id="Computed property">
+
+    // const users = {
+    //     "adam321@mail.com": "Adam",
+    //     "bethyyy@mail.com": "Beth",
+    //     "cecilo42@mail.com": "Cecil",
+    //     "d.dorthy@mail.com": "Dorthy",
+    // };
+
+
+    // const key = prompt("Please provide an email for recipient lookup.");
+
+    // const selectedUser = users[key];
+
+    // if (selectedUser) {
+    //     console.log(`User with email "${key}" is called - ${selectedUser}`);
+    // } else {
+    //     console.log(`No user found for email "${key}"`);
+    // }
+
+</script>
+
+<script id="Object In operator">
+
+    // const key = "username";
+
+    // const obj = {
+    //     username: "Adam",
+    //     age: 42,
+    // };
+
+    // console.log( key in obj );
+    // console.log( "nothing" in obj );
+
+    // if ("xyz" in obj) {
+    //     console.log(obj.xyz);
+    // }
+
+    // if ("age" in obj) {
+    //     console.log(obj.age);
+    // }
+
+</script>
+
+<script id="Map">
+
+    // const users = new Map([
+    //     ["abc", "Adam"],
+    //     ["bcd", "Beth"],
+    //     ["cde", "Cecil"],
+    // ]);
+    
+    // users.set("abc", "Arthur");
+
+    // const someone = users.get("abc");
+    // console.log(someone);
+
+    // const someoneElse = users.get("xyz");
+    // console.log(someoneElse);
+
+    // console.log( users.has("xyz") );
+    // console.log( users.has("abc") );
+
+    // users.delete("bcd");
+
+    // console.log( users.has("bcd") );
+
+    // console.log( users.keys() );
+    // console.log( users.values() );
+    // console.log( users.entries() );
+
+    // users.clear();
+
+    // console.log( users, users.size );
+
+</script>
+
+

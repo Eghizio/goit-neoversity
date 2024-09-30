@@ -1,0 +1,206 @@
+<title>Object iteration</title>
+
+<script id="For in Object">
+    
+    // const book = {
+    //     title: "Dune",
+    //     author: "Frank Herbert",
+    //     description: "I like sand",
+    //     releaseDate: new Date(1965),
+    //     rating: 4,
+    //     numberOfPages: 1337,
+    //     category: "SciFi",
+    //     comments: [
+    //         { username: "Adam", comment: "Cool book bro.", commentedAt: new Date(2000) },
+    //         { username: "Beth", comment: "Movie was so much better", commentedAt: new Date(2024) },
+    //         { username: "Cecil", comment: "I cannot wait for the movies!", commentedAt: new Date(2012) },
+    //     ]
+    // };
+
+    // for (const key in book) {
+    //     console.log( key, book[key] );
+    // }
+    
+</script>
+
+<script id="For of Array">
+
+    // const book = {
+    //     title: "Dune",
+    //     author: "Frank Herbert",
+    //     description: "I like sand",
+    //     releaseDate: new Date(1965),
+    //     rating: 4,
+    //     numberOfPages: 1337,
+    //     category: "SciFi",
+    //     comments: [
+    //         { username: "Adam", comment: "Cool book bro.", commentedAt: new Date(2000) },
+    //         { username: "Beth", comment: "Movie was so much better", commentedAt: new Date(2024) },
+    //         { username: "Cecil", comment: "I cannot wait for the movies!", commentedAt: new Date(2012) },
+    //     ]
+    // };
+
+    // for (const x of Object.keys(book)) {
+    //     // console.log(x);
+    // }
+
+    // for (const x of Object.values(book)) {
+    //     // console.log(x);
+    // }
+
+    // for (const x of Object.entries(book)) {
+    //     // console.log(x);
+    // }
+
+</script>
+
+<script id="Iterating over nested structures - extracting data">
+
+    // const library = [
+    //     {
+    //         title: "Dune",
+    //         author: "Frank Herbert",
+    //         description: "I like sand",
+    //         releaseDate: new Date(1965),
+    //         rating: 4,
+    //         numberOfPages: 1337,
+    //         category: "SciFi",
+    //         comments: [
+    //             { username: "Adam", comment: "Cool book bro.", commentedAt: new Date(2000, 0) },
+    //             { username: "Beth", comment: "Movie was so much better", commentedAt: new Date(2024, 0) },
+    //             { username: "Cecil", comment: "I cannot wait for the movies!", commentedAt: new Date(2012, 0) },
+    //         ]
+    //     },
+    //     {
+    //         title: "Lord of the Rings: Two Towers",
+    //         author: "Tolkien",
+    //         description: "Taking Hobbits to Isengard",
+    //         releaseDate: new Date(1970),
+    //         rating: 4,
+    //         numberOfPages: 2456,
+    //         category: "Fantasy",
+    //         comments: [
+    //             { username: "Adam", comment: "Cool book bro.", commentedAt: new Date(2000, 1) },
+    //             { username: "Beth", comment: "Movie was so much better", commentedAt: new Date(2024, 1) },
+    //             { username: "Cecil", comment: "I cannot wait for the movies!", commentedAt: new Date(2012, 1) },
+    //         ]
+    //     },
+    //     {
+    //         title: "Harry Potter",
+    //         author: "Rowling",
+    //         description: "Yerr a wizzard Harry",
+    //         releaseDate: new Date(1995),
+    //         rating: 3,
+    //         numberOfPages: 500,
+    //         category: "Fantasy",
+    //         comments: [
+    //             { username: "Adam", comment: "Cool book bro.", commentedAt: new Date(2000, 2) },
+    //             { username: "Beth", comment: "Movie was so much better", commentedAt: new Date(2024, 2) },
+    //             { username: "Cecil", comment: "I cannot wait for the movies!", commentedAt: new Date(2012, 2) },
+    //         ]
+    //     }, 
+    // ];
+
+
+
+    // const comments = [];
+
+    // for (const book of library) {
+    //     for (const comment of book.comments) {
+    //         comments.push(comment);
+    //     }
+    // }
+
+    // for (const book of library) {
+    //     comments.push(...book.comments);
+    // }
+
+
+    // console.log( comments );
+
+
+    // const commentsSortedByYear = comments.toSorted(function (a, b) {
+    //     return a.commentedAt.getFullYear() - b.commentedAt.getFullYear();
+    // });
+
+
+    // console.log(commentsSortedByYear);
+
+
+    // commentsSortedByYear.forEach((comment, i) => console.log(i, comment.commentedAt));
+
+</script>
+
+<script id="Mutating object - function interface">
+
+    // const playerOne = {
+    //     username: "One",
+    //     level: 12,
+    // };
+
+
+    // function levelUp(player) {
+    //     player.level++;
+    // }
+
+
+    // console.log(playerOne);
+
+    // levelUp(playerOne);
+
+    // console.log(playerOne);
+
+
+
+    // const notAPlayer = { dupa: "foo" };
+
+    // console.log(notAPlayer);
+    // levelUp(notAPlayer);
+    // console.log(notAPlayer);
+
+
+
+    // function levelUpPlayer(player) {
+    //     if (player.hasOwnProperty("level")) {
+    //         player.level++;
+    //     }
+    // }
+
+    // console.log(playerOne);
+    // console.log(notAPlayer);
+
+    // levelUpPlayer(playerOne);
+    // levelUpPlayer(notAPlayer);
+
+    // console.log(playerOne);
+    // console.log(notAPlayer);
+
+</script>
+
+<script id="Interfaces & function argument destructuring">
+
+    // function greetPlayer(player) {
+    //     console.log(`Elo ${player.username}`);
+    // }
+
+    // function greetPlayer({ username }) {
+    //     console.log(`Elo ${username}`);
+    // }
+
+
+    // const playerOne = {
+    //     username: "Eniu",
+    //     level: 12,
+    // };
+
+    // const playerTwo = {
+    //     username: "Stefan",
+    //     level: 72,
+    //     rank: "Not a master",
+    // };
+
+
+    // greetPlayer(playerOne);
+    // greetPlayer(playerTwo);
+
+</script>
