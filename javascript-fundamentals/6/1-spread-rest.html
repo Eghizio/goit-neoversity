@@ -1,0 +1,304 @@
+<title>Spread & Rest operators</title>
+
+<script id="Limited function arguments">
+
+    // function sum(a, b) {
+    //     return a + b;
+    // }
+
+    // function sum() {
+    //     let total = 0;
+    //     for (const arg of arguments){
+    //         total += arg;
+    //     }
+    //     return total;
+    // }
+
+    // console.log( sum(2, 3) );
+
+    // console.log( sum(2, 3, 7) );
+
+</script>
+
+<script id="Rest operator - function argument">
+
+    // function log(...remainingArguments) {
+    //     console.log(typeof remainingArguments, remainingArguments);
+
+    //     console.log(remainingArguments.toReversed());
+    // }
+
+    // log();
+    // log(1);
+    // log(1, 2, 3);
+    // log("a", "b", "c");
+    // log("a", "b", "c", 42, NaN, undefined, null, true, false);
+
+</script>
+
+<script id="Rest operator with function arguments">
+
+    // function sum(...nums) {
+    //     let sum = 0;
+
+    //     for (const num of nums) {
+    //         sum += num;
+    //     }
+
+    //     return sum;
+    // }
+
+
+    // console.log( sum(2, 3) );
+
+    // console.log( sum(2, 3, 7) );
+    // console.log( sum(2, 3, 7, 1, 3, 3, 7) );
+    // console.log( sum(2, 3, 7, 1, 3, 3, 7, "42") ); /* Ooopsie */
+
+</script>
+
+<script id="Spread order & passing arguments">
+
+    // function logTwoOrMoreItems(first, ...items, second) { /* Ooopsie */
+    // function logTwoOrMoreItems(first, second, ...items) {
+    //     console.log(first, second, items);
+    // }
+
+    // logTwoOrMoreItems(1, 2);
+
+    // logTwoOrMoreItems(1, 2, 3, 4, 5, 6);
+
+
+
+
+    // function filterEmailsByDomain(domain, ...emails) {
+    //     const filteredEmails = [];
+
+    //     for (const email of emails) {
+    //         if (email.endsWith(domain)) {
+    //             filteredEmails.push(email);
+    //         }
+    //     }
+
+    //     return filteredEmails;
+    // }
+
+    // const emails = ["abc@x.com", "xyz@x.com", "xd@x.pl"];
+
+    // const filteredPl = filterEmailsByDomain(".pl", "abc@x.com", "xyz@x.com", "xd@x.pl");
+    // const filteredPl = filterEmailsByDomain(".pl", ...emails);
+    // console.log(filteredPl);
+    
+    // const filteredCom = filterEmailsByDomain(".com", "abc@x.com", "xyz@x.com", "xd@x.pl");
+    // const filteredCom = filterEmailsByDomain(".com", ...emails);
+    // console.log(filteredCom);
+
+</script>
+
+<script id="Spreading array into singular items as function arguments">
+
+    // const numbers = [5, 4, 3, 2, 1];
+
+    // const minA = Math.min(5, 4, 3, 2, 1);
+    // const minB = Math.min(numbers);
+    // const minB = Math.min(...numbers);
+    
+    // console.log({ minA, minB });
+
+
+
+    // function rnd() {
+    //     return Math.ceil(Math.random() * 100); /* Generates number 1 - 100 */
+    // }
+
+    // function getExtremeScores(scores) {
+    //     return {
+    //         best: Math.max(...scores),
+    //         worst: Math.min(...scores),
+    //     };
+    // }
+
+    // const scores = [rnd(), rnd(), rnd(), rnd(), rnd(), rnd(), rnd()];
+    // console.log("Scores: ", scores);
+    
+    // const extremes = getExtremeScores(scores);
+    // console.log("Extremes:", extremes);
+
+</script>
+
+<script id="Copy array using spread">
+
+    // const numbersA = [1, 2, 3, 4, 5];
+    // const numbersB = numbersA;
+
+    // // const numbersB = [...numbersA];
+
+    // console.log("A", numbersA);
+    // console.log("B", numbersB);
+
+    // numbersA.push(6);
+    // numbersA.reverse();
+
+    // console.log("A", numbersA);
+    // console.log("B", numbersB);
+
+
+
+    // numbersB.push(42);
+    // numbersB.reverse();
+
+    // console.log("A", numbersA);
+    // console.log("B", numbersB);
+
+</script>
+
+<script id="Concat/Join arrays using spread">
+
+    // const a = [1, 2, 3];
+    // const b = [4, 5, 6];
+    // const c = [7, 8, 9];
+
+    // const abc = a.concat(b, c);
+    // // const abc = [...a, ...b, ...c];
+    // console.log(abc);
+
+
+    // console.log([...a, ...a, ...c, ...b]);
+
+</script>
+
+<script id="Spread & Rest">
+
+    // const firstGroupScores  = [64, 42, 93];
+    // const secondGroupScores = [89, 14, 51, 26];
+    // const thirdGroupScores  = [29, 47, 18, 97, 81];
+
+    // const allScores     = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
+    // const bestScore     = Math.max(...allScores);
+    // const worstScore    = Math.min(...firstGroupScores, ...secondGroupScores, ...thirdGroupScores);
+
+    // console.log({
+    //     allScores,
+    //     bestScore,
+    //     worstScore,
+    // });
+
+</script>
+
+<script id="Spread objects - copying properties and values">
+
+    // const studentA = {
+    //     name: "Adam",
+    //     grade: 5,
+    // };
+
+    // const studentB = { ...studentA };
+    // console.log({ studentA, studentB });
+    
+    // studentB.name = "Beth";
+    // console.log({ studentA, studentB });
+
+</script>
+
+<script id="Join objects key:values">
+
+    // const shoppingListA = {
+    //     "water": 1,
+    //     "grapes": 2,
+    // };
+
+    // const shoppingListB = {
+    //     "beer": 4,
+    //     "snacks": 2,
+    // };
+
+    // const shoppingList = {
+    //     ...shoppingListA,
+    //     ...shoppingListB,
+    // };
+
+    // console.log({ shoppingList });
+
+</script>
+
+<script id="Overriding values in spreaded objects">
+
+    // const adam = {
+    //     name: "Adam",
+    //     grade: 5,
+    // };
+
+    // const beth = {
+    //     name: "Beth",
+    //     ...adam,
+    // };
+
+    // console.log({ adam, beth });
+
+
+    // const beth = {
+    //     ...adam,
+    //     name: "Beth",
+    // };
+
+    // console.log({ adam, beth });
+
+</script>
+
+<script id="Omitting spreaded object keys - destructuring with spread">
+
+    // const userAdam = {
+    //     name: "Adam",
+    //     age: 42,
+    //     email: "adam@mail.com",
+    //     password: "adam123",
+        
+    //     // secret: "not-for-public",
+    // };
+
+
+    // function showPublicInformation(user) {
+    //     const { password, email, ...publicData } = user;
+    //     console.log(publicData);
+
+    //     // console.log({
+    //     //     username: user.name,
+    //     //     age: user.age,
+    //     // })
+    // }
+
+    // showPublicInformation(userAdam);
+
+</script>
+
+<script id="Overriding values in spreaded objects - Config example">
+
+    // const defaultOptions = {
+    //     language: "English",
+    //     maxPlayers: 1337,
+    // };
+
+    // const ourOptions = {
+    //     ...defaultOptions,
+    //     language: "Polish", /* override `language` property */
+    // };
+
+    // function loadConfig(options = defaultOptions) {
+    //     console.log(`Server language set to: ${options.language}`);
+    //     console.log(`Max players on the server is: ${options.maxPlayers}`);
+    // }
+
+    // loadConfig();
+    // loadConfig(ourOptions);
+
+</script>
+
+<script id="String spreading">
+
+    // const text = "Hello";
+
+    // console.log(...text);
+    // console.log(...["H", "e", "l", "l", "o"])
+    // console.log("H", "e", "l", "l", "o");
+
+</script>
