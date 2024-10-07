@@ -1,0 +1,174 @@
+<title>Callback functions & High Order Functions</title>
+
+<script id="Passing function">
+
+    // function prepareMessage(name) {
+    //     return `Hello there, ${name}`;
+    // }
+
+    // console.log( `Hello there, General Kenobi` );
+
+    // console.log( prepareMessage("General Kenobi") );
+
+
+
+    // console.log(prepareMessage);
+
+</script>
+
+<script id="Callback function">
+
+    // function smsSender(message) {
+    //     console.log(`Sending SMS: "${message}"`);
+    // }
+
+    // function emailSender(message) {
+    //     console.log(`Sending Email: "${message}"`);
+    // }
+
+
+
+    // // function sendMessage(name, sender) {
+    // //     const msg = `Welcome ${name}`;
+    // //     sender(msg);
+    // // }
+
+    // function sendMessage(name, sender = emailSender) {
+    //     // const msg = `Welcome ${name}`;
+    //     // sender(msg);
+        
+    //     sender(`Welcome ${name}`);
+    // }
+
+
+    // sendMessage("Kuba", smsSender);
+    // sendMessage("Kuba", emailSender);
+    // sendMessage("Kuba");
+
+
+
+    // function faxSender(msg) {
+    //     console.log(`Sending Fax: "${msg}"`);
+    // }
+
+    // sendMessage("Kuba", faxSender);
+
+</script>
+
+<script id="Inlining callback functions">
+
+    // function sendMessage(name, sender) {
+    //     const msg = `Welcome ${name}`;
+    //     sender(msg);
+    // }
+
+    // sendMessage("Kuba", function customInlineSender(msg) {
+    //     console.log(`Faxing da msg: ${msg}`);
+    // });
+
+    // customInlineSender("something"); /* error */
+
+
+
+    // sendMessage(
+    //     // name
+    //     "Kuba",
+    //     // sender
+    //     function customInlineSender(msg) {
+    //         console.log(`Faxing da msg: ${msg}`);
+    //     }
+    // );
+
+
+    // sendMessage("Kuba", function (message) {
+    //     console.log(message);
+    // });
+
+    
+    // sendMessage("Kuba", function (message) { console.log(message); });
+
+</script>
+
+<script id="For Each method with callback">
+
+    // const users = ["Adam", "Beth", "Cecil"];
+
+    // for (let i=0; i<users.length; i++) {
+    // // for (let i=0; i<=users.length; i++) {
+    //     console.log(`[${i}] Hi ${users[i]}`);
+    // }
+
+
+
+    // users.forEach(function callback(user, i, array) {
+    //     console.log( `[${i}] Hi ${user}` );
+    //     console.log( array );
+    // });
+
+    // users.forEach(function(user, i) {
+    //     console.log(`[${i}] Hi ${user}`);
+    // });
+
+
+
+    // function greetUser(name, i) {
+    //     console.log("Hello " + name + i);
+    // }
+
+    // users.forEach(greetUser);
+
+    // users.forEach(console.log);
+    // users.forEach(function(a) { console.log(a); });
+    // users.forEach(function(_, b) { console.log(b); });
+    // users.forEach(function(_, __, c) { console.log(c); });
+
+</script>
+
+<script id="For Each - examples">
+
+    // const numbers = [5, 4, 3, 2, 1];
+
+
+    // function log(n) {
+    //     console.log("Loggin n: " + n);
+    // }
+
+    // numbers.forEach(log);
+
+
+
+    // const result = numbers.forEach(function(num) {
+    //     if (num === 3) {
+    //         // continue;
+    //         // break;
+    //         // return num;
+
+    //         return;
+    //     }
+
+    //     console.log(num);
+    // });
+
+    // console.log({ result });
+
+
+
+    // let stop = false;
+    // numbers.forEach(function(num) {
+    //     if (num === 3) {
+    //         return;
+    //         // stop = true;
+    //     }
+
+    //     // if (num === 1) {
+    //     //     stop = false;
+    //     // }
+
+    //     if (stop) {
+    //         return;
+    //     }
+
+    //     console.log(num);
+    // });
+
+</script>

@@ -1,0 +1,358 @@
+<title>Map & Flat Map</title>
+
+<script id="Mapping array items using loop - mutation">
+
+    // const numbers = [1, 2, 3];
+
+    // function doubleNumbers(array) {
+    //     for (let i=0; i<array.length; i++) {
+    //         array[i] *= 2; /* Mutation */
+    //     }
+    //     return array;
+    // }
+
+    // console.log(numbers);
+
+    // doubleNumbers(numbers);
+    // console.log(numbers); /* Mutation */
+
+
+    // const doubled = doubleNumbers(numbers);
+    // const doubled = doubleNumbers([...numbers]);
+    // console.log(doubled);
+    // console.log(numbers);
+
+    // console.log(numbers, doubleNumbers(numbers), doubleNumbers(numbers));
+    
+</script>
+
+<script id="Mapping array items using loop - no mutation">
+
+    // const numbers = [1, 2, 3];
+
+    // function doubleNumbers(array) {
+    //     // const doubled = [];
+    //     // for (let i=0; i<array.length; i++) {
+    //     //     doubled.push(array[i] * 2); /* No Mutation */
+    //     // }
+    //     // return doubled;
+
+
+
+    //     const doubled = [...array]; /* Copy */
+    //     for (let i=0; i<doubled.length; i++) {
+    //         doubled[i] *= 2; /* Mutation of a Copy */
+    //     }
+    //     return doubled;
+    // }
+
+    // console.log(numbers);
+
+
+    // const doubled1 = doubleNumbers(numbers);
+    // const doubled2 = doubleNumbers(numbers);
+    // const doubled3 = doubleNumbers(numbers);
+
+    // const doubled1 = doubleNumbers(numbers);
+    // const doubled2 = doubleNumbers(doubled1);
+    // const doubled3 = doubleNumbers(doubled2);
+
+    // console.log(numbers, doubled1, doubled2, doubled3);
+
+</script>
+
+<script id="Map Array method - High Order Functions">
+
+    // const numbers = [5, 4, 3, 2, 1];
+
+    // const doubled = numbers.map(function double(num) {
+    //     return num * 2;
+    // });
+
+    // console.log( numbers );
+    // console.log( doubled );
+
+    // const log = numbers.map(console.log);
+    // const log = numbers.map(
+    //     (element, index, array) => console.log(element, index, array)
+    // );
+    
+    // console.log( log );
+    // console.log( numbers );
+
+
+
+    // const doubled = numbers.map(num => num * 2);
+    // console.log(numbers);
+    // console.log(doubled);
+
+    // const quadrupled = numbers
+    //     .map(num => num * 2)
+    //     .map(x => x * 2); /* Chaining */
+    // console.log( numbers, doubled, quadrupled );
+
+    // const q = (arr) => arr.map(x => x*2).map(x => x*2);
+    // const q = (arr) => arr
+    //     .map(x => {
+    //         const result = x * 2;
+    //         return result;
+    //     })
+    //     .map(x => x*2);
+
+    // const double = (x) => x * 2;
+    // const q = (arr) => arr.map(double).map(double);
+
+    // console.log(numbers, q(numbers));
+
+
+    // const quadruple = (x) => x * 4;
+    // const quad = numbers.map(quadruple);
+    // console.log(numbers, quad);
+
+
+    // const quads = [];
+    // numbers.forEach((num) => {
+    //     const result = quadruple(num);
+    //     quads.push(result);
+    // });
+
+    // const quads = [];
+    // numbers.forEach(num => quads.push(quadruple(num)));
+
+    // console.log(numbers, quads);
+
+
+
+    // const customMap = (array, callback) => {
+    //     const mapped = [];
+
+    //     array.forEach(element => {
+    //         // const result = callback(element);
+    //         // mapped.push(result);
+            
+    //         mapped.push(callback(element));
+    //     });
+
+    //     return mapped;
+    // };
+
+
+    // const quad2 = numbers.map(quadruple);
+    // const quad2 = numbers.map(x => x * 4);
+
+    // const quad3 = customMap(numbers, quadruple);
+    // console.log(numbers, quad2, quad3);
+
+</script>
+
+<script id="Map & Some methods examples">
+
+    // const users = ["Adam", "Beth", "Cecil"];
+
+    // const uppercase = users.map(x => x.toUpperCase());
+    // const uppercase = [1,2,3].map(x => x.toUpperCase()); /* error, string method on number */
+    // console.log(users, uppercase);
+
+
+    // const includesAdmin = (users, admin) => {
+    //     for (const user of users) {
+    //         if (admin.toLowerCase() === user.toLowerCase()) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // };
+
+
+    // const includesAdmin = (users, admin) => users
+    //     .map(user => user.toLowerCase())
+    //     .includes(admin.toLowerCase());
+
+    // const includesAdmin = (users, admin) => users
+    //     .some(user => user.toLowerCase() === admin.toLowerCase());
+
+    // const includesAdmin = (users, admin) => {
+    //     const target = admin.toLowerCase();
+    //     return users.some(user => user.toLowerCase() === target);
+    // }
+
+
+    // console.log( includesAdmin(users, "Dorthy") );
+    // console.log( includesAdmin(users, "BETH") );
+    // console.log( includesAdmin(users, "beth") );
+
+
+
+    /* Short Circuit */
+    // users.map(user => {
+    //     console.log("Map", user);
+    //     return user.toLowerCase();
+    // })
+    //     .includes("BETH".toLowerCase());
+
+    // users.some(user => {
+    //     console.log("Some", user);
+    //     return user.toLowerCase() === "BETH".toLowerCase()
+    // });
+
+</script>
+
+<script id="Extracting data using Map method">
+
+    // const users = [
+    //     { name: "Adam", age: 42, hobbies: ["Coding", "Cooking"] },
+    //     { name: "Beth", age: 21, hobbies: ["Coding", "Running"] },
+    //     { name: "Cecil", age: 44, hobbies: ["Hiking", "Computer Games"] },
+    // ];
+
+    // const getNames = (someUsers) => {
+    //     const names = [];
+
+    //     for (const user of someUsers) {
+    //         names.push(user.name);
+    //     }
+        
+    //     return names;
+    // };
+
+    // const names = getNames(users);
+    // console.log( names );
+
+
+
+    // console.log( users.map(user => user.name) );
+
+    // console.log( users.map(({ name }) => name) );
+
+</script>
+
+<script id="Destructuring objects and arrays">
+
+    /* Object destructurization */
+    // const adam = { username: "Adam", age: 42, hobbies: ["Coding", "Cooking"] };
+    // console.log( username, age, hobbies ); /* błąd */
+    
+
+    // const { username, age, hobbies } = adam; /* Destructurization */
+    // console.log( username, age, hobbies );
+
+    // const { username, ...remainingsOfAdam } = adam; /* Destructurization */
+    // console.log( username, remainingsOfAdam );
+
+
+    /* Array destructurization */
+    // const usernames = ["Adam", "Beth", "Cecil", "Dorthy"];
+
+    // const [first, second, ...remaining] = usernames;
+    // console.log(first, second, remaining);
+
+</script>
+
+<script id="Filtering object properties via destructurization">
+
+    // const user = {
+    //     username: "Adam",
+    //     password: "very_secret_password",
+    //     age: 42,
+    //     hobbies: ["Coding", "Cooking"]
+    // };
+
+    // console.log(user);
+
+    // const { password, ...sanitizedUser } = user;
+    // console.log(sanitizedUser);
+
+</script>
+
+<script id="Argument destructuring">
+
+    // const adam = {
+    //     username: "Adam",
+    //     password: "very_secret_password",
+    //     age: 42,
+    //     hobbies: ["Coding", "Cooking"],
+    // };
+
+    // function printUserInfo(user) {
+    //     console.log(`${user.username} has age of ${user.age}!`);
+    // }
+
+    // function printUserInfo(user) {
+    //     const { username, age } = user;
+    //     console.log(`${username} has age of ${age}!`);
+    // }
+
+    // function printUserInfo({ username, age }) {
+    //     console.log(`${username} has age of ${age}!`);
+    // }
+
+    // const printUserInfo = ({ username, age }) => 
+    //     console.log(`${username} has age of ${age}!`);
+
+    // printUserInfo(adam);
+
+</script>
+
+<script id="FlatMap & Argument destructuring in inline arrow function callback">
+
+    // const users = [
+    //     { name: "Adam", age: 42, hobbies: ["Coding", "Cooking"] },
+    //     { name: "Beth", age: 21, hobbies: ["Coding", "Running"] },
+    //     { name: "Cecil", age: 44, hobbies: ["Hiking", "Computer Games"] },
+    // ];
+
+    // const birthdayMessages = users.map((user) => `Happy ${user.age}'s birthday ${user.name}!`);
+    // const birthdayMessages = users.map(({ name, age }) => `Happy ${age}'s birthday ${name}!`);
+    // console.log(birthdayMessages);
+
+    // const hobbies = users.map(user => user.hobbies);
+    // const hobbies = users.map(({ hobbies }) => hobbies);
+    // const hobbies = users.map(({ hobbies }) => hobbies).flat();
+    // console.log(hobbies);
+
+    // console.log( hobbies.flat() );
+    // console.log(hobbies);
+
+
+    // const flattenedHobbies = users.flatMap(user => user.hobbies);
+    // console.log(flattenedHobbies);
+
+
+
+    /* Filtering */
+    // const hobbiesOfUsersOver40 = users.flatMap(user => user.age >= 40 ? user.hobbies : []);
+    // const hobbiesOfUsersOver40 = users
+    //     .flatMap(({ age, hobbies }) => age >= 40 ? hobbies : []);
+    // console.log(hobbiesOfUsersOver40);
+
+</script>
+
+<script id="Flat method">
+
+    // const matrix = [
+    //     [1, 2, 3],
+    //     [4, 5, 6],
+    //     [7, 8, 9],
+    // ];
+
+    // console.log("Matrix", matrix);
+    // console.log("Matrix flattened", matrix.flat());
+
+
+
+    // const nested = [
+    //     [1, 2, [3, 4, [5, 6, [7, 8, []]]]]
+    //     // 1, 2, [3, 4, [5, 6, [7, 8, []]]] // flat(1);
+    // ];
+
+    // console.log("Nested", nested);
+    // console.log("Nested flattened", nested.flat());
+    // console.log("Nested flattened 1", nested.flat(1));
+    // console.log("Nested flattened 2", nested.flat(2));
+    // console.log("Nested flattened 3", nested.flat(3));
+    // console.log("Nested flattened 4", nested.flat(4));
+    // console.log("Nested flattened 5", nested.flat(5));
+    // console.log("Nested flattened Infinity", nested.flat(Infinity));
+    // console.log("Nested not mutated", nested);
+
+</script>

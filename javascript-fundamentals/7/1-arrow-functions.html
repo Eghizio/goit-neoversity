@@ -1,0 +1,241 @@
+<title>Arrow functions</title>
+
+<script id="Arrow function">
+
+    // function sum(a, b) {
+    //     return a + b;
+    // }
+
+    // const sum = (a, b) => {
+    //     return a + b;
+    // };
+
+    // console.log( sum(2, 3) );
+
+</script>
+
+<script id="Arrow function & expression - implicit return">
+
+    // function add(a, b) {
+    //     return a + b;
+    // }
+
+    // const add = function(a, b) {
+    //     return a + b;
+    // }
+
+
+
+    // const add = (a, b) => {
+    //     return a + b; /* Explicit return */
+    // };
+
+    // const add = (a, b) => a + b; /* Implicit return */
+
+    // console.log( add(2, 3) );
+
+
+
+    // const makeArray = (a, b) => [a, b];
+
+    // console.log( makeArray(2, 3) );
+
+
+    // const toArray = (...args) => [...args];
+
+    // console.log( toArray(1, 2, 3, 4, 5) );
+
+
+    // const createUser = (name, age) => {
+    //     return { name, age };
+    // }
+
+    // const createUser = (name, age) => {
+    //     name,
+    //     age
+    // }; /* błąd */
+
+    // const createUser = (name, age) => ({
+    //     name,
+    //     age
+    // });
+
+
+    // const createUser = (name, age) => ({ name, age });
+
+
+    // const user = createUser("Adam", 42);
+    // console.log(user);
+    
+    // const anotherUser = createUser("Beth", 21);
+    // console.log(anotherUser);
+
+</script>
+
+<script id="Arrow function parameters syntax">
+
+    // function greet(name) {
+    //     console.log(`Hello ${name}`);
+    // }
+
+    // const greet = (name) => {
+    //     console.log(`Hello ${name}`);
+    // };
+
+    // const greet = (name) => console.log(`Hello ${name}`);
+    // const greet = name => console.log(`Hello ${name}`); /* ommiting () for single argument. */
+
+    // greet("Bella");
+
+
+    /* Błąd */
+    // const greetWithMsg = name, msg => console.log(`Hello ${name}. ${msg}`);
+    // const greetWithMsg = (name, msg) => console.log(`Hello ${name}. ${msg}`);
+    
+    // greetWithMsg("Bella", "Ciao");
+
+
+    /* Omitting () in a callback */
+    // ["a", "b", "c"].forEach(element => console.log(element));
+    // ["a", "b", "c"].forEach((element) => console.log(element));
+
+</script>
+
+<script id="Arrow function without parameters">
+
+    // function log() {
+    //     console.log("Something");
+    // }
+
+
+    // const log = () => console.log("Something"); /* no arg arrow function */
+    // const log = _ => console.log("Something"); /* unused _ arg */
+
+
+    // log();
+
+</script>
+
+<script id="Arguments keyword in arrow functions">
+
+    // function getArgs() {
+    //     console.log(arguments);
+    // }
+
+    // const getArgs = () => console.log(arguments);
+    
+    // const getArgs = (...args) => console.log(args);
+    
+    // getArgs(1, 2, 3);
+
+</script>
+
+<script id="For Each with inlined arrow function callback & more">
+
+    // const numbers = [3, 2, 1];
+
+    // numbers.forEach(function(num) { console.log(num); });
+    // numbers.forEach((num) => console.log(num));
+
+    // const logNum = (num) => console.log(num);
+    // numbers.forEach(logNum);
+
+    
+    // numbers.forEach(console.log);
+
+
+
+    // const hasUniques = (arr) => arr.every(
+    //     (el, i, array) => array.indexOf(el) === i
+    // );
+    // console.log( hasUniques([1,2,3,4,5]) );
+    // console.log( hasUniques([1,2,3,4,5, 1]) );
+
+    // const hasDuplicates = (arr) => arr.length !== new Set(arr).size;
+    // console.log( hasDuplicates([1,2,3,4,5]) );
+    // console.log( hasDuplicates([1,2,3,4,5, 1]) );
+
+</script>
+
+<script id="This keyword in arrow functions">
+
+    // console.log(this.Math.random());
+
+    // const obj = {
+    //     name: "Obj_name",
+    //     funcA: function() {
+    //         console.log("This:", this); /* obj */
+    //         console.log(this.name); /* obj.name */
+    //     },
+    //     funcB: () => {
+    //         console.log("This:", this); /* window */
+    //         console.log(this.name); /* window.name */
+    //     }
+    // };
+
+    // obj.funcA();
+    // obj.funcB();
+
+
+
+    // function logName() {
+    //     console.log(this.name);
+    // }
+
+    // logName();
+
+    // const logObjName = logName.bind(obj);
+    // logObjName();
+
+</script>
+
+<script id="IIFE - Immediately Invoked Function Expression">
+
+    // (function doSomething() {
+    //     console.log("Processing some jobs.");
+    //     console.log("Processing some jobs..");
+    //     console.log("Processing some jobs...");
+    //     console.log("Done!");
+    // })();
+
+    // doSomething(); /* Ooopsie */
+
+    // (function() {
+    //     console.log("Processing some jobs.");
+    //     console.log("Processing some jobs..");
+    //     console.log("Processing some jobs...");
+    //     console.log("Done!");
+    // })();
+
+
+    
+    /* Program */
+    // const x = 1;
+    // console.log("Processing some jobs.");
+    // console.log("Processing some jobs..");
+    // console.log("Processing some jobs...");
+    // console.log(`Done! Job result: x = ${x} `);
+
+    // const x = 2;
+    
+    // console.log(x);
+
+    
+
+    // (() => {
+    //     const x = 1;
+    //     console.log("Processing some jobs.");
+    //     console.log("Processing some jobs..");
+    //     console.log("Processing some jobs...");
+    //     console.log(`Done! Job result: x = ${x} `);
+    // })();
+
+    // const x = 2;
+
+    // console.log(x);
+
+
+
+    // (() => console.log("Hi"))();
+
+</script>
