@@ -1,0 +1,43 @@
+<title>FindIndex - Array method</title>
+<script src="./arrays.js"></script>
+<h1>Array.findIndex()</h1>
+
+<script id="Find Index method">
+
+    // const index = players.findIndex(player => player.role === "Paladin");
+    // console.log(index, players[index]);
+
+</script>
+
+<script id="FindIndex non existing element">
+
+    // const idx = [1,2,3].findIndex(x => x === 100); /* Predicate Property based comparison */
+    // console.log( idx );
+
+    // const i = [1,2,3].indexOf(100); /* Raw Value comparison */
+    // console.log( i );
+
+
+
+    // const index = players.findIndex(player => player.role === "Rogue");
+    // console.log( index );
+
+</script>
+
+<script id="Finding objects - Object reference comparison, property comparison">
+
+    // const searchedPlayer = { name: "Seth", level: 123, role: "Rouge" };
+    // const searchedPlayer = { name: "Faith", level: 21, role: "Archer" };
+
+    // const searchedIndex1 = players.findIndex(player => player === searchedPlayer);
+
+    // const searchedIndex2 = players.findIndex(({ name, level, role }) => {
+    //     return name === searchedPlayer.name
+    //         && level === searchedPlayer.level
+    //         && role === searchedPlayer.role;
+    // });
+
+
+    // console.log({ searchedIndex1, searchedIndex2 });
+
+</script>
