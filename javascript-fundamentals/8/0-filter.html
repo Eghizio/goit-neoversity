@@ -1,0 +1,188 @@
+<title>Filter - Array method</title>
+<h1>Array.filter()</h1>
+
+<script id="Manual filtering">
+
+    // const numbers = [51, -3, 27, 21, -68, 42, -37];
+
+    // const getEven = (arr) => {
+    //     const evens = [];
+
+    //     arr.forEach(number => {
+    //         if (number % 2 === 0) {
+    //             evens.push(number);
+    //         }
+    //     });
+
+    //     return evens;
+    // };
+
+    // const evens = getEven(numbers);
+    // console.log("Evens:", evens);
+    // console.log("Numbers:", numbers);
+
+</script>
+
+<script id="Filter method">
+
+    // const numbers = [51, -3, 27, 21, -68, 42, -37];
+
+    // const evens = numbers.filter(number => number % 2 === 0);
+    // console.log("Evens:", evens);
+    // console.log("Numbers:", numbers);
+
+
+
+    // const isEven = (number) => number % 2 === 0;
+
+    // // const evens = numbers.filter(num => isEven(num));
+    // const evens = numbers.filter(isEven);
+
+    // console.log("Evens:", evens);
+    // console.log("Numbers:", numbers);
+
+</script>
+
+<script id="Boolean predicates">
+
+    // const numbers = [51, -3, 27, 21, -68, 42, -37];
+
+    // const isEven = (number) => number % 2 === 0;
+    // const isOdd = (number) => number % 2 !== 0;
+    // // const isOdd = (number) => !isEven(number);
+    // const isPositive = (number) => number >= 0;
+    // const isNegative = (number) => number < 0;
+
+
+
+    // const evens = numbers.filter(isEven);
+    // const odds = numbers.filter(isOdd);
+    // // const odds = numbers.filter(x => !isEven(x));
+    // const positives = numbers.filter(isPositive);
+    // const negatives = numbers.filter(isNegative);
+
+    // console.log("Numbers", numbers);
+    // console.log("Evens", evens);
+    // console.log("Odds", odds);
+    // console.log("Positives", positives);
+    // console.log("Negatives", negatives);
+
+
+
+    // const filters = [isEven, isOdd, isPositive, isNegative];
+
+    // filters.forEach(filter => console.log(filter.name, numbers.filter(filter)));
+    
+    // const filtered = filters.map(f => numbers.filter(f));
+    // const filtered = filters.flatMap(f => numbers.filter(f));
+    // console.log(filtered);
+    // console.log(...filtered);
+    
+    // const [evens, odds, positives, negatives] = filters.map(f => numbers.filter(f));
+    // console.log(evens, odds, positives, negatives);
+
+</script>
+
+<script id="String filtering">
+
+    // const names = ["Adam", "Beth", "Cecil", "Dorthy", "Edmund"];
+
+    // const namesWithE = names.filter(name => name.includes("e"));
+    // const namesWithE = names.filter(name => name.includes("e") || name.includes("E"));
+    // const namesWithE = names.filter(name => name.toLowerCase().includes("e"));
+
+    // console.log(namesWithE);
+
+</script>
+
+<script>
+
+    // const xs = [3,2,1];
+    // const ys = [1,2,3];
+    
+    // const xy = xs.map(x => ys.map(y => x * y));
+    // const xy = xs.flatMap(x => ys.map(y => x * y));
+
+    // console.log(xy);
+
+</script>
+
+<script id="Filtering object arrays">
+
+    // const players = [
+    //     { name: "Adam",     level: 42,  role: "Warrior" },
+    //     { name: "Beth",     level: 1,   role: "Warrior" },
+    //     { name: "Cecil",    level: 7,   role: "Mage"    },
+    //     { name: "Dorthy",   level: 74,  role: "Tank"    },
+    //     { name: "Edmund",   level: 69,  role: "Paladin" },
+    //     { name: "Faith",    level: 21,  role: "Archer"  },
+    //     { name: "Greg",     level: 56,  role: "Mage"    },
+    //     { name: "Henry",    level: 99,  role: "Paladin" },
+    // ];
+
+
+    // const aboveLevel50 = players.filter(player => player.level >= 50);
+    // const aboveLevel50 = players.filter(player => player.level >= 50 && player.role === "Paladin");
+    // console.log("Level +50", aboveLevel50.map(p => p.name));
+
+    // const paladinsAboveLevel50 = players
+    //     .filter(player => player.level >= 50)
+    //     .filter(player => player.role === "Paladin");
+    // console.log("Paladins Level +50", paladinsAboveLevel50.map(p => p.name));
+
+
+    // const warriors = players.filter(player => player.role === "Warrior");
+    // console.log("Warriors", warriors);
+    // console.log("Warriors", warriors.map(p => p.name));
+
+
+    // const paladins = players.filter(player => player.role === "Paladin");
+    // console.log("Paladins", paladins.map(p => p.name));
+
+
+    // const rangers = players.filter(player => player.role === "Ranger");
+    // console.log("Rangers", rangers);
+    // console.log("Rangers", rangers.map(p => p.name));
+
+
+
+    // const availableRoles = players
+    //     .map(p => p.role)
+    //     .filter((role, i, roles) => roles.indexOf(role) === i)
+    //     .sort();
+    // console.log(availableRoles); /* ["Archer", "Mage", "Paladin", "Tank", "Warrior"] */
+
+
+
+    // const getAllRoles = (players) => {
+    //     const roles = {};
+
+    //     const playerRoles = players.map(p => p.role);
+    //     const uniqueRoles = [...new Set(playerRoles)];
+
+    //     uniqueRoles.forEach(role => {
+    //         const key = role.toUpperCase();
+    //         roles[key] = role;
+    //     });
+
+    //     return roles;
+    // };
+
+    // const ALL_ROLES = getAllRoles(players);
+    // console.log(ALL_ROLES);
+
+
+
+    /* Enum - Enumerable */
+    // const ROLES = Object.freeze({
+    //     ARCHER: "Archer",
+    //     MAGE: "Mage",
+    //     PALADIN: "Paladin",
+    //     TANK: "Tank",
+    //     WARRIOR: "Warrior",
+    // });
+
+    // const rangers = players.filter(player => player.role === ROLES.RANGER); /* RANGERS is a bad key */
+    // console.log(rangers);
+
+</script>

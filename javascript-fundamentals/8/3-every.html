@@ -1,0 +1,109 @@
+<title>Every - Array method</title>
+<script src="./arrays.js"></script>
+<h1>Array.every()</h1>
+
+<script id="Every method">
+
+    // const a = [1,2,3].every(number => number > 0);
+    // console.log( a ); /* true */
+
+    // const b = [1,2,3].every(number => number % 2 === 0);
+    // console.log( b ); /* false */
+
+    // const c = [true, true, true].every(x => x);
+    // console.log( c ); /* true */
+
+    // const d = [true, true, false].every(x => !!x);
+    // console.log( d ); /* false */
+
+    // const e = [true, true, false].every(Boolean);
+    // console.log( e ); /* false */
+
+    // const f = [1, 1, 1].every(Boolean);
+    // console.log( f ); /* true */
+    
+    // const g = [1, 1, 0].every(Boolean);
+    // console.log( g ); /* false */
+
+</script>
+
+<script id="Truthy & Falsy values - Boolean conversion & interpretation">
+
+    // const vals = [1, 0, "", [], {}, false, true, undefined, null, "hello"];
+
+    // // const toBool = (x) => !!x;
+    // const toBool = (x) => Boolean(x);
+
+
+
+    // // const truthyAndFalsyValues = vals.map(v => toBool(v));
+    // // const truthyAndFalsyValues = vals.map(toBool);
+    // const truthyAndFalsyValues = vals.map(Boolean);
+
+    // // console.log(truthyAndFalsyValues);
+
+
+
+    // const zipped = vals.map(v => [v, toBool(v)]);
+    // console.log(zipped);
+
+
+
+    // if (0)          { console.log("I will not run!"); }
+    // if ("")         { console.log("I will not run!"); }
+    // if (false)      { console.log("I will not run!"); }
+    // if (undefined)  { console.log("I will not run!"); }
+    // if (null)       { console.log("I will not run!"); }
+    
+    // if (1)          { console.log("I will run!"); }
+    // if ([])         { console.log("I will run!"); }
+    // if ({})         { console.log("I will run!"); }
+    // if (true)       { console.log("I will run!"); }
+    // if ("hello")    { console.log("I will run!"); }
+
+</script>
+
+<script id="Every examples">
+
+    // const x = numbers.every(num => num > 0);
+    // console.log({ x });
+
+    // const y = numbers.every(num => num < 100);
+    // console.log({ y });
+
+</script>
+
+<script id="Manual Every">
+
+    // console.log( numbers.map(num => num > 0) );
+    // console.log( numbers.map(num => num < 100) );
+    
+    // const isEvery = (nums, callback) => nums
+    //     .map(callback)
+    //     .filter(Boolean)
+    //     .length === nums.length;
+
+    // console.log(
+    //     isEvery(numbers, (x) => x>0),
+    //     isEvery(numbers, (x) => x<100),
+    // );
+
+</script>
+
+<script id="Passing callback & destructuring predicate">
+
+    /* All team members must be level 20 or above. */
+    // const isEligibleForQuest = (player) => player.level >= 20;
+    // const isEligibleForQuest = ({ level }) => level >= 20;
+
+    // const isTeamAllowedToPartakeInQuest =
+    //     players.every(isEligibleForQuest);
+
+    // console.log(isTeamAllowedToPartakeInQuest);
+
+
+
+    // const strongTeam = players.filter(p => p.level > 30);
+    // console.log( strongTeam.every(isEligibleForQuest) );
+
+</script>

@@ -1,0 +1,76 @@
+<title>Find - Array method</title>
+<script src="./arrays.js"></script>
+<h1>Array.find()</h1>
+
+<script id="Finding manualy">
+
+    // const findBetween = (nums, from, to) => {
+    //     let between = null;
+
+    //     nums.forEach(num => {
+    //         if (between !== null) return;
+
+    //         if (num > from && num < to) {
+    //             between = num;
+    //         }
+    //     });
+
+    //     return between;
+    // };
+
+    // const findBetween = (nums, from, to) => {
+    //     for (const num of nums) {
+    //         if (num > from && num < to) {
+    //             return num;
+    //         }
+    //     }
+    //     return null;
+    // };
+
+    // const between = findBetween(numbers, 10, 30);
+    // console.log(between);
+
+</script>
+
+<script id="Find method & Currying">
+
+    // const x = numbers.find(number => number > 10 && number < 30);
+    // console.log(x);
+
+
+    /* Currying - partial application of arguments to function */
+    // const isBetween = (from, to) => (number) => number > from && number < to;
+
+    // function isBetween(from, to) {
+    //     return function(number) {
+    //         return number > from && number < to;
+    //     }
+    // }
+
+
+    // const y = numbers.find(isBetween(10, 30));
+    // console.log(y);
+
+    // const z = numbers.find(isBetween(30, 60));
+    // console.log(z);
+
+</script>
+
+<script id="Searching for non existing element">
+
+    // const q = [1, 2, 3].find(n => n === 100);
+    // console.log({ q });
+
+</script>
+
+<script id="Searching for objects based on property">
+
+    // const e = players.find(p => p.name.toLowerCase().includes("e"));
+    // console.log( e );
+
+    
+    
+    // const ai = posts.find(post => post.title.toUpperCase().includes("AI"));
+    // console.log( ai );
+
+</script>

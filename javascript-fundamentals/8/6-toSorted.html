@@ -1,0 +1,102 @@
+<title>ToSorted - Array method</title>
+<script src="./arrays.js"></script>
+<h1>Array.toSorted()</h1>
+
+<script id="Sort and ToSorted method">
+
+    // const a = [3, 1, 2];
+
+    // console.log( a.sort() );
+    // console.log( a ); /* Mutation */
+
+    // console.log( a.toSorted() );
+    // console.log( a ); /* No mutation */
+
+</script>
+
+<script id="Default sorting">
+
+    // const b = ["a", "d", "b", "c"];
+    // const b = ["aa", "da", "ba", "ca"];
+    // const b = ["1", "5", "10", "15", "000", "0"];
+    // const b = ["orange", "grapes", "banana", "apple", "strawberry"];
+    // const b = ["Apple", "apple", "Apple", "apple"];
+
+    // console.log(b.toSorted());
+
+</script>
+
+<script id="Compare callback function">
+
+    // const nums = [2, 3, 1];
+
+    // nums.toSorted((a, b) => console.log({a, b}));
+
+
+    // const x = [...nums].sort((a, b) => a - b);
+    // const x = [...nums].sort((a, b) => a > b ? 1 : -1);
+    // const x = [...nums].sort((a, b) => {
+    //     console.log({ a, b });
+    //     return a > b ? 1 : -1;
+    // });
+    // console.log( x );
+
+
+
+    // const ascending = nums.toSorted();
+    // console.log("Ascending", ascending);
+
+    // const asc = nums.toSorted((a, b) => a - b);
+    // console.log(asc);
+
+
+    // const descending = nums.toSorted((a, b) => b - a);
+    // console.log("Descending", descending);
+
+
+    // const xyz = nums.toSorted((a, b) => -1);
+    // const xyz = nums.toSorted((a, b) => 0);
+    // const xyz = nums.toSorted((a, b) => 1);
+    // const xyz = nums.toSorted((a, b) => true);
+    // const xyz = nums.toSorted((a, b) => false);
+    
+    // console.log(xyz);
+
+</script>
+
+<script id="Sorting based on property">
+
+    // const topLevels = players.toSorted((a, b) => b.level - a.level);
+    // console.log(topLevels);
+
+    // const bottomLevels = players.toSorted((a, b) => a.level - b.level);
+    // console.log(bottomLevels);
+
+    // console.log("Top levels:", topLevels.map(p => p.name));
+    // console.log("Bottom levels:", bottomLevels.map(p => p.name));
+
+</script>
+
+<script id="Sorting examples">
+
+    // const comments = [
+    //     { text: "abc1", publishDate: new Date(2020, 0, 4) },
+    //     { text: "abc2", publishDate: new Date(2020, 0, 7) },
+    //     { text: "abc3", publishDate: new Date(2020, 0, 21) },
+    //     { text: "abc4", publishDate: new Date(2020, 0, 17) },
+    //     { text: "abc5", publishDate: new Date(2020, 0, 1) },
+    // ];
+
+    // console.log(
+    //     comments.toSorted((x, y) => x.publishDate - y.publishDate),
+    //     comments.toSorted((x, y) => y.publishDate - x.publishDate),
+    // );
+
+    // console.log(
+    //     comments.toSorted((x, y) => x.publishDate.getTime() - y.publishDate.getTime()),
+    //     comments.toSorted((x, y) => y.publishDate.getTime() - x.publishDate.getTime()),
+    // );
+
+    // console.log(comments.map(c => c.publishDate.getTime()));
+
+</script>
