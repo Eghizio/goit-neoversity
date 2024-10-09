@@ -31,16 +31,16 @@
 
     // const vals = [1, 0, "", [], {}, false, true, undefined, null, "hello"];
 
-    // // const toBool = (x) => !!x;
+    // const toBool = (x) => !!x;
     // const toBool = (x) => Boolean(x);
 
 
 
-    // // const truthyAndFalsyValues = vals.map(v => toBool(v));
-    // // const truthyAndFalsyValues = vals.map(toBool);
+    // const truthyAndFalsyValues = vals.map(v => toBool(v));
+    // const truthyAndFalsyValues = vals.map(toBool);
     // const truthyAndFalsyValues = vals.map(Boolean);
 
-    // // console.log(truthyAndFalsyValues);
+    // console.log(truthyAndFalsyValues);
 
 
 
@@ -83,9 +83,17 @@
     //     .filter(Boolean)
     //     .length === nums.length;
 
+    // const isEvery = (nums, callback) => nums
+    //     // .flatMap((element, index, array) => Boolean(callback(element, index, array)) || [])
+    //     .flatMap((element, index, array) => {
+    //         const result = callback(element, index, array);
+    //         return Boolean(result) ? result : [];
+    //     })
+    //     .length === nums.length;
+
     // console.log(
-    //     isEvery(numbers, (x) => x>0),
-    //     isEvery(numbers, (x) => x<100),
+    //     isEvery(numbers, (x) => x > 0),
+    //     isEvery(numbers, (x) => x < 100),
     // );
 
 </script>

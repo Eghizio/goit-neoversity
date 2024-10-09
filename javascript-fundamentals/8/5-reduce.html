@@ -6,10 +6,12 @@
 
     // const startingValue = 0;
 
-    // const accumulated = [42, 42, 42].reduce((accumulator, element, index, array) => {
+    // const accumulatorFunction = (accumulator, element, index, array) => {
     //     console.log({ accumulator });
     //     return accumulator + 1;
-    // }, startingValue);
+    // };
+
+    // const accumulated = [42, 42, 42].reduce(accumulatorFunction, startingValue);
 
     // console.log("Result:", { accumulated });
 
@@ -36,8 +38,8 @@
 
     // const letters = ["a", "b", "c", "d", "e"];
 
-    // // const joined = letters.reduce((acc, letter) => acc + letter.toUpperCase(), "");
-    // // const joined = letters.reduce((acc, letter) => `${acc}${letter.toUpperCase()}`, "");
+    // const joined = letters.reduce((acc, letter) => acc + letter.toUpperCase(), "");
+    // const joined = letters.reduce((acc, letter) => `${acc}${letter.toUpperCase()}`, "");
     // const joined = letters.map(l => l.toUpperCase()).join("");
     
     // console.log({ joined });
@@ -70,14 +72,14 @@
 
 </script>
 
-<script id="Filtering with reduce">
+<script id="Filtering with reduce & Custom reduce method">
 
     // const nums = [42, 12, 25, 76, 91];
 
     // const filtered = nums.reduce((acc, n) => {
     //     if (n > 50) {
     //         return [...acc, n];
-    //         acc.push(n);
+    //         // acc.push(n);
     //     }
 
     //     return acc;
@@ -90,7 +92,7 @@
 
 
     /* Custom Reduce function */
-    // const reduceFilter = (arr, callback, initialValue) => {
+    // const customReduce = (arr, callback, initialValue) => {
     //     let accumulator = initialValue;
 
     //     for (let i=0; i<arr.length; i++) {
@@ -101,7 +103,7 @@
     // };
 
 
-    // const filtered2 = reduceFilter(nums, (acc, n) => {
+    // const filtered2 = customReduce(nums, (acc, n) => {
     //     return n > 50 ? [...acc, n] : acc;
     // }, []);
 
@@ -119,11 +121,13 @@
     //     return acc;
     // }
 
-    // console.log( nums._reduce((acc, n) => n > 50 ? [...acc, n] : acc, []) ); /* 6 */
+    // console.log( nums._reduce((acc, n) => n > 50 ? [...acc, n] : acc, []) );
+
+    // console.log( [1,2,3]._reduce((acc, n) => acc + n, 0) );
 
 </script>
 
-<script id="Filtering with reduce - examples">
+<script id="Filtering & Mapping with reduce - examples">
 
     // const warriorsOver40 = players.reduce((acc, player) => {
     //     // if (player.role === "Warrior" && player.level >= 40) {
@@ -141,6 +145,10 @@
     //         ? [...acc, name]
     //         : acc
     // , []);
+
+    // const warriorsOver40 = players
+    //     .filter(p => p.role === "Warrior" && p.level >= 40)
+    //     .map(p => p.name);
 
     // console.log( warriorsOver40 );
 
@@ -214,6 +222,10 @@
     //     .filter((tag, i, arr) => arr.indexOf(tag) === i)
     //     .toSorted();
 
+    // const postTags = Array.from(new Set(posts.map(post => post.tag).flat())).toSorted();
+    
+    // const postTags = [...new Set(posts.flatMap(post => post.tag))].toSorted();
+
     // console.log(postTags);
 
 </script>
@@ -245,6 +257,14 @@
     //     return tags;
     // }, {});
 
+    // const postTagsCounter = posts.reduce((tags, post) => {
+    //     post.tag.forEach(tag => {
+    //         tags[tag] = (tags[tag] ?? 0) + 1;
+    //     });
+
+    //     return tags;
+    // }, {});
+
     // console.log(postTagsCounter);
 
 
@@ -261,6 +281,11 @@
     //     .filter(([tag, count]) => count > 1)
     //     .map(([tag]) => tag);
     // console.log("Popular tags:", popularTags);
+
+    // const topTagsByPopularity = Object.entries(postTagsCounter)
+    //     .toSorted(([_, a_count], [__, b_count]) => b_count - a_count)
+    //     .map(([tag]) => tag);
+    // console.log("Top tags by popularity:", topTagsByPopularity);
 
 </script>
 
