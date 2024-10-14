@@ -1,0 +1,187 @@
+<title>Prototypes & Prototypal Inheritance</title>
+
+<script id="Prototype">
+
+    // const obj = { age: 42 };
+
+    // console.log( obj );
+    // console.log( obj.__proto__ );
+
+
+
+    // const logOwnProperties = (label, someObject) => {
+    //     for (const propertyName in someObject) {
+    //         if (someObject.hasOwnProperty(propertyName)) {
+    //             console.log(label, propertyName);
+    //         }
+    //     }
+    // };
+
+    // logOwnProperties("obj", obj);
+
+
+
+    // console.log("Obj: ", obj);
+    // console.log(obj.__proto__);
+    // console.log(obj.__proto__.__proto__);
+    // // console.log(obj.__proto__.__proto__.__proto__); /* Oopsie */
+
+    // const obj2 = Object.create(obj);
+    // console.log("Obj2: ", obj2);
+    // console.log(obj2.__proto__);
+    // console.log(obj2.__proto__.__proto__);
+    // console.log(obj2.__proto__.__proto__.__proto__);
+
+    // console.log(obj2.age);
+
+    // logOwnProperties("obj2", obj2);
+
+</script>
+
+<script id="Creating objects, constructors & Assign method">
+    
+    // function createPlayer() {
+    //     return {};
+    // }
+
+    // function Player(username, level, modPrivileges = {}) {
+    //     this.username = username;
+    //     this.level = level;
+
+    //     /* oponent should be of type Player (has property of `level`) */
+    //     this.fight = function(oponent) {
+    //         if (oponent.level === undefined) throw new Error("Oponent is not of type Player");
+
+    //         if (oponent.level > this.level) console.log("Lost");
+    //         else console.log("Won");
+    //     }
+    // }
+
+    // const p1 = new Player("Maciek", 42);
+    // const p2 = new Player("Stanisław", 100);
+    
+    // p1.fight(p2);
+    // p2.fight(p1);
+
+
+
+    // const p3 = Object.assign(Player.prototype, {
+    //     sayHi() { console.log(`Hi, I am ${this.username}`); }
+    // });
+
+    // p3.username = "Adam";
+    // console.log( p3 );
+    // p3.sayHi();
+    // p3.fight(p2);
+
+    // p2.fight({ noLevel: 1 });
+
+
+    // const p4 = Object.assign(p2, {
+    //     username: "Mietek",
+    //     siema() { console.log("Siema Eniu!"); }
+    // });
+
+    // console.log( p4 );
+    // p4.fight(p2);
+    // p4.siema();
+
+</script>
+
+<script id="Class constructor">
+
+    // class Player {
+    //     constructor(username, level) {
+    //         this.username = username;
+    //         this.level = level;
+    //     }
+
+    //     fight(oponent) {
+    //         if(oponent.level > this.level) console.log("Lost");
+    //         else console.log("Won");
+    //     }
+    // }
+
+    // const p1 = new Player("Maciek", 42);
+    // const p2 = new Player("Stanisław", 100);
+    
+    // console.log( p1 );
+    // console.log( p2 );
+
+    // p1.fight(p2);
+    // p2.fight(p1);
+
+
+
+    // const players = [
+    //     new Player("Adam", 72),
+    //     new Player("Beth", 42),
+    //     new Player("Cecil", 21),
+    // ];
+
+    // console.log(players);
+
+    // players.forEach((player, index) => {
+    //     console.log(player);
+
+    //     players.forEach((oponent, i) => {
+    //         if (index !== i) {
+    //             player.fight(oponent);
+    //         }
+    //     });
+    // });
+
+</script>
+
+<script id="Prototype extension">
+
+    // function duplicate(someArray) {
+    //     someArray.push(...someArray);
+    //     return someArray;
+    // }
+
+    // const arr = [1, 2, 3];
+
+    // const x = duplicate(arr);
+    // console.log(arr, x);
+
+
+
+    /* Extending prototype method */
+    // Array.prototype.duplicate = function() {
+    //     this.push(...this);
+    //     return this;
+    // }
+
+    // console.log( arr.duplicate() );
+
+
+
+    // const password = "top_secret";
+
+    /* Prototype pollution */
+    // Array.prototype._push = function(...args) {
+    //     this.push(...args);
+    //     console.log("Sending to server: ", args, password);
+    //     return this.length;
+    // }
+
+    // arr._push(42); /* Hacked push() */
+
+
+
+    // const PersonProcessor = {
+    //     doX: (person) => { person.x(); },
+    //     doY: (person) => { person.y(); },
+    //     doZ: (person) => { person.z(); },
+    // };
+
+    // function PersonProcessor(person) {
+    //     this.person = person;
+
+    //     this.doX = () => { person.x(); }
+    //     this.doY = function() { person.y(); }
+    //     this.doZ = function() { person.z(); }
+    // }
+
+</script>
