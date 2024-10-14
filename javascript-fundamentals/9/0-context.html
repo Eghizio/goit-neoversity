@@ -1,0 +1,200 @@
+<title>This context</title>
+
+<script id="Context & Scope">
+    // console.log("\nWithout context...");
+
+    // const user = {
+    //     fullName: "Benedict Cucumber",
+    //     logName() {
+    //         console.log(user.fullName);
+    //     }
+    // };
+
+    // user.logName();
+
+    // /* Copy */
+    // const anotherUser = {
+    //     ...user,
+    //     fullName: "Benedict Cumberbah"
+    // };
+
+    // anotherUser.logName();
+
+
+
+    // console.log("\nWith context...");
+
+    // const contextualUser = {
+    //     fullName: "Benedict Cucumber",
+    //     logName() {
+    //         console.log(this.fullName);
+    //     }
+    // };
+
+    // contextualUser.logName();
+
+    // /* Copy */
+    // const anotherContextualUser = {
+    //     ...contextualUser,
+    //     fullName: "Benedict Cumberbah"
+    // };
+
+    // anotherContextualUser.logName();
+
+</script>
+
+<script id="Call method & Strict mode">
+    // 'use strict';
+
+    // x = 10;
+    // var x = 10;
+    // console.log(x);
+    // console.log(this);
+    // console.log(window);
+
+
+
+    // function logAge() {
+    //     console.log(this.age);
+    //     // console.log(this);
+    //     // console.log(window);
+    // }
+
+    // logAge();
+
+
+
+    // const student = { fullName: "Matt", age: 42 };
+
+    // logAge.call(student);
+    // logAge.call({ age: 21 });
+    // logAge.call({ });
+    // logAge.call();
+
+
+
+    // function printMessage(msg, messageCost = 1337) {
+    //     console.log(`Message to ${this.fullName}: ${msg} (Cost: ${messageCost} $)`);
+    // }
+
+    
+    // printMessage("Hello there");
+    // printMessage.call(student, "Hello there");
+    // printMessage.call(student, "Hello there", 123);
+
+
+    // const args = ["Hello there", 123];
+    // printMessage.call(student, ...args);
+
+
+
+    // const obj = {
+    //     fullName: "Mark",
+    //     age: 21,
+    //     logAge() {
+    //         console.log(`Age: ${this.age}`);
+    //     }
+    // };
+
+    // obj.logAge();
+
+    // obj.logAge.call({ age: 42 });
+
+</script>
+
+<script id="Apply method">
+
+    // function logAge() {
+    //     console.log(this.age);
+    // }
+
+    // logAge();
+
+
+    // const student = { fullName: "Matt", age: 42 };
+    // logAge.apply(student);
+
+
+    // function printMessage(msg, messageCost = 1337) {
+    //     console.log(`Message to ${this.fullName}: ${msg} (Cost: ${messageCost} $)`);
+    // }
+
+    
+    // printMessage("Hello there");
+    // printMessage.apply(student, ["Hello there"]);
+    // printMessage.apply(student, ["Hello there", 123]);
+
+
+    // const args = ["Hello there", 123];
+    // printMessage.apply(student, args);
+
+</script>
+
+<script id="Bind method">
+
+    // const player = {
+    //     username: "Pedro",
+    //     logUserName() {
+    //         console.log(this.username);
+    //     }
+    // };
+
+    // player.logUserName();
+
+    // const player2 = {
+    //     username: "Not Pedro",
+    //     logUserName: player.logUserName,
+    // };
+
+    // player2.logUserName();
+
+
+    // const logPedro = player.logUserName;
+    // logPedro();
+
+
+    // const logNotPedro = player.logUserName.bind(player2);
+    // logNotPedro();
+
+</script>
+
+<script id="Bind example">
+
+    // const player = {
+    //     username: "Pedro",
+    //     logUserName(successRate) {
+    //         console.log(this.username);
+    //         console.log(successRate);
+    //     }
+    // };
+
+    // const worker = {
+    //     username: "Worker",
+    //     performWork(callback) {
+    //         const chanceOfSuccess = (Math.random() * 100).toFixed(2) + "%";
+    //         callback(chanceOfSuccess);
+    //     }
+    // };
+
+    // worker.performWork(player.logUserName);
+    // worker.performWork(player.logUserName.bind(player));
+
+
+
+    // function logNameOfUser(success) {
+    //     console.log(this.username);
+    //     console.log(success);
+    // }
+
+    // const logNameOfUser2 = (success) => {
+    //     console.log(this.username);
+    //     console.log(success);
+    // };
+
+    // worker.performWork(logNameOfUser);
+    // worker.performWork(logNameOfUser2);
+
+    // worker.performWork(logNameOfUser.bind(player));
+    // worker.performWork(logNameOfUser2.bind(player));
+
+</script>
