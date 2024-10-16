@@ -1,0 +1,335 @@
+<title>Class & constructor</title>
+
+<script id="Class & constructor">
+
+    // class User {
+    //     constructor(name) {
+    //         console.log(`User ${name} was born!`);
+
+    //         this.name = name;
+    //         this.experience = 0;
+            
+    //         // this.greet();
+    //     }
+
+    //     greet() {
+    //         console.log(`Hello from ${this.name}`);
+    //     }
+
+    //     study() {
+    //         this.experience++;
+    //     }
+
+    //     abc = () => console.log("abc");
+    // }
+
+    // const adam = new User("Adam"); /* `new` keyword */
+    // const beth = new User("Beth");
+
+    // adam.greet();
+    // beth.greet();
+
+    // adam.study();
+    // adam.study();
+    // adam.study();
+
+    // beth.study();
+
+    // console.log("Adam experience: ", adam.experience);
+    // console.log("Beth experience: ", beth.experience);
+
+
+
+    // const users = [
+    //     new User("Adam"),
+    //     new User("Adam"),
+    //     new User("Adam"),
+    //     new User("Adam"),
+    //     new User("Adam"),
+    //     new User("Adam"),
+    //     new User("Adam"),
+    //     new User("Adam"),
+    //     new User("Adam"),
+    //     new User("Adam"),
+    // ];
+
+    // console.log(users);
+
+
+
+    // const names = ["Adam", "Beth", "Cecil", "Dorthy"];
+    // const groupOfUsers = names.map(name => new User(name));
+
+    // console.log(groupOfUsers);
+
+</script>
+
+<script id="Abstraction and implementation hiding">
+    
+    // class Scientist {
+    //     constructor(name) {
+    //         this.name = name;
+    //     }
+
+    //     power(a, b) {
+    //         return Math.pow(a, b);
+    //     }
+    // }
+
+    // class Mathematician {
+    //     constructor(name) {
+    //         this.name = name;
+    //     }
+
+    //     power(x, y) {
+    //         if(typeof x !== "number" || typeof y !== "number") {
+    //             throw new Error("Invalid argument type")
+    //         }
+
+    //         if (y === 0) return 1;
+    //         if (y%2 === 0) return this.power(x, parseInt(y/2))*this.power(x, parseInt(y/2));
+    //         return x*this.power(x, parseInt(y/2))*this.power(x, parseInt(y/2));
+    //     }
+    // }
+
+    // class Physicist {
+    //     constructor(name) {
+    //         this.name = name;
+    //     }
+
+    //     power(a, b) {
+    //         return a ** b;
+    //     }
+    // }
+
+    // const scientistA = new Scientist("A");
+    // const scientistB = new Mathematician("B");
+    // const scientistC = new Physicist("C");
+
+    /* `instanceof` operator */
+    // console.log(
+    //     scientistA instanceof Scientist,
+    //     scientistA instanceof Mathematician,
+    //     scientistA instanceof Physicist,
+    // );
+    // console.log(scientistB instanceof Mathematician);
+    // console.log(scientistC instanceof Physicist);
+
+    // const a = scientistA.power(2, 3);
+    // const b = scientistB.power(2, 3);
+    // const c = scientistC.power(2, 3);
+
+    // console.log({ a, b, c });
+
+
+    // const scientists = [scientistA, scientistB, scientistC];
+    // const results = scientists.map(scientist => scientist.power(2, 4));
+    
+    // console.log(results);
+
+</script>
+
+<script id="Inheritance">
+
+    // class Scientist {
+    //     constructor(myName) {
+    //         this.name = myName;
+    //     }
+
+    //     power(a, b) {
+    //         return Math.pow(a, b);
+    //     }
+    // }
+
+    // class Mathematician extends Scientist {
+    //     calculate() {
+    //         console.log("Doin some calculations...");
+    //     }
+    // }
+
+    // class Physicist extends Mathematician {
+    //     constructor(title, username, yearsOfExperience = 0) {
+    //         const fullName = `Physicist ${title}. ${username}`;
+    //         super(fullName);
+    //         this.name = "dupa";
+            
+    //         this.yearsOfExperience = yearsOfExperience;
+    //     }
+
+    //     brag() {
+    //         console.log(`I am so PRO! I have ${this.yearsOfExperience} years of experience!`);
+    //     }
+    // }
+
+    // const math = new Mathematician("Abc");
+    // console.log("Math: ", math.power(2, 5));
+
+
+    // const phys = new Physicist("Prof", "Xyz", 42);
+    // phys.brag();
+    // console.log(
+    //     "Phys: ",
+    //     phys.power(2, 5)
+    // );
+
+
+    // const scientists = [new Scientist("A"), new Mathematician("B"), new Physicist("C")];
+
+    // const results = scientists.map(scientist => scientist.power(2, 5));
+    // console.log(results);
+
+    // scientists.forEach(scientist => {
+    //     // const isPhysicist = true;
+    //     const isPhysicist = scientist instanceof Physicist;
+    //     if (isPhysicist) {
+    //         scientist.brag();
+    //     }
+    // });
+
+</script>
+
+<script id="Encapsulation aka Hermetization">
+
+    // class Student {
+    //     static studentsList = [];
+    //     static slogan = "Dupa";
+
+    //     score = 0; /* Public field (default) */
+    //     #secret = "super_secret"; /* Private field */
+    //     #fullname;
+
+    //     constructor(name) {
+    //         console.log(`Student ${name} was created!`);
+    //         this.#fullname = name;
+    //         // this.#name = name;
+    //         // this.score = 0;
+
+    //         // console.log("Registering to students list.");
+    //         Student.studentsList.push(this);
+    //     }
+        
+    //     /* Getters & Setters */
+    //     get name() {
+    //         return `Student: ${this.#fullname}`;
+    //         // return this.#fullname;
+    //     }
+
+    //     set name(newName) {
+    //         console.warn("Cannot change the name of the Student!");
+    //         // this.#fullname = newName;
+    //         // this.#fullname = newName.toUpperCase();
+    //     }
+
+    //     #secretMethod() {
+    //         console.log(`It's a secret! ${this.#secret}`);
+    //     }
+
+    //     revealSecret() {
+    //         this.#secretMethod();
+    //     }
+
+    //     performCalculation(x, y) {
+    //         /* perform some preperation */
+    //         return this.#calculateSomething(x, y);
+    //     }
+
+    //     #calculateSomething(a, b) {
+    //         return a + b; /* complex logic */
+    //     }
+
+    //     static getStudentsCount() {
+    //         return Student.studentsList.length;
+    //     }
+
+    //     static rankStudents(...students) {
+    //         return students.toSorted((a, b) => b.score - a.score);
+    //     }
+
+    //     static getStudentScores(students) {
+    //         return students.reduce((sum, s) => sum + s.score, 0);
+    //     }
+    // }
+
+    // const adam = new Student("Adam");
+    // console.log(adam.name);
+    
+    // console.log(adam.secret);
+    // console.log(adam.#secret);
+
+
+    // adam.name = "Not Adam";
+    // console.log(adam.name);
+
+    
+    // adam.secretMethod();
+    // adam.#secretMethod();
+
+
+    // adam.revealSecret();
+
+
+    // console.log(adam.performCalculation(2, 3));
+
+
+    /* Static */
+    // console.log(Student.studentsList);
+    // new Student("Beth");
+    // console.log(Student.studentsList);
+
+    // console.log(Student.getStudentsCount());
+    // console.log(Student.slogan);
+
+
+    // const beth = Student.studentsList[1];
+    // adam.score = 42;
+    // beth.score = 21;
+
+    // console.log( Student.rankStudents(adam, beth) );
+    // console.log( Student.getStudentScores([adam, beth]) );
+
+</script>
+
+<script id="Polymorphism">
+
+    // console.log(42); /* Accepts numbers */
+
+    // console.log("42"); /* Accepts strings */
+
+
+    
+    // class A {
+    //     constructor() {
+    //         this.name = "A";
+    //     }
+
+    //     sayMyName() {
+    //         console.log(`My name is ${this.name}`);
+    //     }
+    // }
+
+    // class B extends A {
+    //     constructor() {
+    //         super();
+    //         this.name = "B";
+    //     }
+
+    //     /* Override */
+    //     sayMyName() {
+    //         console.log(`Hello there, I'm ${this.name}`);
+    //     }
+
+    //     /* Overload */
+    //     // sayMyName(abc) {
+    //     //     return this.name;
+    //     // }
+    // }
+
+    // const a = new A();
+    // a.sayMyName();
+    
+    // const b = new B();
+    // b.sayMyName();
+
+    // new B().sayMyName();
+
+</script>
