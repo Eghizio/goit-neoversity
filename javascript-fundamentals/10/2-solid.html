@@ -1,0 +1,229 @@
+<title>SOLID principles</title>
+
+<a href="https://pl.wikipedia.org/wiki/SOLID" target="_blank">SOLID Principles</a>
+
+<script id="Open Close principle - Strategy pattern (using interfaces)">
+    
+    // interface Przewoznik {
+    //     wyslij(paczka: any): void;
+    // }
+
+    // class ClosedPaczkomat {
+    //     // #przewoznik: Przewoznik;
+    //     #przewoznik;
+
+    //     constructor() {
+    //         // this.#przewoznik = new DPD();
+    //         this.#przewoznik = new FedEx();
+    //     }
+
+    //     wyslijPaczke(paczka, dane) {
+    //         const opisanaPaczka = this.#opiszPaczke(paczka, dane);
+
+    //         this.#przewoznik.wyslij(opisanaPaczka);
+    //     }
+
+    //     #opiszPaczke(paczka, dane) {
+    //         /* Skrobu skrobu, naklejanko QRków */
+    //         return { ...paczka, ...dane };
+    //     }
+    // }
+
+    // class OpenPaczkomat {
+    //     // #przewoznik: Przewoznik;
+    //     #przewoznik;
+
+    //     constructor() {
+    //         this.#przewoznik = new FedEx();
+    //     }
+
+    //     ustawPrzewoznika(przewoznik) {
+    //         this.#przewoznik = przewoznik;
+    //     }
+
+    //     wyslijPaczke(paczka, dane) {
+    //         const opisanaPaczka = this.#opiszPaczke(paczka, dane);
+
+    //         this.#przewoznik.wyslij(opisanaPaczka);
+    //     }
+
+    //     #opiszPaczke(paczka, dane) {
+    //         /* Skrobu skrobu, naklejanko QRków */
+    //         return { ...paczka, ...dane };
+    //     }
+    // }
+
+    /* Imitating interface */
+    // class Przewoznik {
+    //     wyslij(paczka) {
+    //         throw new Error("Abstract class of Przewoznik. Please implement own class.");
+    //     }
+    // }
+
+
+
+    /* class FedEx implements Przewoznik { */
+    // class FedEx extends Przewoznik {
+    //     wyslij(paczka) {
+    //         /* wysyłanie po fedexowemu */
+    //         console.log("[FedEx] Wysyłanie: ", paczka);
+    //     }
+    // }
+
+    /* class DPD implements Przewoznik { */
+    // class DPD extends Przewoznik {
+    //     wyslij(paczka) {
+    //         /* wysyłanie po DPDowemu */
+    //         console.log("[DPD] Wysyłanie: ", paczka);
+    //     }
+    // }
+
+
+    /* main */
+    /* Closed */
+    // const paczkomat = new ClosedPaczkomat();
+    
+    // const paczka = { ciuchy: "duzo" };
+    // const dane = { notatka: "szybko prosze" };
+
+    // paczkomat.wyslijPaczke(paczka, dane);
+
+
+
+    /* Open */
+    // const paczkomat = new OpenPaczkomat();
+    
+    // const paczka = { ciuchy: "duzo" };
+    // const dane = { notatka: "szybko prosze" };
+
+    // paczkomat.wyslijPaczke(paczka, dane);
+    
+    // paczkomat.ustawPrzewoznika(new DPD());
+    // paczkomat.wyslijPaczke(paczka, dane);
+
+    // // class InPost implements Przewoznik {
+    // class InPost extends Przewoznik {
+    //     wyslij(paczka) {
+    //         // InPostowanie
+    //         console.log("[InPost] Wysyłanie: ", paczka);
+    //     }
+    // }
+
+    // paczkomat.ustawPrzewoznika(new InPost());
+    // paczkomat.wyslijPaczke(paczka, dane);
+
+</script>
+
+<script id="Dependency Inversion - injecting dependencies">
+
+    /* Data class */
+    // class User {
+    //     constructor(name, number, email) {
+    //         this.name = name;
+    //         this.number = number;
+    //         this.email = email;
+    //     }
+    // }
+
+    // class Ecommerce {
+    //     // constructor(user) {
+    //     //     this.user = user;
+    //     //     this.smsSender = new SmsSender(); /* sender hardcoded */
+    //     // }
+
+    //     constructor(user, sender) { /* we pass (inject) sender via constructor */
+    //         this.user = user;
+    //         this.sender = sender;
+    //     }
+
+    //     confirmPurchase() {
+    //         // this.smsSender.send(this.user.number, "Hello there!");
+
+    //         // this.sender.send(this.user.number, "Hello there!");
+    //         // this.sender.send("Hello there!", this.user.number);
+
+    //         this.sender.send("Hello there!", this.user);
+    //     }
+    // }
+
+    // class Sender {
+    //     #user;
+    //     #sender;
+
+    //     constructor(user, sender) {
+    //         this.#user = user;
+    //         this.#sender = sender;
+    //     }
+
+    //     send(message) {
+    //         if (this.#sender instanceof SmsSender) {
+    //             this.#sender.send(this.#user.number, message);
+    //         } else if (sender instanceof EmailSender) {
+    //             this.#sender.send(message, this.#user.email);
+    //         } else {
+    //             throw new Error("Unsupported Sender");
+    //         }
+    //     }
+
+    //     // send(message) {
+    //     //     // sender.send(message, this.#user.email)
+    //     //     sender.send(message, this.#user.number);
+    //     // }
+    // }
+
+
+    // class SmsSender {
+    //     // send(number, message) {
+    //     // send(message, number) {
+    //     send(message, user) {
+    //         // console.log(`[SMS -> ${number}]: ${message}`);
+    //         console.log(`[SMS -> ${user.number}]: ${message}`);
+    //     }
+    // }
+
+    // class EmailSender {
+    //     // send(message, emailAddress) {
+    //     send(message, user) {
+    //         // console.log(`[Email -> ${emailAddress}] ${message}`);
+    //         console.log(`[Email -> ${user.email}]: ${message}`);
+    //     }
+    // }
+
+
+    // /* Main */
+    // const adam = new User("Adam", 123, "adam@user.com");
+
+    // const allegro = new Ecommerce(adam); /* sender set to SMS forever */
+
+    // const allegro = new Ecommerce(adam, new Sender(adam, new SmsSender()));
+    // const allegro = new Ecommerce(adam, new Sender(adam, new EmailSender()));
+
+    // /* freely pick which sender we use */
+    // const allegro = new Ecommerce(adam, new SmsSender());
+    // const olx = new Ecommerce(adam, new EmailSender());
+    
+    // allegro.confirmPurchase();
+    // olx.confirmPurchase();
+
+
+
+    /* Testing */
+
+    /* Mock implementation */
+    // class FakeSender {
+    //     send(message, user) {
+    //         /* Fake sending implementation */
+    //         console.log(`[Sending fake message]: not wasting any money!`);
+    //     }
+    // }
+
+    // const testUser = { name: "TestUser", number: 0, email: "test@test.com" };
+
+    // const testEcommerce = new Ecommerce(
+    //     testUser,
+    //     new FakeSender() /* injecting mock */
+    // );
+
+    // testEcommerce.confirmPurchase();
+
+</script>
