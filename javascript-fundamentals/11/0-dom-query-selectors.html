@@ -1,0 +1,105 @@
+<title>DOM & Query Selectors</title>
+
+<body>
+    <h1>Document Object Model</h1>
+
+    <ol>
+        <li>
+            <span id="abc">First</span>
+        </li>
+        <li>
+            <span id="xyz" class="red">Second</span>
+        </li>
+        <li>
+            <span id="abc">Third</span>
+        </li>
+    </ol>
+
+    <p>Hello there</p>
+</body>
+
+<script id="DOM API - Query selectors">
+
+    // const element = document.querySelector("body > ol > li:nth-child(2) > span");
+    // const element = document.querySelector("body > ol > li > span");
+    
+    // const element = document.querySelector("#abc");
+    // const element = document.querySelector(".red");
+    // const element = document.querySelector("span");
+
+    // const element = document.getElementById("xyz");
+    // const element = document.getElementsByClassName("red");
+    // const element = document.getElementsByTagName("span");
+
+
+    // const list = document.querySelector("ol");
+    // const secondItemSpan = list
+    //     .querySelector("li:nth-child(2)")
+    //     .querySelector("span");
+
+
+
+    // const lastSpan = document
+    //     .querySelector("body")
+    //     .querySelector("ol")
+    //     .querySelector("li:nth-child(3)")
+    //     .querySelector("span");
+
+    // const secondSpanBetter = document.querySelector("span#xyz.red");
+
+
+
+    // const listItems = document.querySelectorAll("li"); /* NodeList - pseudotablica */
+    // const listItems = document.querySelectorAll("li span"); /* NodeList - pseudotablica */
+
+
+    // const texts = listItems.map(item => item.textContent); /* Error */
+    // const texts = Array.from(listItems).map(item => item.textContent);
+    // const texts = [...listItems].map(item => item.textContent);
+    // console.log(texts);
+
+
+
+    // const known = document.querySelector("h1");
+    // const unknown = document.querySelector("non-existing-selector");
+    // console.log(unknown);
+
+    // console.log(known.textContent);
+    // console.log(unknown.textContent);
+
+</script>
+
+<script id="Nodes structure & hierarchy">
+    
+    // const element = document.querySelector("li:nth-child(2)");
+    // console.log(element);
+
+
+    // console.log(element.parentNode);
+    
+    // console.log(element.childNodes);
+    // console.log(element.children);
+    // console.log(Array.from(element.children));
+    // console.log([...element.children].map(el => el.textContent));
+
+
+    // const secondText = element.children[0].textContent;
+    // console.log(secondText);
+
+
+
+    // const parent = element.parentElement;
+
+    // console.log(parent.firstChild);
+    // console.log(parent.firstElementChild);
+
+    // console.log(parent.lastChild);
+    // console.log(parent.lastElementChild);
+
+    // console.log(parent.previousSibling);
+    // console.log(parent.previousElementSibling);
+    
+    // console.log(parent.nextSibling);
+    // console.log(parent.nextElementSibling);
+
+</script>

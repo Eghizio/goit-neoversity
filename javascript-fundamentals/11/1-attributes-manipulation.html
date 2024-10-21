@@ -1,0 +1,164 @@
+<title>Attributes & DOM manipulation</title>
+
+<style>
+    .red {
+        color: red;
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+    <h1>Document Object model</h1>
+
+    <ol>
+        <li data-order="1">
+            <span><a href="#">First</a></span>
+        </li>
+        <li data-order="2">
+            <span><a href="#">Second</a></span>
+        </li>
+        <li data-order="3">
+            <span><a href="#">Third</a></span>
+        </li>
+    </ol>
+
+    <img src="#">
+    <img src="#abc">
+
+    <article class="promoted bestreads" aria-label="Super article">
+        Something bla bla bla
+    </article>
+</body>
+
+<script id="Manipulating Attributes">
+
+    /*  Attributes: href, textContent, src, alt
+        Methods:    getAttribute, setAttribute, removeAttribute, hasAttribute */
+
+    // const secondLink = document.querySelector("li:nth-child(2) a");
+    // console.log(secondLink.href);
+    // console.log(secondLink.textContent);
+
+    // setTimeout(() => {
+    //     secondLink.href = "https://www.google.com";
+    //     secondLink.textContent = "Gugjel";
+    // }, 5_000);
+
+
+
+    // const image = document.querySelector("img[src='#abc']");
+    // const images = document.querySelectorAll("img");
+
+    // setTimeout(() => {
+    //     // image.src = "https://picsum.photos/300/300";
+    //     // image.alt = "Some image";
+
+    //     images.forEach(image => {
+    //         image.src = "https://picsum.photos/300/300";
+    //         image.alt = "Some image";
+    //     });
+    // }, 7_000);
+
+
+
+    // const article = document.querySelector("article");
+    // const articlesAriaLabel = article.ariaLabel;
+    // const articlesAriaLabel2 = article["ariaLabel"];
+    // const articlesAriaLabel3 = article["aria-label"]; /* undefined */
+    // const articlesAriaLabel4 = article.getAttribute("aria-label");
+    // console.log(articlesAriaLabel);
+    // console.log(articlesAriaLabel2);
+    // console.log(articlesAriaLabel3);
+    // console.log(articlesAriaLabel4);
+
+
+
+    // article.setAttribute("id", "top-article");
+    // article.id = "top-top-article";
+    // console.log(article.getAttribute("id"));
+
+    // article.setAttribute("nonexisting", "property");
+    // console.log(article.getAttribute("nonexisting"));
+
+    // article.removeAttribute("id");
+    // console.log(article.getAttribute("id"));
+
+    // console.log(article.hasAttribute("id"));
+    // console.log(article.hasAttribute("aria-label"));
+
+</script>
+
+<script id="Manipulating CSS classes">
+
+    // const article = document.querySelector("article");
+    // console.log(article.classList);
+    // console.log([...article.classList]);
+    
+    // article.classList.add("red");
+    // console.log("Contains red: ", article.classList.contains("red"));
+    // article.classList.remove("red");
+    // console.log("Contains red: ", article.classList.contains("red"));
+
+
+
+    // if (article.classList.contains("red")) {
+    //     article.classList.remove("red");
+    // } else {
+    //     article.classList.add("red");
+    // }
+    // article.classList.toggle("red");
+
+
+
+    // let i = 0;
+    // const interval = setInterval(() => {
+    //     article.classList.toggle("red");
+
+    //     // i++;
+    //     if (i++ > 10) clearInterval(interval);
+    // }, 3_000);
+
+</script>
+
+<script id="Manipulating styles directly">
+
+    // const art = document.querySelector("article");
+    // art.style.color = "green";
+
+
+
+    // const listItems = document.body.querySelectorAll("li a");
+
+    // listItems.forEach(item => {
+    //     // item.style.color = "white";
+    //     item.style.color = "#fff";
+    //     item.style.backgroundColor = "#000";
+    // });
+
+
+    // listItems[1].style.color = "dodgerblue";
+    // console.log(listItems[1]);
+
+
+    // setInterval(() => {
+    //     listItems[1].classList.toggle("red");
+    // }, 3_000);
+
+</script>
+
+<script id="Manipulating dataset attributes">
+
+    // const items = Array.from(document.querySelectorAll("li"));
+
+    // items.forEach(item => {
+    //     item.dataset.order = Math.round(Math.random() * 10);
+    // });
+
+    // const orders = items.map(item => item.dataset.order);
+    // const orders = items.map(item => item.dataset["order"]);
+    // console.log(orders);
+
+    // const sorted = items.toSorted((a,b) => parseInt(a.dataset.order, 10) - parseInt(b.dataset.order, 10));
+    // document.querySelector("ol").replaceChildren(...sorted);
+
+</script>
