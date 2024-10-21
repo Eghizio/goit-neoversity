@@ -1,0 +1,169 @@
+<title>Elements manipulation</title>
+
+<style>
+    .red {
+        color: red;
+    }
+
+    h1:nth-of-type(2n) {
+        text-decoration: underline;
+        filter: brightness(0.5);
+    }
+</style>
+
+<body>
+    <article>
+        <!-- <h1>Hello there</h1> -->
+         <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora adipisci a porro modi facilis repellat, magnam quae, id dolor debitis soluta reprehenderit repudiandae consectetur, sequi non molestias. Itaque, neque quos?
+        </p>
+    </article>
+</body>
+
+<script id="Creating & adding elements">
+
+    // const heading = document.createElement("h1");
+    
+    // heading.textContent = "Hello there!";
+    // heading.classList.add("red");
+    // heading.ariaLabel = "Page greeting";
+
+    // heading.style.fontSize = "128px";
+    // heading.style.margin = "0";
+    // heading.style.padding = "0";
+
+    // console.log(heading);
+    // console.log(heading.getAttribute("aria-label"));
+
+    // document.body.append(heading);
+
+
+
+    // const createHeading = (text) => {
+    //     const heading = document.createElement("h1");
+    
+    //     heading.textContent = text;
+    //     heading.classList.add("red");
+    //     heading.ariaLabel = "Page greeting";
+    //     heading.style.fontSize = "128px";
+    //     heading.style.margin = "0";
+    //     heading.style.padding = "0";
+
+    //     return heading;
+    // };
+
+    // const heading = createHeading("Hello there!");
+
+    // document.body.append(heading);
+    // document.body.append(createHeading("Naurrra."));
+    // document.body.prepend(createHeading("Naurrra."));
+
+    // document.body.after(createHeading("_after."));
+    // document.body.before(createHeading("_before."));
+
+    // document.body.append(createHeading("First!"), createHeading("Second!"));
+    // document.body.append(...[createHeading("Another!"), createHeading("And one more!")]);
+    // document.body.appendChild(heading);
+
+    // heading.remove();
+    // document.body.removeChild(heading);
+
+</script>
+
+<script id="Inner HTML">
+
+    // console.log(document.body.innerHTML);
+
+    // document.body.innerHTML = "Siema";
+    // document.body.innerHTML += "Siema";
+    // document.body.innerHTML += "<button>Siema</button>";
+    // document.body.innerHTML = document.body.innerHTML + `<noscript>alert("dupa321 hacked!");</noscript>`;
+
+</script>
+
+<script id="Inserting elements">
+
+    // const createBtn = (text) => {
+    //     const button = document.createElement("button");
+    //     button.textContent = text;
+    //     return button;
+    // };
+
+        
+    // const art = document.querySelector("article");
+    // art.insertAdjacentElement("beforebegin", createBtn("Before begin"));
+    // art.insertAdjacentElement("afterbegin", createBtn("After begin"));
+    
+    // art.insertAdjacentElement("beforeend", createBtn("Before end"));
+    // art.insertAdjacentElement("afterend", createBtn("After end"));
+
+</script>
+
+<script id="Gallery example">
+
+    const assignStyles = (element, styleObject) => {
+        Object.entries(styleObject)
+            .forEach(([key, value]) => {
+                element.style[key] = value;
+            });
+    };
+
+    const gallery = document.createElement("section");
+
+    // section.style.display = "flex";
+    // section.style.alignItems = "center";
+    assignStyles(gallery, {
+        display: "flex",
+        alignItems: "center",
+        gap: "1rem",
+    });
+
+    const createBtn = (text) => {
+        const btn = document.createElement("button");
+        btn.textContent = text;
+
+        assignStyles(btn, {
+            border: "none",
+            width: "30px",
+            height: "30px",
+            backgroundColor: "dodgerblue",
+            color: "white",
+            cursor: "pointer",
+        });
+
+        return btn;
+    };
+
+    const previousBtn = createBtn("<=");
+    const nextBtn = createBtn("=>");
+
+    let picsumId = 200;
+    const img = document.createElement("img");
+    img.alt = "Gallery photo";
+    img.src = `https://picsum.photos/id/${picsumId}/300/300`;
+    img.width = "300";
+    img.height = "300";
+
+    gallery.append(previousBtn, img, nextBtn);
+    document.body.append(gallery);
+
+
+    
+    const photo = {
+        previous: () => img.src = `https://picsum.photos/id/${--picsumId}/300/300`,
+        next: () => img.src = `https://picsum.photos/id/${++picsumId}/300/300`,
+    };
+
+    previousBtn.addEventListener("click", photo.previous);
+    nextBtn.addEventListener("click", photo.next);
+
+
+
+    setInterval(photo.next, 3_000); /* autoplay */
+
+
+
+    // Gallery.nextPhoto();
+    // Gallery.pause();
+
+</script>
