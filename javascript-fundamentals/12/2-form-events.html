@@ -21,6 +21,7 @@
     
     <!-- <fieldset>
         <legend>Radios</legend>
+
         <label for="radio-a">
             <input type="radio" name="radios" id="radio-a" value="a">
             First
@@ -47,12 +48,10 @@
     
     <!-- <fieldset>
         <legend>Text inputs</legend>
-    
         
         <input type="text" id="txt">
         <p id="validation-msg"></p>
         
-    
         <textarea id="area"></textarea>
     </fieldset> -->
 </body>
@@ -91,9 +90,9 @@
     //     // console.log("Username: ", event.target.elements.username.value);
     //     // console.log("Password: ", event.target.elements.password.value);
 
-    //     const { username: { value: login }, password: { value: pwd } } = event.target.elements;
+    //     // const { username: { value: login }, password: { value: pwd } } = event.target.elements;
 
-    //     console.log({ login, pwd });
+    //     // console.log({ login, pwd });
     //     // event.target.reset();
     // });
 
@@ -174,14 +173,18 @@
 
 </script>
 
-<!-- <style>
-    input.focused {
+<style>
+    /* input.focused {
         padding: 1rem;
         font-weight: bold;
         background-color: dodgerblue;
         color: white;
-    }
-</style> -->
+    } */
+
+    /* input:focus {
+        background-color: red;
+    } */
+</style>
 
 <script id="Input focus">
 
@@ -189,6 +192,11 @@
 
     // input.addEventListener("focus", ({ target: { style } }) => {
     //     console.log("Focused!");
+
+    //     // style.backgroundColor = "dodgerblue";
+    //     // style.color = "white";
+    //     // style.fontWeight = "bold";
+    //     // style.padding = "1rem";
 
     //     const focusedStyles = {
     //         backgroundColor: "dodgerblue",
@@ -198,13 +206,6 @@
     //     };
 
     //     Object.assign(style, focusedStyles);
-
-
-
-    //     // style.backgroundColor = "dodgerblue";
-    //     // style.color = "white";
-    //     // style.fontWeight = "bold";
-    //     // style.padding = "1rem";
     // });
 
     // input.addEventListener("blur", ({ target: { style } }) => {
@@ -235,11 +236,11 @@
     
 </script>
 
-<!-- <style>
-    .invalid {
+<style>
+    /* .invalid {
         background-color: crimson;
-    }
-</style> -->
+    } */
+</style>
 
 <script id="Validation example">
 
@@ -250,7 +251,7 @@
     // const MAX_LENGTH = 16;
 
     // input.addEventListener("focus", (event) => {
-    //     // validationMsg.textContent = "";
+    //     validationMsg.textContent = "";
     //     event.target.classList.remove("invalid");
     // });
 

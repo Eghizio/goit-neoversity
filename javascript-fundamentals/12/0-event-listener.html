@@ -28,6 +28,8 @@
     // console.log(pointlessBtn.onclick);
     // pointlessBtn.onclick = () => console.log("click 2");
     // console.log(pointlessBtn.onclick);
+    // pointlessBtn.onclick = null;
+    // console.log(pointlessBtn.onclick);
     // pointlessBtn.onmouseover = () => console.log("over btn");
 
     // pointlessBtn.addEventListener("click", () => {
@@ -96,8 +98,9 @@
     // document.querySelector("button#btn").addEventListener("click", handleClick);
     // document.querySelector("button#btn").addEventListener("mouseover", handleClick);
 
+    // document.querySelector("button#btn").addEventListener("click", (event) => handleClick(event));
+
     // document.querySelector("button#btn")
-    //     // .addEventListener("click", (event) => {        
     //     .addEventListener("mouseenter", ({ type, currentTarget }) => {        
     //         console.log({ type, currentTarget });
     //     });
@@ -113,16 +116,14 @@
 
 </script>
 
-<!-- <button id="red">Red</button>
-<button id="blue">Blue</button> -->
+<!-- <div>
+    <button id="red">Red</button>
+    <button id="blue">Blue</button>
+</div> -->
 
 <script id="Mouse tracker example">
 
     // let color = "red";
-
-    // setInterval(() => {
-    //     color = Math.random() > 0.5 ? "red" : "blue";
-    // }, 5_000);
 
     // const spawnBox = (x = 0, y = 0, size = 20) => {
     //     const box = document.createElement("div");
@@ -136,7 +137,7 @@
     // };
 
 
-    // /* Tracker */
+    /* Tracker */
     // const tracker = spawnBox();
     // document.body.append(tracker);
 
@@ -146,9 +147,109 @@
     // });
 
 
-    // /* Paint */
+
+    /* Paint */
     // document.addEventListener("mousemove", ({ clientX: x, clientY: y }) => {
     //     document.body.append(spawnBox(x, y, 5));
+    // });
+
+    // setInterval(() => {
+    //     color = Math.random() > 0.5 ? "red" : "blue";
+    // }, 5_000);
+
+
+
+    // document.querySelector("button#red").addEventListener("click", () => {
+    //     color = "red";
+    // });
+
+    // document.querySelector("button#blue").addEventListener("click", () => {
+    //     color = "blue";
+    // });
+
+</script>
+
+<!-- <div>
+    <button id="red" class="active">Red</button>
+    <button id="blue">Blue</button>
+</div> -->
+
+<!-- <div>
+    <button id="brush-enabler">Enable brush</button>
+    <button id="clear">Clear</button>
+</div> -->
+
+<!-- <style>
+    .active {
+        border-color: orange;
+    }
+</style> -->
+
+<script id="Paint example">
+
+    // let color = "red";
+
+    // const spawnBox = (x = 0, y = 0, size = 20) => {
+    //     const box = document.createElement("div");
+    //     box.dataset["box"] = true;
+    //     box.style.width = `${size}px`;
+    //     box.style.height = `${size}px`;
+    //     box.style.backgroundColor = color;
+    //     box.style.position = "absolute";
+    //     box.style.left = x;
+    //     box.style.top = y;
+    //     return box;
+    // };
+
+
+    /* Paint */
+    // document.addEventListener("mousemove", ({ clientX: x, clientY: y }) => {
+    //     document.body.append(spawnBox(x, y, 5));
+    // });
+
+    // setInterval(() => {
+    //     color = Math.random() > 0.5 ? "red" : "blue";
+    // }, 5_000);
+
+
+
+    /* Change color to Red */
+    // document.querySelector("button#red").addEventListener("click", (event) => {
+    //     color = "red";
+    //     document.querySelector("button#blue").classList.remove("active");
+    //     event.currentTarget.classList.add("active");
+    // });
+
+    /* Change color to Blue */
+    // document.querySelector("button#blue").addEventListener("click", (event) => {
+    //     color = "blue";
+    //     document.querySelector("button#red").classList.remove("active");
+    //     event.currentTarget.classList.add("active");
+    // });
+
+    /* Start/Stop drawing */
+    // let isColoring = false;
+    // document.querySelector("button#brush-enabler").addEventListener("click", (event) => {
+    //     isColoring = !isColoring;
+    //     if (isColoring) {
+    //         event.currentTarget.classList.add("active");
+    //     } else {
+    //         event.currentTarget.classList.remove("active");
+    //     }
+    // });
+
+    /* Draw */
+    // document.addEventListener("mousemove", ({ clientX: x, clientY: y }) => {
+    //     if (isColoring) {
+    //         // document.body.append(spawnBox(x, y, 5));
+    //         document.body.append(spawnBox(x, y, 1));
+    //     }
+    // });
+
+    /* Clear drawing */
+    // document.querySelector("button#clear").addEventListener("click", () => {
+    //     const boxes = document.querySelectorAll(`div[data-box]`);
+    //     boxes.forEach(box => box.remove());
     // });
 
 </script>
