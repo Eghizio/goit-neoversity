@@ -1,0 +1,154 @@
+<title>Events & Event Listeners</title>
+
+<body>
+    <button id="btn">Pointless Button</button>
+</body>
+
+<script id="Event listeners">
+
+    // document.addEventListener("click", function handleClick () {
+    //     console.log("Click!", Math.random());
+    // });
+    
+    
+    // function handleClick () {
+    //     console.log("Click!");
+    // }
+    
+    // document.addEventListener("click", handleClick);
+
+</script>
+
+<script id="Onclick, Event types & removing listeners">
+
+    // const pointlessBtn = document.querySelector("button#btn");
+
+    // console.log(pointlessBtn.onclick);
+    // pointlessBtn.onclick = () => console.log("click");
+    // console.log(pointlessBtn.onclick);
+    // pointlessBtn.onclick = () => console.log("click 2");
+    // console.log(pointlessBtn.onclick);
+    // pointlessBtn.onmouseover = () => console.log("over btn");
+
+    // pointlessBtn.addEventListener("click", () => {
+    //     console.log("Not so pointless after all ;)");
+    //     pointlessBtn.textContent = "Not So Pointless Button";
+    // });
+
+    // pointlessBtn.addEventListener("mouseover", () => {
+    //     console.log("Is there any point in that?");
+    // });
+
+    // pointlessBtn.addEventListener("mouseenter", () => {
+    //     pointlessBtn.style.backgroundColor = "red";
+    //     pointlessBtn.style.color = "white";
+    // });
+
+    // pointlessBtn.addEventListener("mouseleave", () => {
+    //     pointlessBtn.style.backgroundColor = "white";
+    //     pointlessBtn.style.color = "black";
+    // });
+
+
+    /* Removing */
+
+    // const onMouseOver = () => {
+    //     console.log("Is there any point in that?");
+    // };
+
+    // pointlessBtn.addEventListener("mouseover", onMouseOver);
+
+    // pointlessBtn.removeEventListener("mouseover", onMouseOver);
+
+    // const removeMouseOverOnce = () => {
+    //     console.log("removing mouse over");
+    //     pointlessBtn.removeEventListener("mouseover", onMouseOver);
+    //     pointlessBtn.removeEventListener("click", removeMouseOverOnce);
+    // };
+
+    // pointlessBtn.addEventListener("click", removeMouseOverOnce);
+
+</script>
+
+<script id="Example">
+
+    // const addEventListenerOnce = (element, eventType, callback) => {
+    //     const oneTimeCallback = (event) => {
+    //         callback(event);
+    //         element.removeEventListener(eventType, oneTimeCallback);
+    //     };
+
+    //     element.addEventListener(eventType, oneTimeCallback);
+    // };
+
+    // addEventListenerOnce(document.querySelector("button#btn"), "click", () => {
+    //     console.log("I'll fire only once!");
+    // });
+
+</script>
+
+<script id="Event object & mouse event">
+
+    // const handleClick = (event) => {
+    //     console.log(event);
+    // };
+
+    // document.querySelector("button#btn").addEventListener("click", handleClick);
+    // document.querySelector("button#btn").addEventListener("mouseover", handleClick);
+
+    // document.querySelector("button#btn")
+    //     // .addEventListener("click", (event) => {        
+    //     .addEventListener("mouseenter", ({ type, currentTarget }) => {        
+    //         console.log({ type, currentTarget });
+    //     });
+
+    // document.addEventListener("mousemove", (event) => {
+    //     const { clientX: x, clientY: y } = event;
+
+    //     console.log({ x, y });
+    //     document.body.innerText = `(${x}, ${y})`;
+    // });
+
+    // document.addEventListener("mousemove", ({clientX, clientY}) => console.log(clientX, clientY));
+
+</script>
+
+<!-- <button id="red">Red</button>
+<button id="blue">Blue</button> -->
+
+<script id="Mouse tracker example">
+
+    // let color = "red";
+
+    // setInterval(() => {
+    //     color = Math.random() > 0.5 ? "red" : "blue";
+    // }, 5_000);
+
+    // const spawnBox = (x = 0, y = 0, size = 20) => {
+    //     const box = document.createElement("div");
+    //     box.style.width = `${size}px`;
+    //     box.style.height = `${size}px`;
+    //     box.style.backgroundColor = color;
+    //     box.style.position = "absolute";
+    //     box.style.left = x;
+    //     box.style.top = y;
+    //     return box;
+    // };
+
+
+    // /* Tracker */
+    // const tracker = spawnBox();
+    // document.body.append(tracker);
+
+    // document.addEventListener("mousemove", ({ clientX: x, clientY: y }) => {
+    //     tracker.style.left = `${x}px`;
+    //     tracker.style.top = `${y}px`;
+    // });
+
+
+    // /* Paint */
+    // document.addEventListener("mousemove", ({ clientX: x, clientY: y }) => {
+    //     document.body.append(spawnBox(x, y, 5));
+    // });
+
+</script>

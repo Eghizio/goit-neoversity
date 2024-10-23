@@ -1,0 +1,80 @@
+<title>Keyboard Events</title>
+
+<body></body>
+
+<script id="Keyboard events">
+
+    // document.addEventListener("keydown", (event) => {
+    //     console.log("Key pressed", event);
+    // });
+
+    // document.addEventListener("keyup", (event) => {
+    //     console.log("Key released", event);
+    // });
+
+</script>
+
+<script id="Meta keys & shortcuts">
+
+    // document.addEventListener("keydown", ({ key, code, ...remainingEvent }) => {
+    //     console.log({ key, code });
+    //     console.log("Deprecated old property: ", { keyCode: remainingEvent.keyCode })
+    // });
+
+    // document.addEventListener("keydown", ({ code, ctrlKey, altKey, shiftKey, metaKey }) => {
+    //     console.log(code, { ctrlKey, altKey, shiftKey, metaKey });
+    // });
+
+    // document.addEventListener("keydown", ({ code, altKey }) => {
+    //     if (altKey && code === "KeyZ") console.log("Ź");
+    // });
+
+
+    // document.addEventListener("keydown", ({ ctrlKey, altKey, key }) => {
+    //     if (ctrlKey && key.toLowerCase() === "s") {
+    //         alert("Project saved!");
+    //     }
+
+    //     if (altKey && key === "F4") console.log("Won't quit on Mac ;)");
+    // });
+
+</script>
+
+<script id="Moving player">
+
+    // const getVal = (px) => parseInt(px.slice(0, px.length - 2), 10);
+
+    // const createPlayer = (x = 0, y = 0, size = 20) => {
+    //     const box = document.createElement("div");
+    //     box.style.width = `${size}px`;
+    //     box.style.height = `${size}px`;
+    //     box.style.backgroundColor = "red";
+    //     box.style.position = "absolute";
+    //     box.style.left = x;
+    //     box.style.top = y;
+
+    //     return {
+    //         element: box,
+    //         moveLeft:   (dx) => { box.style.left = `${getVal(box.style.left) - dx}px`; },
+    //         moveRight:  (dx) => { box.style.left = `${getVal(box.style.left) + dx}px`; },
+    //         moveUp:     (dy) => { box.style.top = `${getVal(box.style.top) - dy}px`; },
+    //         moveDown:   (dy) => { box.style.top = `${getVal(box.style.top) + dy}px`; },
+    //     };
+    // };
+
+    // const player = createPlayer();
+    // document.body.append(player.element);
+
+    // document.addEventListener("keydown", ({ key, shiftKey }) => {
+    //     const velocity = shiftKey ? 20 : 5;
+
+    //     switch(key.toLowerCase()) {
+    //         case "w": return player.moveUp(velocity);
+    //         case "s": return player.moveDown(velocity);
+    //         case "a": return player.moveLeft(velocity);
+    //         case "d": return player.moveRight(velocity);
+    //         default: return;
+    //     }
+    // });
+
+</script>

@@ -1,0 +1,273 @@
+<title>Form Events</title>
+
+<body>
+    <!-- <form autocomplete="off">
+        <fieldset>
+            <legend>Login form</legend>
+    
+            <label for="login">
+                Login:
+                <input type="text" name="username" id="login">
+            </label>
+    
+            <label for="pwd">
+                Password:
+                <input type="password" name="password" id="pwd">
+            </label>
+    
+            <button type="submit">Submit & Login</button>
+        </fieldset>
+    </form> -->
+    
+    <!-- <fieldset>
+        <legend>Radios</legend>
+        <label for="radio-a">
+            <input type="radio" name="radios" id="radio-a" value="a">
+            First
+        </label>
+        <label for="radio-b">
+            <input type="radio" name="radios" id="radio-b" value="b">
+            Second
+        </label>
+        <label for="radio-c">
+            <input type="radio" name="radios" id="radio-c" value="c">
+            Third
+        </label>
+    </fieldset> -->
+    
+    <!-- <fieldset>
+        <legend>Select</legend>
+
+        <select name="fruits">
+            <option value="fruit-apple">Apple</option>
+            <option value="fruit-berry">Berry</option>
+            <option value="fruit-citrus">Citrus</option>
+        </select>
+    </fieldset> -->
+    
+    <!-- <fieldset>
+        <legend>Text inputs</legend>
+    
+        
+        <input type="text" id="txt">
+        <p id="validation-msg"></p>
+        
+    
+        <textarea id="area"></textarea>
+    </fieldset> -->
+</body>
+
+<script id="Form reset">
+
+    // document.addEventListener("click", () => {
+    //     document.querySelector("form").reset();
+    // });
+
+</script>
+
+<script id="Form submission">
+
+    // const form = document.querySelector("form");
+
+    // form.addEventListener("submit", (event) => {
+    //     console.log("Form submitted!");
+    // });
+
+</script>
+
+<script id="Form default behaviour & elements">
+
+    // const form = document.querySelector("form");
+
+    // form.addEventListener("submit", (event) => {
+    //     event.preventDefault();
+    //     console.log("Form submitted!");
+
+    //     // console.log(event.target.elements);
+
+    //     // console.log(event.target.elements.username);
+    //     // console.log(event.target.elements.password);
+
+    //     // console.log("Username: ", event.target.elements.username.value);
+    //     // console.log("Password: ", event.target.elements.password.value);
+
+    //     const { username: { value: login }, password: { value: pwd } } = event.target.elements;
+
+    //     console.log({ login, pwd });
+    //     // event.target.reset();
+    // });
+
+</script>
+
+<script id="Radio input events">
+
+    // const radios = document.querySelectorAll("input[type='radio']");
+    
+    // radios.forEach(radio => {
+    //     radio.addEventListener("change", (event) => {
+    //         console.log("Changed: ", event.target.value);
+    //     });
+    // });
+
+</script>
+
+<script id="Select input events">
+
+    // const select = document.querySelector("select");
+
+    // select.addEventListener("change", (event) => {
+    //     const value = event.currentTarget.value;
+    //     const index = event.currentTarget.selectedIndex;
+
+    //     console.log(event.currentTarget.options);
+    //     const text = event.currentTarget.options[index].text;
+
+    //     console.log({ value, index, text });
+    // });
+
+</script>
+
+<script id="Input events">
+    
+    // const input = Math.random() > 0.5
+    //     ? document.querySelector("input#txt")
+    //     : document.querySelector("textarea#area");
+    // const input = document.querySelector(Math.random() > 0.5 ? "input#txt" : "textarea#area");
+
+    // const input = document.querySelector("input#txt");
+    // const input = document.querySelector("textarea#area");
+
+
+    // input.addEventListener("change", (event) => {
+    //     console.log("Change: ", event.target.value);
+    // });
+
+
+
+    // let previousValue = input.value;
+    // input.addEventListener("input", (event) => {
+    //     console.log("Input: ", event.target.value);
+        
+    //     const currentChar = event.target.value.slice(previousValue.length);
+    //     previousValue = event.target.value;
+    //     console.log("Char: ", currentChar);
+    // });
+
+    /* Closure - domknięcie */
+    // const logLastCharacter = (element) => {
+    //     let prevValue = element.value;
+
+    //     return (event) => {
+    //         const currentFullValue = event.target.value;
+    //         const lastCharacter = currentFullValue.slice(prevValue.length);
+            
+    //         prevValue = currentFullValue;
+
+    //         console.log("Last character: ", lastCharacter);
+    //     };
+    // };
+
+    // input.addEventListener("input", logLastCharacter(input));
+
+    // const lastCharacterCallback = logLastCharacter(input);
+    // input.addEventListener("input", lastCharacterCallback);
+
+</script>
+
+<!-- <style>
+    input.focused {
+        padding: 1rem;
+        font-weight: bold;
+        background-color: dodgerblue;
+        color: white;
+    }
+</style> -->
+
+<script id="Input focus">
+
+    // const input = document.querySelector("#txt");
+
+    // input.addEventListener("focus", ({ target: { style } }) => {
+    //     console.log("Focused!");
+
+    //     const focusedStyles = {
+    //         backgroundColor: "dodgerblue",
+    //         color: "white",
+    //         fontWeight: "bold",
+    //         padding: "1rem",
+    //     };
+
+    //     Object.assign(style, focusedStyles);
+
+
+
+    //     // style.backgroundColor = "dodgerblue";
+    //     // style.color = "white";
+    //     // style.fontWeight = "bold";
+    //     // style.padding = "1rem";
+    // });
+
+    // input.addEventListener("blur", ({ target: { style } }) => {
+    //     console.log("Blurred...");
+
+    //     const unfocusedStyle = {
+    //         backgroundColor: "white",
+    //         color: "black",
+    //         fontWeight: "normal",
+    //         padding: "0",
+    //     };
+
+    //     Object.assign(style, unfocusedStyle);
+    // });
+
+    // input.addEventListener("focus", (event) => {
+    //     event.target.classList.add("focused");
+    // });
+
+    // input.addEventListener("blur", (event) => {
+    //     event.target.classList.remove("focused");
+    // });
+
+    // setInterval(() => {
+    //     const currentlyFocused = document.activeElement;
+    //     console.log({ currentlyFocused });
+    // }, 2_000);
+    
+</script>
+
+<!-- <style>
+    .invalid {
+        background-color: crimson;
+    }
+</style> -->
+
+<script id="Validation example">
+
+    // const input = document.querySelector("#txt");
+    // const validationMsg = document.querySelector("#validation-msg");
+
+    // const MIN_LENGTH = 3;
+    // const MAX_LENGTH = 16;
+
+    // input.addEventListener("focus", (event) => {
+    //     // validationMsg.textContent = "";
+    //     event.target.classList.remove("invalid");
+    // });
+
+    // input.addEventListener("blur", (event) => {
+    //     validationMsg.textContent = "";
+        
+    //     const len = event.target.value.length;
+        
+    //     if (len < MIN_LENGTH) {
+    //         // console.log("Provided input is too short!");
+    //         validationMsg.textContent = "Provided input is too short!";
+    //         event.target.classList.add("invalid");
+    //     } else if (len > MAX_LENGTH) {
+    //         // console.log("Provided input is too long!");
+    //         validationMsg.textContent = "Provided input is too long!";
+    //         event.target.classList.add("invalid");
+    //     }
+    // });
+
+</script>
