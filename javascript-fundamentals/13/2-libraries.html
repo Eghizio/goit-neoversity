@@ -1,0 +1,115 @@
+<head>
+    <title>Libraries - Third Party Code</title>
+
+    <!-- Script from CDN - Lodash Library -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k=" crossorigin="anonymous"></script>
+
+    <!-- Load plotly.js into the DOM -->
+	<script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
+
+    <!-- Load iziToast CSS and JavaScript -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css" integrity="sha256-f6fW47QDm1m01HIep+UjpCpNwLVkBYKd+fhpb4VQ+gE=" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js" integrity="sha256-321PxS+POvbvWcIVoRZeRmf32q7fTFQJ21bXwTNWREY=" crossorigin="anonymous"></script>
+</head>
+
+<main>
+    <div id="plotly-chart"><!-- Plotly chart will be drawn inside this DIV --></div>
+</main>
+
+
+<script id="Lodash">
+
+    // console.log(_);
+
+    // const numbers = [1, 2, 3, 4];
+
+    // console.log( _.sum(numbers) );
+
+    // console.log( _.shuffle(numbers) );
+    // console.log( _.shuffle(numbers) );
+    // console.log( _.shuffle(numbers) );
+
+    // const cards = ["T10", "TK", "PA", "CQ"];
+
+    // console.log( _.shuffle(cards) );
+    // console.log( _.shuffle(cards) );
+    // console.log( cards );
+
+</script>
+
+<script id="Plotly">
+
+    // const renderSimpleChart = () => {
+    //     const trace1 = {
+    //         x: [1, 2, 3, 4],
+    //         y: [10, 15, 13, 17],
+    //         type: 'scatter'
+    //     };
+
+    //     const trace2 = {
+    //         x: [1, 2, 3, 4],
+    //         y: [16, 5, 11, 9],
+    //         type: 'scatter'
+    //     };
+
+    //     const data = [trace1, trace2];
+
+    //     Plotly.newPlot("plotly-chart", data);
+    // };
+
+    // const renderFunctionChart = (ys) => {
+
+    //     const xs = Array.from({ length: 100 }, (_, i) => i);
+
+    //     Plotly.newPlot("plotly-chart", [{
+    //         x: xs,
+    //         y: ys(xs),
+    //         type: 'scatter',
+    //         name: "Some function"
+    //     }], {
+    //         title: "Visualizing functions with Plotly is simple!",
+    //     });
+    // };
+
+
+
+    // renderSimpleChart();
+
+    // renderFunctionChart(
+    //     (xs) => xs.map(x => Math.pow(x, 2))
+    // );
+
+    // renderFunctionChart(
+    //     (xs) => xs.map(x => x * Math.round(Math.random() * 10))
+    // );
+
+</script>
+
+<script id="iziToast">
+
+    // const title = "Hello there 👋";
+    // const message = "General Kenobi!";
+
+    // setTimeout(() => {
+    //     iziToast.info({ title, message, position: "topRight" });
+
+    //     iziToast.success({ title, message, position: "topLeft" });
+
+    //     iziToast.warning({ title, message, position: "bottomLeft" });
+
+    //     iziToast.question({ title, message, position: "bottomRight" });
+
+    //     iziToast.info({ title, message: "I'm on center", position: "center" });
+    // }, 1_000);
+
+</script>
+
+<script id="basicLightbox">
+
+/*
+    https://basiclightbox.electerious.com/
+    https://github.com/electerious/basicLightbox/
+    https://www.jsdelivr.com/package/npm/basiclightbox?path=dist
+*/
+
+</script>
