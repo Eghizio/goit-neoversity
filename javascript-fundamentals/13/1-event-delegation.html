@@ -1,0 +1,202 @@
+<title>Event Delegation</title>
+
+<style>
+    .boxes {
+        padding: 0.8rem;
+        border: 5px solid crimson;
+        
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .box {
+        --size: 40px;
+        width: var(--size);
+        height: var(--size);
+        box-sizing: border-box;
+
+        cursor: pointer;
+
+        background-color: dodgerblue;
+        color: white;
+        font-weight: bold;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box.special {
+        background-color: gold;
+        border: 5px solid gold;
+    }
+
+    .box:hover {
+        background-color: blueviolet;
+    }
+
+    .interactive {
+        border: 5px solid hotpink;
+    }
+</style>
+
+<body>
+    <form>
+        <input type="number" name="amount" id="amount" placeholder="Amount of boxes" step="1" min="1">
+        <button id="adder" type="submit">Add boxes</button>
+    </form>
+
+    <button id="attacher" type="button">Attach box listeners</button>
+    
+    <main id="boxes" class="boxes"></main>
+</body>
+
+<script id="Setup boxes">
+
+    // const timed = (callback) => {
+    //     const TIMER_LABEL = "Execution time";
+    //     console.time(TIMER_LABEL);
+        
+    //     callback();
+        
+    //     console.timeEnd(TIMER_LABEL);
+    // };
+
+    // (() => {
+    //     const createBox = (id) => {
+    //         const box = document.createElement("div");
+    //         box.id = id;
+    //         box.textContent = id;
+    //         box.classList.add("box");
+
+    //         const SPECIAL_CHANCE = 0.05;
+    //         if (Math.random() <= SPECIAL_CHANCE) {
+    //             box.classList.add("special");
+    //         }
+
+    //         // box.addEventListener("click", () => console.log(`Logging ${id} and adding .interactive class.`));
+
+    //         return box;
+    //     };
+
+    //     /* 766.0791015625 ms */
+    //     /* 947.030029296875 ms + 376.06884765625 ms */
+    //     // const renderBoxes = (amount, root) => root.append(...Array.from({ length: amount }, (_, i) => createBox(root.children.length + i)));
+
+    //     /* 549.260009765625 ms */
+    //     /* 777.159912109375 ms + 362.51904296875 ms */
+    //     const renderBoxes = (amount, root) => {
+    //         const totalBoxes = root.children.length;
+    //         const boxes = Array.from({ length: amount }, (_, i) => createBox(totalBoxes + i));
+            
+    //         const fragment = document.createDocumentFragment();
+    //         fragment.append(...boxes);
+            
+    //         root.appendChild(fragment);
+    //     };
+
+    //     const boxesContainer = document.querySelector("main#boxes");
+
+    //     document.querySelector("form").addEventListener("submit", event => {
+    //         event.preventDefault();
+            
+    //         const amountOfBoxes = event.target.elements.amount.valueAsNumber;
+    //         event.target.reset();
+
+    //         timed(
+    //             () => renderBoxes(amountOfBoxes, boxesContainer)
+    //         );
+    //     });
+    // })();
+
+</script>
+
+<script id="Individual listeners">
+
+    // const boxes = document.querySelectorAll(".box");
+
+    // boxes.forEach(box => {
+    //     box.addEventListener("click", ({ target }) => {
+    //         console.log(target.id);
+    //     });
+
+    //     box.classList.add("interactive");
+    // });
+
+    // console.log("Script evaluated!");
+
+
+
+    // const logEventTargetId = ({ target }) => console.log(target.id);
+
+    // const makeBoxInteractive = (box) => {
+    //     // box.addEventListener("click", ({ target }) => {
+    //     //     console.log(target.id);
+    //     // });
+    //     box.addEventListener("click", logEventTargetId);
+
+    //     box.classList.add("interactive");
+    // }
+
+
+    // document.querySelector("button#attacher").addEventListener("click", () => {
+    //     timed(() => {
+    //         const boxes = document.querySelectorAll(".box");
+
+    //         boxes.forEach(makeBoxInteractive);
+
+    //         // boxes.forEach(box => {
+    //         //     box.addEventListener("click", ({ target }) => {
+    //         //         console.log(target.id);
+    //         //     });
+
+    //         //     box.classList.add("interactive");
+    //         // });
+    //     });
+    // });
+
+</script>
+
+<script id="Event delegation">
+    /* Attacher no longer needed */
+    // document.querySelector("button#attacher").remove();
+
+
+
+    // const boxesContainer = (Math.random() > 0.5) ? document : document.querySelector("main#boxes");
+
+    // timed(() => {
+    //     const boxesContainer = document.querySelector("main#boxes");
+    //     boxesContainer.classList.add("interactive");
+
+    //     boxesContainer.addEventListener("click", ({ target }) => {
+    //         console.log(target);
+            
+    //         if (!target.classList.contains("box")) return;
+            
+    //         console.log(target.id);
+    //     });
+    // });
+
+
+    // timed(() => {
+    //     const boxesContainer = document.querySelector("main#boxes");
+    //     boxesContainer.classList.add("interactive");
+        
+    //     // Handling delegated to parent that checks if the target is eligible for an action.
+    //     boxesContainer.addEventListener("click", ({ target, ...event }) => {
+    //         if (!target.classList.contains("box")) return;
+            
+    //         // event.stopPropagation(); // illegal
+    //         // event.stopImmediatePropagation(); // illegal
+            
+    //         if (target.classList.contains("special")) {
+    //             return console.log("Special: ", target.id);
+    //         }
+            
+    //         console.log(target.id);
+    //     });
+    // });
+
+</script>

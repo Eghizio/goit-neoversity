@@ -1,0 +1,84 @@
+<title>Event Propagation</title>
+
+<style>
+    #first, #second, #third {
+        padding: 2rem;
+        background-color: pink;
+    }
+
+    #second {
+        background-color: crimson;
+    }
+
+    #third {
+        background-color: dodgerblue;
+    }
+</style>
+
+<main id="first">
+    <section id="second">
+        <button id="third">I'm a button!</button>
+    </section>
+</main>
+
+<script id="Targets">
+
+    // document.addEventListener("click", (event) => console.log("Label", event));
+
+    /* Currying + Closure */
+    // function a(label) {
+    //     return function b(event) {
+    //         console.log(label, event);
+    //     }
+    // }
+
+
+    // const logTargets = (label) => (event) => {
+    //     const { target, currentTarget } = event;
+    //     console.log(`[${label}]: `, { target, currentTarget });
+    // };
+
+    // const btnHandler = logTargets("button");
+    // const docHandler = logTargets("document");
+
+    
+    // document.querySelector("button#third")
+    //     .addEventListener("click", logTargets("#third"));
+
+    // document
+    //     .addEventListener("click", logTargets("document"));
+
+    // document.querySelector("section#second")
+    //     .addEventListener("click", logTargets("#second"));
+
+</script>
+
+<script id="Stopping Propagation">
+
+    // const logTargets = (label) => (event) => {
+    //     // event.stopPropagation();
+        
+    //     event.stopImmediatePropagation();
+
+    //     const { target, currentTarget } = event;
+    //     console.log(`[${label}]: `, { target, currentTarget });
+    // };
+
+    // const button = document.querySelector("button#third");
+
+    // button
+    //     .addEventListener("click", (event) => {
+    //         event.stopImmediatePropagation();
+    //         console.log("1. Don't stop me now!");
+    //     });
+
+    // button
+    //     .addEventListener("click", logTargets("#third"));
+
+    // document
+    //     .addEventListener("click", logTargets("document"));
+
+    // button
+    //     .addEventListener("click", () => console.log("2. Don't stop me now!"));
+
+</script>
