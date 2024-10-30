@@ -1,0 +1,181 @@
+<head>
+    <title>Basic Lightbox - Third party library</title>
+    
+    <!-- Basic Lightbox CDN JS script & CSS stylesheet -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js" integrity="sha256-nMn34BfOxpKD0GwV5nZMwdS4e8SI8Ekz+G7dLeGE4XY=" crossorigin="anonymous"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css" integrity="sha256-r7Neol40GubQBzMKAJovEaXbl9FClnADCrIMPljlx3E=" crossorigin="anonymous"> -->
+    
+    <!-- Local static files for Basic Lightbox - downloaded -->
+     <script src="./lightbox/script.js"></script>
+     <link rel="stylesheet" href="./lightbox/style.css">
+</head>
+
+<style>
+    .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .gallery {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .gallery img {
+        width: 250px;
+    }
+
+    article {
+        cursor: pointer;
+        background-color: pink;
+    }
+</style>
+
+<body class="col">
+    <h1>Gallery</h1>
+    <p>Come and see, wonders of our gallery!</p>
+
+    <main id="gallery" class="gallery"></main>
+
+    <template id="modal">
+        <div>
+            <img src="" alt="">
+            <p></p>
+            <button>Close</button>
+        </div>
+    </template>
+</body>
+
+<script id="Unclosable instance">
+
+    // const unclosableInstance = basicLightbox.create(`
+    //     <h1>Nie można zamknąć</h1>
+    //     <p>Nie można zamknąć tego okna modalnego kliknięciem.</p>
+    // `, {
+    //     closable: false
+    // });
+
+    // unclosableInstance.show();
+
+</script>
+
+<script id="Markup">
+
+    // const lightbox = basicLightbox.create(`<h1>Hello there</h1>`, {
+    //     onShow: () => console.log("Opened"),
+    //     onClose: () => console.log("Closed"),
+    // });
+
+    // const btn = document.createElement("button");
+    // btn.textContent = "Show modal";
+
+    // btn.addEventListener("click" , lightbox.show);
+
+    // document.body.append(btn);
+
+</script>
+
+<script id="Gallery">
+
+    // class Gallery {
+    //     #currentImageIndex;
+    //     #images;
+    //     #galleryRoot;
+    //     #modal;
+
+    //     constructor({ images, galleryRoot, modalRoot }) {
+    //         this.#images = images;
+    //         this.#currentImageIndex = null;
+            
+    //         this.#createGallery(galleryRoot);
+    //         this.#modal = this.#createModal(modalRoot);
+    //         this.#mountModal(galleryRoot);
+    //     }
+
+    //     #getCurrentImage() {
+    //         if (this.#currentImageIndex === null) return null;
+    //         return this.#images[this.#currentImageIndex] ?? null;
+    //     }
+
+    //     #createGallery(galleryRoot) {
+    //         const imgs = this.#images.map(this.#createImage);
+
+    //         galleryRoot.append(...imgs);
+    //     }
+
+    //     #createImage({ description, preview, original }, id) {
+    //         const container = document.createElement("article");
+    //         container.id = id;
+            
+    //         const img = document.createElement("img");
+    //         img.src = preview;
+    //         img.alt = description;
+            
+    //         const p = document.createElement("p");
+    //         p.textContent = description;
+
+    //         container.appendChild(img);
+    //         container.appendChild(p);
+    //         return container;
+    //     }
+
+    //     #createModal(modalRoot) {
+    //         const onShow = this.#renderModal.bind(this);
+    //         return basicLightbox.create(modalRoot, { onShow });
+    //     }
+
+    //     #renderModal(lightbox) {
+    //         const currentImage = this.#getCurrentImage();
+    //         if (currentImage === null) return lightbox.close();
+                                
+    //         const modal = lightbox.element();
+                
+    //         const img = modal.querySelector("img");
+    //         img.alt = currentImage.description;
+    //         img.src = currentImage.original;
+
+    //         modal.querySelector("p").textContent = currentImage.description;
+    //         modal.querySelector("button").onclick = lightbox.close;
+    //     }
+
+    //     #mountModal(galleryRoot) {
+    //         if (!this.#modal) return;
+            
+    //         galleryRoot.addEventListener("click", (event) => {
+    //             if (event.target.tagName === "ARTICLE" || event.target.parentNode.tagName === "ARTICLE") {
+    //                 this.#currentImageIndex = event.target.id || event.target.parentNode.id;
+    //                 this.#modal.show();
+    //             }
+    //         });
+
+    //         document.addEventListener("keydown", () => {
+    //             this.#modal.close();
+    //         });
+    //     }
+    // }
+
+    // const images = [
+    //     {
+    //         description: "Hokkaido Flower",
+    //         preview: "./images/orchids_480.jpg",
+    //         original: "./images/orchids_1280.jpg",
+    //     },
+    //     {
+    //         description: "Container Haulage Freight",
+    //         preview: "./images/container_340.jpg",
+    //         original: "./images/container_1280.jpg",
+    //     },
+    // ];
+
+    // const gallery = new Gallery({
+    //     images,
+    //     galleryRoot: document.querySelector("main#gallery"),
+    //     modalRoot: document.querySelector("template#modal"),
+    // });
+
+</script>
