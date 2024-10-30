@@ -1,0 +1,364 @@
+<title>Destructuring</title>
+
+<script id="Array destructuring">
+
+    // const elements = ["one", "two", "foo", "bar", "baz"];
+
+    // const first = elements[0];
+    // const second = elements[1];
+    // const foobars = elements.slice(2);
+
+    // const [first, second, ...foobars] = elements;
+    // console.log({ first, second, foobars });
+
+    // const [...nums, foo, bar, baz] = elements; /* illegal spreading */
+
+    /* Omitting */
+    // const [,, foo, , baz] = elements;
+    // console.log({ foo, baz });
+
+    
+    /* Get even elements */
+    // const sixElements = ["first", "second", "third", "fourth", "fifth", "sixth"];
+
+    // const [,second,,fourth,,sixth] = sixElements;
+    // console.log({ second, fourth, sixth });
+
+</script>
+
+<script id="Object destructuring">
+
+    // const student = {
+    //     name: "Adam",
+    //     email: "surelynotadam@adam.com",
+    //     age: 42,
+    //     password: "adam123",
+    // };
+
+    // console.log(`I'm ${student.name} and I'm ${student.age} years old.`);
+    
+    // const { name, age } = student;
+    // console.log(`I'm ${name} and I'm ${age} years old.`);
+
+</script>
+
+<script id="Non existing properties in destructured object">
+
+    // const dude = {
+    //     nick: "Bruh",
+    //     drip: ["Balenciaga", "Gucci"],
+    // };
+
+    /* Missing property */
+    // const { swag } = dude;
+    // console.log({ swag });
+
+
+    /* Default value */
+    // const { $wag = "Golden Chainzzz" } = dude;
+    // console.log({ $wag });
+
+
+
+    // const oneTwo = ["one", "two"];
+
+    // const [one, two, three = "three"] = oneTwo;
+    // console.log({ one, two, three });
+
+</script>
+
+<script id="Renaming properties while destructuring">
+
+    // const mate = {
+    //     name: "John",
+    //     surname: "Doe",
+    // };
+
+    /* Also adding a default param to non existing property `howOld` while renaming it. */
+    // const { name: firstName, surname: lastName, howOld: age = 42 } = mate;
+
+    // console.log({ name, surname, howOld });
+    // console.log({ firstName, lastName, age });
+
+</script>
+
+<script id="Destructuring nested objects">
+
+    // const student = {
+    //     name: "Beth",
+    //     grades: {
+    //         math: 4,
+    //         bio: 3,
+    //         pe: 5,
+    //         physics: 3,
+    //         it: 6,
+    //     },
+    //     friends: ["Adam", "Cecil", "Dorthy"],
+    // };
+
+    /* Destructured grades, and renaming `it` into `informatics` */
+    // const { name, grades: { math, it: informatics }, friends: [first, ...remaining] } = student;
+    // console.log(`${name}s grades for math and informatics are ${math} & ${informatics}`);
+    // console.log({ first, remaining });
+
+
+
+    // const students = [
+    //     { name: "Adam", age: 42 },
+    //     { name: "Beth", age: 21 },
+    //     { name: "Cecil", age: 69 },
+    // ];
+
+    // const [,, { name: cecilName, age }] = students;
+    // console.log(`${cecilName} is ${age} years old!`);
+
+</script>
+
+<script id="Omiting properties from object via spread">
+
+    // const user = {
+    //     name: "Adam",
+    //     age: 42,
+    //     email: "surelynotadam@adam.com",
+    //     password: "adam123",
+    // };
+
+    // console.log({ user });
+
+    // const { password, ...sanitizedUser } = user;
+    // console.log( password );
+    // console.log({ sanitizedUser });
+
+</script>
+
+<script id="Why omitting like that might bite us back">
+
+    // const anotherUser = {
+    //     name: "Adam",
+    //     age: 42,
+    //     email: "surelynotadam@adam.com",
+    //     password: "adam123",
+    // };
+
+    /* Destructuring in parameter with spread usage */
+    // const sanitizeUser = ({ password, ...sanitizedUser }) => sanitizedUser;
+
+    /* New data model for User */
+    // anotherUser.secret = "this_should_not_be_public";
+
+    // const sanitized = sanitizeUser(anotherUser);
+
+    // console.log({ sanitized });
+
+
+
+    /* When sanitizing/mapping, we should be explicit with: */
+    /* what we want - rather than what we don't want. */
+
+    // const properMapper = (user) => ({
+    //     username: user.name,
+    //     age: user.age,
+    // });
+
+    /* Destructring parameters */
+    // const anotherMapper = ({ name, age }) => ({ username: name, age });
+    // const anotherMapper = ({ name: username, age }) => ({ username, age });
+    
+    // console.log(properMapper(anotherUser), anotherMapper(anotherUser));
+
+</script>
+
+<script id="Destructuring string">
+
+    // const text = "Hello there!";
+
+    // const [a, b, c, d, ...rest] = text;
+
+    // console.log("Welcome to ", a, b, c, d);
+    // console.log({ rest });
+
+    // const [...letters] = "something";
+    // console.log(
+    //     "something".split(""),
+    //     letters,
+    //     [..."something"],
+    //     ..."something"
+    // );
+
+
+    // const reverse = (str) => str.split("").reverse().join("");
+    // const reverse = (str) => [...str].reverse().join("");
+    // console.log(reverse("Ala ma kota"));
+
+</script>
+
+<script id="Reasigning destructured values">
+
+    // const player = {
+    //     nickname: "NotAdam42",
+    //     level: 42,
+    //     friends: ["7orever", "4lone"],
+    // };
+
+    // /* Basic types */
+    // let { level } = player;
+
+    // level = 69;
+
+    // console.log({ player });
+    // console.log({ level });
+
+
+
+    // /* Complex types */
+    // const { friends } = player;
+
+    // friends.push("Autumn");
+
+    // console.log({ player });
+    // console.log({ friends });
+
+
+    // const updatedPlayer = {
+    //     ...player,
+    //     friends: [...player.friends, "Autumn"],
+    // };
+
+    // console.log({ updatedPlayer });
+
+</script>
+
+<script id="Destructuring in the wild - Loops">
+
+    // const users = [
+    //     { name: "Adam", age: 42 },
+    //     { name: "Beth", age: 17 },
+    //     { name: "Cecil", age: 21 },
+    // ];
+
+    // for (const { name, age } of users) {
+    //     console.log(`I'm ${name} and I'm ${age} years old!`);
+    // }
+
+</script>
+
+<script id="Destructuring function arguments">
+
+    // const logFirst = ([first, ..._]) => console.log("First:", first);
+    // const logFirst = ([first]) => console.log("First:", first);
+
+    // logFirst([1, 2, 3, 4]);
+    // logFirst("abc");
+    // logFirst({ username: "Dupa" }); /* illegal */
+    // logFirst([]);
+
+
+
+    // const logPlayersLevel = ({ level }) => console.log("Level:", level);
+
+    // const player = {
+    //     username: "Arthur",
+    //     level: 9001,
+    // };
+
+    // const something = { im: "not", a: [player] };
+
+    // logPlayersLevel(player);
+    // logPlayersLevel(something);
+    // logPlayersLevel("hello");
+    // logPlayersLevel(["level"]);
+
+    
+    
+    // const logLen = ({ length }) => console.log("Length:", length);
+
+    // logLen(player);
+    // logLen("hello");
+    // logLen(["player"]);
+
+</script>
+
+<script id="Joining two objects">
+
+    // const base = {
+    //     username: "Adam",
+    //     age: 42,
+    // };
+
+    // const extension = {
+    //     surname: "Badam",
+    //     hobbies: ["sleeping"],
+    // };
+
+    // const merged = {
+    //     ...base,
+    //     ...extension,
+    // };
+
+    // console.log({ merged });
+
+
+
+    /* Property order */
+    // const student = {
+    //     name: "Adam",
+    //     age: 21,
+    //     gpa: 4.7,
+    // };
+
+    // const override = { gpa: 3.0 };
+
+    // const studentOverride = {
+    //     ...student,
+    //     ...override,
+    // };
+
+    // const studentOverride = {
+    //     ...override,
+    //     ...student,
+    // };
+
+    // console.log({ studentOverride });
+
+
+    // const users = [
+    //     { id: 1, name: "adam", age: 42 },
+    //     { id: 2, name: "beth", age: 21 },
+    //     { id: 3, name: "cecil", age: 36 },
+    // ];
+
+    /* name override */
+    // const updateUser = (user) => ({ ...user, name: user.name[0].toUpperCase() + user.name.slice(1) });
+    // const updateUser = ({ name, ...user }) => ({ ...user, name: name[0].toUpperCase() + name.slice(1) });
+
+    // const updatedUsers = users.map(updateUser);
+
+    // console.log({ updatedUsers });
+
+
+
+    // const usersDatabase = [
+    //     { id: 1, name: "adam", age: 42 },
+    //     { id: 2, name: "beth", age: 21 },
+    //     { id: 3, name: "cecil", age: 36 },
+    // ];
+
+    // const publicMethodToUpdateUser = (user, dataFromUsers) => ({ ...user, ...dataFromUsers });
+    // const publicMethodToUpdateUser = (user, dataFromUsers) => ({ ...user, ...dataFromUsers, id: user.id });
+    // const publicMethodToUpdateUser = (user, dataFromUsers) => ({ ...dataFromUsers, ...user });
+
+
+    // const publicData = {
+    //     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni veritatis, at rem laudantium perferendis commodi qui a eius animi nemo voluptatum. Eos quas repellat illo sit suscipit incidunt quisquam et.", 
+    //     metadata: { a: 1, b: 2, c: 3 },
+    //     // id: 42,
+    //     id: null,
+
+    //     name: "unknown",
+    // };
+
+    // const usersUpdatedWithPublicData = usersDatabase.map(user => publicMethodToUpdateUser(user, publicData));
+
+    // console.log(usersUpdatedWithPublicData);
+
+</script>
