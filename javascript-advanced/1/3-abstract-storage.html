@@ -8,7 +8,7 @@
     // records.set("Beth", 21);
     // records.set("Cecil", 23);
 
-    // console.log("Entries:", Array.from(records.entries()));
+    // console.log("Entries:", Array.from(records.entries()));    
 
     // const adamRec = records.get("Adam");
     // console.log("Adam record:", adamRec);
@@ -19,6 +19,11 @@
     
     // records.delete("Adam");
     // console.log([...records.entries()]);
+
+
+
+    // const recordsObject = Object.fromEntries(records.entries());
+    // console.log(recordsObject);
 
 </script>
 
@@ -51,16 +56,16 @@
     // const item = db.get("obj1");
     // console.log("obj1", typeof item, item);
 
-    // // console.log("Deleting...");
-    // // db.delete("obj1");
-    // // db.clearAll();
+    // console.log("Deleting...");
+    // db.delete("obj1");
+    // db.clearAll();
 
     // const obj1 = db.get("obj1");
     // console.log("obj1", typeof obj1, obj1);
     // const obj2 = db.get("obj2");
     // console.log("obj2", typeof obj2, obj2);
 
-    // // Now we want to use persistent storage instead of in-memory.
+    /* Now we want to use persistent storage instead of in-memory. */
 
 </script>
 
@@ -131,8 +136,8 @@
     // }
 
 
-    // const storage = new Map(); // in memory db.
-    // const storage = new LocalStorageAdapter({ serialized: true, deserialized: true}) // persistent db.
+    // const storage = new Map(); /* in memory db. */
+    // const storage = new LocalStorageAdapter({ serialized: true, deserialized: true }); /* persistent db. */
 
     // const db = new MyStorage(storage);
 
@@ -140,14 +145,14 @@
 
     
     // db.save("obj1", { hehe: "xd" });
-    // db.save("obj2", { abc: "def" }); // we init obj2 here.
+    // db.save("obj2", { abc: "def" }); /* we init obj2 here. */
 
     // const item = db.get("obj1");
     // console.log("obj1", typeof item, item);
 
     // console.log("Deleting...");
     // db.delete("obj1");
-    // // db.clearAll();
+    // db.clearAll();
 
     // const obj1 = db.get("obj1");
     // console.log("obj1", typeof obj1, obj1);
@@ -158,11 +163,17 @@
 
 <script id="Task - Custom Storage">
 
-    // Todo as a task: Implement a CustomStorage class,
-    // that allows to use localStorage/sessionStorage,
-    // depending on the injected Storage to the constructor
-    
+    /*
+    Todo as a task: Implement a CustomStorage class,
+    that allows to use localStorage/sessionStorage,
+    depending on the injected Storage to the constructor
+    */  
+
+    // const customStorage = new Map();
+    // const customStorage = new LocalStorageAdapter({ serialized: true, deserialized: true });
     // const customStorage = new CustomStorage(localStorage);
     // const customStorage = new CustomStorage(sessionStorage);
+
+    // const storage = new MyStorage(customStorage);
 
 </script>

@@ -25,6 +25,16 @@
     // const serializedJson = JSON.stringify(student);
     // console.log(typeof serializedJson, serializedJson);
 
+    // const serializableStudent = {
+    //     ...student,
+    //     toString() {
+    //         return JSON.stringify(this);
+    //     }
+    // };
+
+    // const studentJson = serializableStudent.toString();
+    // console.log(typeof studentJson, studentJson);
+
 </script>
 
 <script id="JSON parsing - deserialization">
@@ -32,12 +42,16 @@
     // const parseAndLog = (serialized) => {
     //     const deserialized = JSON.parse(serialized);
     //     console.log(typeof deserialized, deserialized);
+    //     return deserialized;
     // };
 
-    // // parseAndLog("[3,2,1"); // oops
-    // parseAndLog("[3,2,1]");
+    // // parseAndLog("[3,2,1"); /* Oops */
+    // const arr = parseAndLog("[3,2,1]");
 
-    // parseAndLog(`{ "username": "Kuba" }`);
+    // const obj = parseAndLog(`{ "username": "Kuba" }`);
+
+    // arr.push(obj);
+    // console.log(arr);
 
 </script>
 
@@ -47,6 +61,7 @@
     //     try {
     //         const deserialized = JSON.parse(serialized);
     //         console.log(typeof deserialized, deserialized);
+    //         return deserialized;
     //     } catch (error) {
     //         console.log("Failed to parse data.");
     //         console.log({ error });
@@ -57,45 +72,62 @@
     //     }
     // };
 
-    // // parseAndLogSafely("[3,2,1"); // oops
-    // // parseAndLogSafely("[3,2,1]"); // git gud
+    // parseAndLogSafely("[3,2,1"); /* Oops */
+    // parseAndLogSafely("[3,2,1]"); // git gud
 
 
 
-    // // throw new Error("Some Error"); // uncaught
+    // throw new Error("Some Error"); /* uncaught */
+    // console.log("I will not run.");
 
     // try {
     //     throw new Error("Some Error");
     // } catch (error) {
-    //     console.log(error);
-    //     // throw new Error("Some Error");
-    //     // throw error;
+    //     // console.log(error);
+    //     // throw new Error("Some custom Error");
+
+    //     console.log("Ooopsie.");
+    //     throw error;
     // }
 
     // console.log("This won't run after the unhandled error!");
 
 
+    
 
     // const add = (x, y) => {
     //     if (typeof x !== "number" || typeof y !== "number") {
-    //         throw new Error("Add arguments must be a number");
+    //         throw new Error(`Add arguments must be a number. x=${typeof x}, y=${typeof y}`);
     //     }
     //     return x + y;
     // };
 
-    // // console.log(add(40, "2")); // faulty code
+    // const requireNumber = (value) => {
+    //     const valueType = typeof value;
+    //     if (valueType !== "number") {
+    //         throw new Error(`Value must be a number. Got "${valueType}" of "${value}" instead.`);
+    //     }
+    //     return value;
+    // };
+
+    // const sum = (a, b) => requireNumber(a) + requireNumber(b);
+
+    // console.log(add(40, "2")); /* faulty code */
     // console.log(add(40, 2));
+
+    // console.log(sum(40, "2")); /* faulty code */
+    // console.log(sum(40, 2));
 
 </script>
 
 <script id="Runtime errors vs Syntax/Compile* time errors">
 
-    // // Syntax error
-    // // led smthing = 42; // typo
+    /* Syntax error */
+    // led smthing = 42; /* typo */
     // let smthing = 42;
     // console.log(smthing);
 
-    // // Runtime error
+    /* Runtime error */
     // console.log(JSON.parse("[42"));
 
 </script>

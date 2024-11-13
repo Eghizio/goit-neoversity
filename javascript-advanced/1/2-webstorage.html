@@ -18,7 +18,7 @@
 
 <script id="Getting an Item value from Local Storage">
 
-    // // Refresh Page - persistent storage on this page.
+    /* Refresh Page - persistent storage on this page. */
     // const valueFromLocalStorage = localStorage.getItem("key");
 
     // console.log(typeof valueFromLocalStorage, valueFromLocalStorage);
@@ -34,7 +34,9 @@
     //     type: typeof value
     // });
 
-    // // Arrays
+
+
+    /* Arrays */
     // const arr = [3, 2, 1];
     // localStorage.setItem("array", arr);
     // const storedArr = localStorage.getItem("array");
@@ -44,7 +46,7 @@
 
 
 
-    // // Objects
+    /* Objects */
     // const obj = { a: 42, b: "foo" };
     // localStorage.setItem("object", obj);
     // const storedObj = localStorage.getItem("object");
@@ -76,14 +78,24 @@
     //     { key: "null", value: null },
     //     { key: "Array", value: [3, 2, 1] },
     //     { key: "Object", value: { name: "Adam", age: 42 } },
-    //     // { key: "Function", value: () => console.log("dupa") },
+    //     { key: "Function", value: () => console.log("dupa") },
     // ];
 
     // for (const { key, value } of examples) {
     //     getTypeOfLocalStorageItem(key, value);
     // }
 
-
+    // const deserializeBoolean = (maybeBoolean) => {
+    //     switch(maybeBoolean) {
+    //         case "true": return true;
+    //         case "false": return false;
+    //         default: {
+    //             const message = `Unknown boolean value of "${maybeBoolean}"`;
+    //             console.error(message);
+    //             throw new Error(message);
+    //         }
+    //     }
+    // };
 
     // const storedTypes = examples
     //     .map(({key, value}) => getTypeOfLocalStorageItem(key, value));
@@ -120,37 +132,43 @@
 
     // const KEY = "USER";
 
-    // // Set & Get raw item.
+    // // /* Set & Get raw item. */
     // localStorage.setItem(KEY, user);
     // const localUser = localStorage.getItem(KEY);
     // console.log("Local:", typeof localUser, localUser);
 
 
-    // // Serialize item.
+    // /*  Serialize item. */
     // const serializedUser = JSON.stringify(user);
     // console.log("Serialized:", typeof serializedUser, serializedUser);
 
-    // // Set & Get serialized item.
-    // localStorage.setItem(KEY, serializedUser); // overwrite
-    // const savedUser = localStorage.getItem(KEY);
+    // /* Set & Get serialized item. */
+    // localStorage.setItem(KEY, serializedUser); /* overwrite */
     // console.log("Saved:", typeof localUser, localUser);
     
-    // // Check returned item.
-    // console.log("@username:", savedUser.username); // Ooopsie
+    // /* Check returned item. */
+    // const savedUser = localStorage.getItem(KEY);
+    // console.log("@username:", savedUser.username); /* Ooopsie */
 
-    // // Deserialize (parse) returned item.
+    // /* Deserialize (parse) returned item. */
     // const deserializedSavedUser = JSON.parse(savedUser);
     // console.log("Deserialized:", typeof deserializedSavedUser, deserializedSavedUser);
 
-    // // Check returned item after parsing.
-    // console.log("@username:", deserializedSavedUser.username); // Yaaay
+    // /* Check returned item after parsing. */
+    // console.log("@username:", deserializedSavedUser.username); /* Yaaay */
+
+
+
+    // const localStorageValue = localStorage.getItem(KEY);
+    // const parsedValue = JSON.parse(localStorageValue);
+    // console.log(typeof parsedValue, parsedValue);
 
 </script>
 
 <script id="Check `Application` tab in Dev Tools - removing items">
-    // Kinda messy in there - let's clean up!
+    /* Kinda messy in there - let's clean up! */
 
-    // Show all keys (of all stored items)
+    /* Show all keys (of all stored items) */
     // for (let index=0; index<localStorage.length; index++) {
     //     const key = localStorage.key(index);
     //     console.log(key);
@@ -158,7 +176,7 @@
     // }
 
 
-    // // Remove items by key.
+    /* Remove items by key. */
     // for (let index=0; index<localStorage.length; index++) {
     //     const key = localStorage.key(index);
         
@@ -206,6 +224,8 @@
     // const items = [
     //     { key: "arr", serializedValue: "[3, 2, 1" },
     //     { key: "obj", serializedValue: "{ age: 42" },
+    //     // { key: "arr", serializedValue: "[3, 2, 1]" },
+    //     // { key: "obj", serializedValue: `{ "age": 42 }` },
     // ];
 
     // items.forEach(item => {
@@ -215,7 +235,7 @@
     // const keys = items.map(i => i.key);
     // const deserializedValues = keys
     //     .map(k => localStorage.getItem(k))
-    //     .map(serializedValue => JSON.parse(serializedValue)); // error
+    //     .map(serializedValue => JSON.parse(serializedValue)); /* error */
 
     // console.log({ deserializedValues });
 
@@ -238,11 +258,11 @@
 
 
 
-    // // Using one map.
+    /* Using one map. */
     // const safelyParsedValues = items.map(item => {
     //     const serializedValue = localStorage.getItem(item.key);
     //     try {
-    //         const deserialized = JSON.parse(serializedValue); // this action might fail (throw an Error)
+    //         const deserialized = JSON.parse(serializedValue); /* this action might fail (throw an Error) */
     //         return deserialized;
     //     } catch(error) {
     //         console.log("Failed to parse. Returning default.");
@@ -261,16 +281,152 @@
     //     } catch(error) {
     //         console.log("Failed to parse. Returning default.");
     //     } finally {
-    //         return "DEFAULT VALUE";
+    //         return "DEFAULT VALUE"; /* There is a catch ;) All values will be set to default. */
     //     }
     // });
+
     // console.log({ parsedValues });
+
+
+    // const saveValueToStorage = (key, value) => {
+    //     const serialized = JSON.stringify(value);
+    //     localStorage.setItem(key, serialized);
+    // };
+
+    // const getValueFromStorage = (key, defaultValue) => {
+    //     try {
+    //         const maybeValue = localStorage.getItem(key);
+    //         if (maybeValue !== null) {
+    //             return JSON.parse(maybeValue);
+    //         } else {
+    //             throw Error("No value found for our key!");
+    //         }
+    //     } catch(error) {
+    //         console.error(error);
+    //         console.log("Using default value.");
+    //         saveValueToStorage(key, defaultValue);
+    //         return defaultValue;
+    //     }
+    // };
+
+    // const obj = { username: "Adam", age: 42 };
+
+    // const value = getValueFromStorage("adam", obj);
+    
+    
+    // obj.money = 9001;
+    // console.log(value, obj);
+    // saveValueToStorage("adam", obj);
+    
+    // const updatedValue = getValueFromStorage("adam");
+    // console.log(updatedValue);
+
+</script>
+
+<style>
+    /* .product {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .product.favourite {
+        color: gold;
+    }
+
+    .product:hover {
+        color: limegreen;
+    }
+
+    .product.favourite:hover {
+        color: crimson;
+    } */
+</style>
+
+<body>
+    <!-- <h1>Shop</h1> -->
+</body>
+
+<script id="Shop example">
+
+    /* Ids of our fav products. */
+    // const favouriteProducts = new Set([
+    //     "85a92d1d0-ee31-4a02-bd9e-785b2777fdf5",
+    //     "10a40d209-f5a7-4e15-92b8-d7610608bc7c"
+    // ]);
+
+    // const LOCAL_STORAGE_KEY = "favourite-products";
+
+    // const retrieveFavouriteProducts = (key = LOCAL_STORAGE_KEY) => {
+    //     const serialized = localStorage.getItem(key);
+    //     if (serialized === null) return new Set([]);
+
+    //     try {
+    //         const arr = JSON.parse(serialized);
+    //         return new Set(arr);
+    //     } catch(error) {
+    //         return new Set([]);
+    //     }
+    // };
+
+    // const persistentFavouriteProducts = retrieveFavouriteProducts(LOCAL_STORAGE_KEY);
+
+    // const persistFavouriteProducts = (favouriteProducts = persistentFavouriteProducts, key = LOCAL_STORAGE_KEY) => {
+    //     const arr = [...favouriteProducts]; /* Convert Set to Array */
+    //     const serialized = JSON.stringify(arr);
+    //     localStorage.setItem(key, serialized);
+    // };
+
+    // const favouriteProducts = persistentFavouriteProducts;
+
+    // const shop = [
+    //     { "id":"67d9945c5-21bc-4e73-8c5b-4c814a98f1a0", "name":"Lamp" },
+    //     { "id":"7bb409116-ecf5-4901-80b7-ec82f946b89f", "name":"Monitor" },
+    //     { "id":"85a92d1d0-ee31-4a02-bd9e-785b2777fdf5", "name":"Apple" },
+    //     { "id":"9d91bc3cd-b48c-4c2e-be67-ed7e4e4cea7e", "name":"Table" },
+    //     { "id":"10a40d209-f5a7-4e15-92b8-d7610608bc7c", "name":"Coffee" }
+    // ];
+
+    // const productCards = shop.map(product => {
+    //     const li = document.createElement("li");
+    //     li.textContent = product.name;
+
+    //     li.classList.add("product");
+    //     if (favouriteProducts.has(product.id)) {
+    //         li.classList.add("favourite");
+    //     }
+
+    //     li.id = product.id;
+
+    //     li.addEventListener("click", (event) => {
+    //         const element = event.currentTarget;
+    //         const id = element.id;
+
+    //         if (favouriteProducts.has(id)) {
+    //             element.classList.remove("favourite");
+    //             favouriteProducts.delete(id);
+    //         } else {
+    //             element.classList.add("favourite");
+    //             favouriteProducts.add(id);
+    //         }
+
+    //         persistFavouriteProducts(favouriteProducts);
+    //     });
+
+    //     return li;
+    // });
+
+    // const ol = document.createElement("ol");
+    // ol.append(...productCards);
+
+    // document.body.append(ol);
 
 </script>
 
 <script id="Session Storage">
 
-    // Session Storage
-    // window.sessionStorage
+    /* Session Storage */
+    // window.sessionStorage.setItem("username", "Kuba");
+    /* Refresh Page */
+    /* Close Tab and Reopen */
 
 </script>

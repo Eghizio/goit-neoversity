@@ -28,15 +28,15 @@
 
 <script id="Cookies">
 
-    // // Show cookies
+    // /* Show cookies */
     // console.log(document.cookie);
 
-    // // Add cookie
+    // /* Add cookie */
     // const cookieValue = "username=John Doe;";
     // document.cookie = cookieValue;
     // console.log(document.cookie);
 
-    // // Removing cookie (expiry to past date)
+    // /* Removing cookie (expiry to past date) */
     // document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
     // console.log(document.cookie);
 
@@ -44,39 +44,39 @@
 
 <script id="Interactive cookie tool">
 
-    // class Cookie {
-    //     static set(key, value) {
-    //         Cookie.expire(key);
+    class Cookie {
+        static set(key, value) {
+            Cookie.expire(key);
 
-    //         const cookie = `${key}=${value};`;
-    //         document.cookie = document.cookie + cookie;
-    //     }
+            const cookie = `${key}=${value};`;
+            document.cookie = document.cookie + cookie;
+        }
 
-    //     static get(key) {
-    //         console.log(document.cookie);
-    //     }
+        static get(key) {
+            console.log(document.cookie);
+        }
 
-    //     static expire(key) {
-    //         document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
-    //     }
-    // }
+        static expire(key) {
+            document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
+        }
+    }
 
-    // document.querySelector("form").addEventListener("submit", ({ target, submitter }) => {
-    //     event.preventDefault();
+    document.querySelector("form").addEventListener("submit", ({ target, submitter }) => {
+        event.preventDefault();
 
-    //     const key = event.target.elements["cookie-name"].value;
-    //     const value = event.target.elements["cookie-value"].value;
+        const key = event.target.elements["cookie-name"].value;
+        const value = event.target.elements["cookie-value"].value;
         
-    //     const actionType = submitter.dataset["cookie"];
+        const actionType = submitter.dataset["cookie"];
         
-    //     console.log("\n", { target, submitter, key, value, actionType });
+        console.log("\n", { target, submitter, key, value, actionType });
         
-    //     switch(actionType) {
-    //         case "set": return Cookie.set(key, value);
-    //         case "expire": return Cookie.expire(key);
-    //         case "get": return Cookie.get(key);
-    //         default: return console.log("Unknown submitter.");
-    //     }
-    // });
+        switch(actionType) {
+            case "set": return Cookie.set(key, value);
+            case "expire": return Cookie.expire(key);
+            case "get": return Cookie.get(key);
+            default: return console.log("Unknown submitter.");
+        }
+    });
 
 </script>
