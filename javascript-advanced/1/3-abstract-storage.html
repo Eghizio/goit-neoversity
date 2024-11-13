@@ -1,0 +1,179 @@
+<title>Abstracting storage</title>
+
+<script id="Hash Map structure">
+
+    // const records = new Map();
+    
+    // records.set("Adam", 42);
+    // records.set("Beth", 21);
+    // records.set("Cecil", 23);
+
+    // console.log("Entries:", Array.from(records.entries()));    
+
+    // const adamRec = records.get("Adam");
+    // console.log("Adam record:", adamRec);
+
+    // console.log("Non existing entry:", records.get("non-existing-entry"));
+    
+    // console.log("Is in records?", records.has("Adam"), records.has("adam"));
+    
+    // records.delete("Adam");
+    // console.log([...records.entries()]);
+
+
+
+    // const recordsObject = Object.fromEntries(records.entries());
+    // console.log(recordsObject);
+
+</script>
+
+<script id="Abstract Storage - issue">
+
+    // class MyInMemoryDatabase {
+    //     #map = new Map();
+
+    //     save(key, value) {
+    //         this.#map.set(key, value);
+    //     }
+
+    //     get(key, defaultValue = null) {
+    //         return this.#map.get(key) ?? defaultValue;
+    //     }
+
+    //     delete(key) {
+    //         this.#map.delete(key);
+    //     }
+
+    //     clearAll() {
+    //         this.#map.clear();
+    //     }
+    // }
+
+    // const db = new MyInMemoryDatabase();
+    // db.save("obj1", { hehe: "xd" });
+    // db.save("obj2", { abc: "def" });
+
+    // const item = db.get("obj1");
+    // console.log("obj1", typeof item, item);
+
+    // console.log("Deleting...");
+    // db.delete("obj1");
+    // db.clearAll();
+
+    // const obj1 = db.get("obj1");
+    // console.log("obj1", typeof obj1, obj1);
+    // const obj2 = db.get("obj2");
+    // console.log("obj2", typeof obj2, obj2);
+
+    /* Now we want to use persistent storage instead of in-memory. */
+
+</script>
+
+<script id="Injecting storage - replacable">
+
+    // class MyStorage {
+    //     #storage;
+
+    //     constructor(storage) {
+    //         this.#storage = storage;
+    //     }
+
+    //     save(key, value) {
+    //         this.#storage.set(key, value);
+    //     }
+
+    //     get(key, defaultValue = null) {
+    //         return this.#storage.get(key) ?? defaultValue;
+    //     }
+
+    //     delete(key) {
+    //         this.#storage.delete(key);
+    //     }
+
+    //     clearAll() {
+    //         this.#storage.clear();
+    //     }
+    // }
+
+    // class LocalStorageAdapter {
+    //     #serialized;
+    //     #deserialized;
+
+    //     constructor(options) {
+    //         this.#serialized = options?.serialized ?? false;
+    //         this.#deserialized = options?.deserialized ?? false;
+    //     }
+
+    //     // save(key, value) { // bad interface
+    //     set(key, value) {
+    //         localStorage.setItem(key, this.#serialize(value));
+    //     }
+
+    //     get(key, defaultValue = null) {
+    //         return this.#deserialize(localStorage.getItem(key)) ?? defaultValue;
+    //     }
+
+    //     delete(key) {
+    //         localStorage.removeItem(key);
+    //     }
+
+    //     // clearAll() { // bad interface
+    //     clear() {
+    //         localStorage.clear();
+    //     }
+
+    //     #serialize(value) {
+    //         return this.#serialized
+    //             ? JSON.stringify(value)
+    //             : value;
+    //     }
+
+    //     #deserialize(value) {
+    //         return this.#deserialized
+    //             ? JSON.parse(value)
+    //             : value;
+    //     }
+    // }
+
+
+    // const storage = new Map(); /* in memory db. */
+    // const storage = new LocalStorageAdapter({ serialized: true, deserialized: true }); /* persistent db. */
+
+    // const db = new MyStorage(storage);
+
+    // console.log("Initial obj2:", db.get("obj2"));
+
+    
+    // db.save("obj1", { hehe: "xd" });
+    // db.save("obj2", { abc: "def" }); /* we init obj2 here. */
+
+    // const item = db.get("obj1");
+    // console.log("obj1", typeof item, item);
+
+    // console.log("Deleting...");
+    // db.delete("obj1");
+    // db.clearAll();
+
+    // const obj1 = db.get("obj1");
+    // console.log("obj1", typeof obj1, obj1);
+    // const obj2 = db.get("obj2");
+    // console.log("obj2", typeof obj2, obj2);
+
+</script>
+
+<script id="Task - Custom Storage">
+
+    /*
+    Todo as a task: Implement a CustomStorage class,
+    that allows to use localStorage/sessionStorage,
+    depending on the injected Storage to the constructor
+    */  
+
+    // const customStorage = new Map();
+    // const customStorage = new LocalStorageAdapter({ serialized: true, deserialized: true });
+    // const customStorage = new CustomStorage(localStorage);
+    // const customStorage = new CustomStorage(sessionStorage);
+
+    // const storage = new MyStorage(customStorage);
+
+</script>
