@@ -1,0 +1,12 @@
+{
+    "here": "is",
+    "some": ["data"],
+    "something": true,
+    "nothing": null,
+    "score": 42.5,
+    "map": {
+        "a": 1,
+        "b": 2,
+        "c": 3
+    }
+}
