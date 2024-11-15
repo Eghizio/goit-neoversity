@@ -7,8 +7,12 @@
 //     CustomRandom,
 // };
 
-// export { default as CustomMath } from "./math.js";
-// export { default as CustomRandom } from "./random.js";
+
+
+export { default as CustomMath } from "./math.js";
+export { default as CustomRandom } from "./random.js";
+
+
 
 // import { add, divide, multiply, remainder, substract } from "./math.js";
 // import { random } from "./random.js";

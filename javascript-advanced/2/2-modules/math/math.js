@@ -19,4 +19,5 @@ export default {
     multiply: (a, b) => a * b,
     divide: (a, b) => a / b,
     remainder: (a, b) => a % b,
+    // sum: add,
 };

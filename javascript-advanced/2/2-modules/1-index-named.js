@@ -1,4 +1,4 @@
-// named export
+/* Named export */
 // export function grantRankOfMaster(name) {
 //     return `Master ${name}`;
 // }
@@ -10,3 +10,9 @@
 // const jedis = ["Yoda", "Luke", "Ahsoka"];
 
 // export const jedisJSON = JSON.stringify(jedis);
+
+// export class Jedi {
+//     constructor(name) {
+//         console.log(`May the force be with you, ${name}.`);
+//     }
+// }
