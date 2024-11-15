@@ -1,0 +1,18 @@
+{
+  "name": "0-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dupa": "echo 'dupadupa'",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "vite": "^5.3.1"
+  }
+}
