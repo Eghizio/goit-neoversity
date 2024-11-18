@@ -1,0 +1,223 @@
+<title>Date & Time</title>
+
+<style>
+
+    .timer {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+</style>
+
+<main>
+    <!-- <div class="timer">
+        <span id="hours">00</span>:
+        <span id="minutes">00</span>:
+        <span id="seconds">00</span>:
+        <span id="miliseconds">000</span>
+    </div> -->
+</main>
+
+<script id="Date class">
+
+    // const d = new Date();
+
+    // console.log(d);
+
+    // setTimeout(() => {
+    //     console.log("After 5 seconds:", d);
+    // }, 5_000);
+
+    // const user = {
+    //     username: "Adam",
+    //     lastLogin: d,
+    // };
+
+
+
+    // const date = d.getDate();
+    // const fullYear = d.getFullYear();
+    // const month = d.getMonth();
+    // const hours = d.getHours();
+
+    // console.log({ date, fullYear, month, hours });
+
+</script>
+
+<script id="Date constructor">
+  
+    // console.log(new Date("2024-03-16T21:36:00"));
+
+
+
+    // console.log(new Date("2029"));
+    // console.log(new Date("2029-10"));
+    // console.log(new Date("2029-10-02"));
+    // console.log(new Date("2029-10-02T16:20:00"));
+
+
+
+    // const date = new Date(2029, 10, 2, 16, 20, 0, 1);
+    // console.log(date);
+
+
+
+    // console.log(new Date(2024));
+
+</script>
+
+<script id="Unix timestamp">
+
+    // console.log(new Date(0));
+
+
+    // console.log(new Date(16_000));
+
+
+    // const date = new Date();
+    // console.log(date.getTime());
+
+    // const ms = 1_731_958_735_755;
+    // const sec = ms / 1_000;
+    // const min = sec / 60;
+    // const hours = min / 60;
+    // const days = hours / 24;
+    // const weeks = days / 7;
+    // const years = weeks / 52;
+
+    // console.log("Years since:", years);
+
+
+
+    // setTimeout(() => {
+    //     const date2 = new Date();
+    //     console.log(date2.getTime());
+
+    //     console.log("Diff: ", date2.getTime() - date.getTime())
+    // }, 1_000);
+
+</script>
+
+<script id="Measuring time & Date now">
+
+    // const startTime = new Date().getTime();
+
+    // for (let i = 0; i <= 123_000; i += 1) {
+    //     console.log(i);
+    // }
+
+    // const endTime = Date.now();
+
+    // const diff = endTime - startTime;
+
+    // console.log(`Elapsed time: ${diff} ms`);
+
+
+
+    // const timed = (callback) => {
+    //     /* Performance API: performance.now() */
+    //     const startTime = new Date().getTime();
+    //     callback();
+    //     const endTime = Date.now();
+
+    //     const diff = endTime - startTime;
+    //     console.log(`Elapsed time: ${diff} ms`);
+    // };
+
+    // const doSomething = () => {
+    //     console.log("Hehe xd");
+    //     console.log("Hello there!");
+    //     for (let i=0; i<1_000; i++) {
+    //         console.log("");
+    //     }
+    // };
+
+    // // timed(doSomething);
+    // timed(() => doSomething("someArguments"));
+
+</script>
+
+<script id="Date getter methods">
+
+    // const date = new Date("October 2, 2024 16:20:00");
+    // console.log("Date: ", date);
+
+    // console.log("Day: ", date.getDate());
+
+    // console.log("Day of the week: ", date.getDay());
+
+    // console.log("Month: ", date.getMonth());
+
+    // console.log("Full year: ", date.getFullYear());
+
+    // console.log("Hours: ", date.getHours());
+
+    // console.log("Minutes: ", date.getMinutes());
+
+    // console.log("Seconds: ", date.getSeconds());
+
+    // console.log("Milliseconds: ", date.getMilliseconds());
+
+
+
+    // console.log(date.toISOString());
+
+    // console.log(date.getTimezoneOffset());
+
+    // console.log(date.toDateString());
+    
+    // console.log(date.toLocaleTimeString());
+    
+    // console.log(date.toLocaleString());
+
+</script>
+
+<script id="Date setter methods">
+
+    // const date = new Date("October 2, 2024 16:20:00");
+
+    // date.setMinutes(50);
+    // console.log(date);
+
+    // date.setFullYear(2040);
+    // console.log(date);
+
+    // date.setMonth(4);
+    // console.log(date);
+
+</script>
+
+<script id="Timer">
+
+    // // const hoursDisplay = document.querySelector("span#hours");
+    // // const minutesDisplay = document.querySelector("span#minutes");
+    // // const secondsDisplay = document.querySelector("span#seconds");
+    // // const milisecondsDisplay = document.querySelector("span#miliseconds");
+
+    // const [
+    //     hoursDisplay,
+    //     minutesDisplay,
+    //     secondsDisplay,
+    //     milisecondsDisplay,
+    // ] = document.querySelectorAll("div.timer span");
+
+    // const formatTime = (time, length = 2) => time.toString().padStart(length, "0");
+
+    // setInterval(() => {
+    //     const d = new Date();
+
+    //     const hours = d.getHours();
+    //     const min = d.getMinutes();
+    //     const sec = d.getSeconds();
+    //     const ms = d.getMilliseconds();
+
+    //     hoursDisplay.textContent = formatTime(hours);
+    //     minutesDisplay.textContent = formatTime(min);
+    //     secondsDisplay.textContent = formatTime(sec);
+    //     milisecondsDisplay.textContent = formatTime(ms, 3);
+    // }, 0);
+
+</script>
