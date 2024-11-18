@@ -40,6 +40,14 @@
         filter: brightness(0.8);
     }
 
+    .center {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
 </style>
 
 <main>
@@ -47,15 +55,15 @@
         <h1>Rockets <span id="countdown"></span></h1>
         <button id="start">🚀 LAUNCH!</button>
         <button id="stop" style="color:red">❌ ABORT!</button>
-    </section>
+    </section> -->
 
-    <section id="count"></section>
+    <!-- <section id="count" class="center"></section> -->
 
-    <section id="clock"></section> -->
+    <!-- <section id="clock" class="center"></section> -->
 </main>
 
 <script id="Sync">
-
+ 
     // console.log("First");
     // console.log("Second");
     // console.log("Third");
@@ -69,7 +77,7 @@
 
     // setTimeout(() => {
     //     console.log("Second");
-    // }, 5000);
+    // }, 5_000);
 
     // console.log("Third");
     // console.log("Fourth");
@@ -91,7 +99,7 @@
 
 <script id="Set Timeout function">
 
-    // const delay = 5_000; // 5s
+    // const FIVE_SECONDS = 5_000; /* delay */
     
     
     
@@ -104,7 +112,7 @@
     //     document.body.backgroundColor = "red";
 
     //     console.log("Finish");
-    // }, delay);
+    // }, FIVE_SECONDS);
 
     // console.log("Hello there");
     
@@ -118,6 +126,17 @@
 
     // console.log(`Aborting launch #${timeoutOne}`);
     // clearTimeout(timeoutOne);
+
+
+
+    // const timeoutTwo = setTimeout(() => {
+    //     console.log("Liftoff!");
+    // }, 10_000);
+
+    // setTimeout(() => {
+    //     console.log(`Aborting liftoff #${timeoutTwo}...`);
+    //     clearTimeout(timeoutTwo);
+    // }, Math.random() * 15_000);
 
 </script>
 
@@ -174,14 +193,19 @@
 
     // setTimeout(() => {
     //     countElement.textContent = count++;
+    //     console.log("First timeout");
     // }, rnd());
 
     // setTimeout(() => {
     //     countElement.textContent = count++;
+    //     console.log("Second timeout");
     // }, rnd());
+
+
 
     // const runMultipleParalelTimeouts = (amount) => {
     //     for(let i=0; i<amount; i++) {
+    //         // const delay = 3_000;
     //         const delay = rnd();
 
     //         console.log(`Running timeout with delay: ${delay}`);
@@ -192,11 +216,14 @@
     //     }
     // };
 
+    // // runMultipleParalelTimeouts(10);
+    // runMultipleParalelTimeouts(1337);
+
+
+
     // // setTimeout(() => {
     // //     alert(count);
     // // }, rnd());
-
-    // runMultipleParalelTimeouts(1337);
 
 </script>
 
@@ -224,10 +251,15 @@
 
     // const createCountdown = (countdown = 10) => () => {
     //     console.log(countdown--);
-    //     if (countdown <=0) clearInterval(interval);
+    //     if (countdown <= 0) clearInterval(interval);
     // };
 
-    // const interval = setInterval(createCountdown(12), 1_000);
+    // // const interval = setInterval(createCountdown(12), 1_000);
+
+    // const countdownFromTen = createCountdown(10);
+    // const interval = setInterval(countdownFromTen, 1_000);
+
+    // const rougeInterval = setInterval(countdownFromTen, 1_000);
 
 </script>
 
@@ -236,12 +268,23 @@
     // const logTime = () => {
     //     const subscription = setInterval(() => {
     //         console.log(new Date().toLocaleString());
-    //     });
+    //     }, 1_000);
 
     //     return () => clearInterval(subscription);
     // };
 
     // const unsubscribe = logTime();
+
+    // // unsubscribe();
+
+
+
+    // const subscribe = (callback, delay = 1_000) => {
+    //     const subscription = setInterval(callback, delay);
+    //     return () => clearInterval(subscription);
+    // }; 
+
+    // const unsubscribe = subscribe(() => console.log(Math.round(Math.random() * 100)), 2_000);
 
     // // unsubscribe();
 

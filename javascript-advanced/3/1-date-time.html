@@ -17,7 +17,7 @@
         <span id="hours">00</span>:
         <span id="minutes">00</span>:
         <span id="seconds">00</span>:
-        <span id="miliseconds">00</span>
+        <span id="miliseconds">000</span>
     </div> -->
 </main>
 
@@ -80,7 +80,7 @@
     // const date = new Date();
     // console.log(date.getTime());
 
-    // const ms = 1_719_859_695_539;
+    // const ms = 1_731_958_735_755;
     // const sec = ms / 1_000;
     // const min = sec / 60;
     // const hours = min / 60;
@@ -95,6 +95,8 @@
     // setTimeout(() => {
     //     const date2 = new Date();
     //     console.log(date2.getTime());
+
+    //     console.log("Diff: ", date2.getTime() - date.getTime())
     // }, 1_000);
 
 </script>
@@ -116,6 +118,7 @@
 
 
     // const timed = (callback) => {
+    //     /* Performance API: performance.now() */
     //     const startTime = new Date().getTime();
     //     callback();
     //     const endTime = Date.now();
@@ -132,7 +135,7 @@
     //     }
     // };
 
-    // timed(doSomething);
+    // // timed(doSomething);
     // timed(() => doSomething("someArguments"));
 
 </script>
@@ -167,6 +170,8 @@
     // console.log(date.toDateString());
     
     // console.log(date.toLocaleTimeString());
+    
+    // console.log(date.toLocaleString());
 
 </script>
 
@@ -187,10 +192,17 @@
 
 <script id="Timer">
 
-    // const hoursDisplay = document.querySelector("span#hours");
-    // const minutesDisplay = document.querySelector("span#minutes");
-    // const secondsDisplay = document.querySelector("span#seconds");
-    // const milisecondsDisplay = document.querySelector("span#miliseconds");
+    // // const hoursDisplay = document.querySelector("span#hours");
+    // // const minutesDisplay = document.querySelector("span#minutes");
+    // // const secondsDisplay = document.querySelector("span#seconds");
+    // // const milisecondsDisplay = document.querySelector("span#miliseconds");
+
+    // const [
+    //     hoursDisplay,
+    //     minutesDisplay,
+    //     secondsDisplay,
+    //     milisecondsDisplay,
+    // ] = document.querySelectorAll("div.timer span");
 
     // const formatTime = (time, length = 2) => time.toString().padStart(length, "0");
 
