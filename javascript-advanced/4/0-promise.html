@@ -1,0 +1,261 @@
+<title>Promise</title>
+
+<script id="Some promise setup">
+
+    const createSomePromise = (willResolve = undefined) => {
+
+        return new Promise((resolve, reject) => {
+            const isSuccess = willResolve ?? Math.random() >= 0.5;
+
+            setTimeout(() => {
+                if (isSuccess) {
+                    resolve(42);
+                } else {
+                    reject("Failure :(");
+                }
+            }, 2_000);
+        });
+        
+    };
+
+    // console.log( createSomePromise(true) );
+    // console.log( createSomePromise(false) );
+    // console.log( createSomePromise() );
+
+</script>
+
+<script id="Promise - Pending, Resolved, Rejected & Settled.">
+
+    // const somePromise = new Promise((resolve, reject) => {
+    //     // const isSuccess = false;
+    //     // const isSuccess = true;
+    //     const isSuccess = Math.random() >= 0.5;
+
+    //     setTimeout(() => {
+    //         if (isSuccess) {
+    //             resolve("Great succcess!");
+    //             // resolve(42);
+    //         } else {
+    //             reject("Failure :(");
+    //         }
+    //     }, 7_000);
+    // });
+
+
+
+    // console.log(somePromise);
+
+    // setTimeout(() => {
+    //     console.log(somePromise);
+    // }, 8_000);
+
+
+
+    // somePromise.substring(0, 5); // string or number?
+
+    // setTimeout(() => {
+    //     console.log(somePromise.substring(0, 5)); // error
+    // }, 9_000);
+
+
+
+    // console.log(somePromise);
+
+    // setTimeout(() => {
+    //     console.log(somePromise);
+    //     console.log(somePromise.value); /* nope */
+
+    //     const result = somePromise[["PromiseResult"]];
+    //     console.log(result); /* nope as well */
+    // }, 8_000);
+
+</script>
+
+<script id="Then callback - getting value">
+
+    // let value;
+    // let value = null;
+
+    // const abc = createSomePromise().then((promisedValue) => {
+    //     console.log("then:", promisedValue);
+    //     value = promisedValue;
+    // });
+
+    // console.log("abc:", abc);
+    // console.log("value:", value); /* no value yet. */
+
+    /* Big NO NO! */
+    // while (value === null) {
+    //     console.log("Wating...");
+    // }
+    // console.log("We got value:", value);
+
+
+
+    // setTimeout(() => {
+    //     console.log("value:", value);
+    //     console.log(value + 2);
+    // }, 3_000);
+
+</script>
+
+<script id="Then - promise chaining & Async context">
+
+    // const promise1 = createSomePromise(true).then(promisedValue => {
+    //     const doubled = promisedValue * 2;
+    //     const tripled = doubled * 3;
+    //     const result = tripled / 4;
+        
+    //     console.log("[1] Result:", result);
+        
+    //     return result;
+    // });
+
+
+
+    // const calculateResult = (value) => value * 2 * 3 / 4;
+
+    // const promise2 = createSomePromise(true)
+    //     .then(calculateResult)
+    //     .then(result => console.log("[2] Result:", result));
+
+
+    // createSomePromise(true).then(calculateResult).then(console.log);
+
+
+    // const logThrough = (value) => {
+    //     console.log(value);
+    //     return value;
+    // }
+    
+    // const promiseOne = createSomePromise(true)
+    //     .then((resolvedValue) => resolvedValue * 2)
+    //     .then((doubled) => doubled * 3)
+    //     .then(number => {
+    //         number = number / 4;
+    //         console.log(number);
+
+    //         return number;
+    //     })
+    //     // .then(result => console.log("Result:", result))
+    //     // .then(logThrough)
+    //     // .then(result => console.log("Result:", result));
+
+    // promiseOne.then(result => console.log("Result:", result));
+
+
+</script>
+
+<script id="Catch callback - handling errors">
+
+    // createSomePromise()
+    //     .then(console.log)
+    //     .catch(console.error);
+
+
+
+    // createSomePromise(false)
+    //     .then((resolvedValue) => console.log("Success:", resolvedValue));
+        /* no error handling - might break our program. */
+
+
+
+    // createSomePromise(false)
+    //     .then((resolvedValue) => console.log("Success:", resolvedValue))
+    //     // .catch((error) => error)
+    //     .catch((error) => {
+    //         throw error;
+    //     })
+    //     .catch((error) => {
+    //         const errorMessage = Math.random() > .5 ? "Abc": "Xyz";
+    //         throw new Error(errorMessage);
+    //     })
+    //     .catch((somethingMore) => console.log("More:", somethingMore))
+    //     .catch((error) => console.error("Failure:", error)) /* handles the possible error */
+    //     .catch((somethingMore) => console.log("More:", somethingMore))
+
+
+
+    // const result = createSomePromise(true)
+    //     .then(result => {
+    //         if (result === 42) throw new Error("Ooopsie!");
+    //     })
+    //     // .then(x => console.log("Result:", x))
+    //     .catch(error => {
+    //         console.warn("There was an error. 44 not found!");
+    //         throw error;
+    //     })
+    //     .catch(e => console.error(e))
+    //     .catch(e => {
+    //         console.error(e);
+            
+    //         console.log("Handling result: Returning default value.");
+    //         return 44;
+    //     })
+    //     .then(x => x * 2)
+    //     // .then(x => console.log("Result:", x));
+        
+    //     result.then(res => console.log("Result: ", res));
+
+</script>
+
+<script id="Finally callback">
+
+    // createSomePromise(true)
+    //     .then(v => console.log("Resolved: ", v))
+    //     .then(console.log)
+    //     .catch(e => console.error("Error:", e))
+    //     .finally(() => console.log("Promise settled."))
+    //     .finally(() => console.log("Bye bye!"));
+
+
+
+    // createSomePromise(false)
+    //     .then(v => console.log("Resolved: ", v))
+    //     .catch(e => console.error("Error:", e))
+    //     .catch(e => console.error("Error:", e))
+    //     .catch(e => console.error("Error:", e))
+    //     .catch(e => console.error("Error:", e))
+    //     .finally(() => console.log("Promise settled."));
+
+    // createSomePromise(false)
+    //     .then(v => console.log("Resolved: ", v))
+    //     .catch(e => { throw e })
+    //     .catch(e => { throw e })
+    //     .catch(e => { throw e })
+    //     .catch(e => console.error("Error:", e))
+    //     .finally(() => console.log("Promise settled."));
+
+
+
+    // createSomePromise(true)
+    //     .then(v => v * 2)
+    //     .then(v => v * 3)
+    //     .then(v => v / 4)
+    //     // .finally(() => console.log("Settled finally at last!"))
+    //     .then(v => { throw new Error(v); })
+    //     .catch(e => { throw e; })
+    //     .catch(e => { throw e; })
+    //     .catch(e => { throw e; })
+    //     .catch(e => console.error(e))
+    //     .finally(() => console.log("Settled finally at last!"))
+    //     .finally(() => console.log("Byeeee!"));
+
+
+    
+    // const log = (x) => console.log(x);
+    // // createSomePromise(true)
+    // //     .then(log);
+
+    // createSomePromise()
+    //     .then(console.log)
+    //     // .then(val => console.log(val)) /* void = undefined */
+
+    //     .then(val => {
+    //         const plusTwo = val + 2; /* undefined + 2 */
+    //         console.log(plusTwo); /* NaN */
+    //     })
+    //     .catch(error => console.error("Ooopsie", error))
+    //     .finally(() => console.log("Promise finished!"));
+
+</script>

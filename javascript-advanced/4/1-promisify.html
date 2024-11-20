@@ -1,0 +1,176 @@
+<title>Promisifying things</title>
+
+<script id="External system setup">
+
+    /* Database */
+    const booksDatabase = [
+        { name: "A",    author: "Adam" },
+        { name: "Aa",   author: "Adam" },
+        { name: "Aaa",  author: "Adam" },
+
+        { name: "B",    author: "Beth" },
+        { name: "Bb",   author: "Beth" },
+        { name: "Bbb",  author: "Beth" },
+
+        { name: "C",    author: "Cecil" },
+        { name: "Cc",   author: "Cecil" },
+        { name: "Ccc",  author: "Cecil" },
+    ];
+
+    /* Server function */
+    const getBookByAuthorFromDatabase = (author) => {
+        return booksDatabase.filter(book => book.author === author);
+    };
+
+</script>
+
+<script id="With callbacks passed">
+
+    /* Client code */
+    // const getAuthorBooksFromServer = (author, onSuccess, onFailure) => {
+    //     console.log("Requesting books...");
+
+    //     setTimeout(() => {
+    //         const isSuccess = Math.random() > 0.5;
+
+    //         if (isSuccess) {
+    //             const result = getBookByAuthorFromDatabase(author);
+
+    //             onSuccess(result);
+    //             return result;
+    //         } else {
+    //             onFailure("Failed to get books!");
+    //         }
+
+    //     }, 3_000);
+    // };
+
+    // const result = getAuthorBooksFromServer(
+    //     "Adam",
+    //     (books) => console.log(books),
+    //     (failureMessage) => console.error(failureMessage)
+    // );
+    // console.log(result); /* undefined */
+
+
+    // setTimeout(() => {
+    //     console.log(result); /* still undefined :c */
+    // }, 4_000);
+
+</script>
+
+<script id="Promisified">
+
+    // const promisifiedGetAuthorBooksFromServer = (author) => {
+    //     return new Promise((onSuccess, onFailure) => {
+    //         console.log("Requesting books...");
+
+    //         setTimeout(() => {
+    //             const isSuccess = Math.random() > 0.5;
+
+    //             if (isSuccess) {
+    //                 const result = getBookByAuthorFromDatabase(author);
+
+    //                 onSuccess(result);
+    //             } else {
+    //                 onFailure("Failed to get books!");
+    //             }
+
+    //         }, 3_000);
+    //     });
+    // };
+
+    // const result = promisifiedGetAuthorBooksFromServer("Adam")
+    //     .then(books => console.log(books))
+    //     .catch(failureMessage => console.error(failureMessage));
+
+    // console.log(result); /* Promise */
+
+
+
+    // promisifiedGetAuthorBooksFromServer("Beth").then(console.log).catch(console.error);
+
+    // promisifiedGetAuthorBooksFromServer("Cecil")
+    //     // .then(books => books.map((book, i) => ({ id: i, ...book })))
+    //     .then(books => books.map((book, i) => ({ id: crypto.randomUUID(), ...book })))
+    //     .then(console.log)
+    //     .catch(console.error)
+    //     .finally(() => alert("Finished getting books from author Cecil"));
+
+</script>
+
+<script id="Async/Await syntax - sneakpeek">
+
+    // const getNumber = () => 42;
+    // const getNumber = async () => 42;
+
+    // const consumeAsyncNumber = async () => {
+
+    //     const promise = getNumber();
+
+    //     console.log(promise);
+
+    //     document.write(`Result = ${promise}`);
+    // };
+
+    // consumeAsyncNumber();
+
+    // const consumeAsyncNumber = async () => {
+    //     const promise = getNumber();
+    //     const result = await promise; /* unwrapping the promise to get value */
+
+    //     console.log(result);
+
+    //     document.write(`Result = ${result}`);
+    // };
+
+    // consumeAsyncNumber();
+
+    
+
+    // const promisifiedGetAuthorBooksFromServer = (author) => {
+    //     return new Promise((onSuccess, onFailure) => {
+    //         console.log("Requesting books...");
+
+    //         setTimeout(() => {
+    //             const isSuccess = Math.random() > 0.5;
+
+    //             if (isSuccess) {
+    //                 const result = getBookByAuthorFromDatabase(author);
+
+    //                 onSuccess(result);
+    //             } else {
+    //                 onFailure("Failed to get books!");
+    //             }
+
+    //         }, 3_000);
+    //     });
+    // };
+
+
+
+    // async function someAsyncFunction() {
+    //     const result = await promisifiedGetAuthorBooksFromServer("Beth");
+    //     console.log("Result from async fn:", result);
+
+    //     return result;
+    // }
+
+    // const someAsyncFunc = async () => {
+    //     const result = await promisifiedGetAuthorBooksFromServer("Beth");
+    //     console.log("Result from async fn:", result);
+
+    //     return result;
+    // };
+
+
+    // const callback = (books) => {
+    //     /* do something more with the books :D */
+    //     console.log("We got dem boooooks! Yaaaay!");
+    // };
+
+    // someAsyncFunction().then(callback)
+
+    // someAsyncFunc().then(callback);
+
+</script>
