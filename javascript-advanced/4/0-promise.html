@@ -28,8 +28,8 @@
 
     // const somePromise = new Promise((resolve, reject) => {
     //     // const isSuccess = false;
-    //     const isSuccess = true;
-    //     // const isSuccess = Math.random() >= 0.5;
+    //     // const isSuccess = true;
+    //     const isSuccess = Math.random() >= 0.5;
 
     //     setTimeout(() => {
     //         if (isSuccess) {
@@ -43,19 +43,19 @@
 
 
 
-    // // console.log(somePromise);
+    // console.log(somePromise);
 
-    // // setTimeout(() => {
-    // //     console.log(somePromise);
-    // // }, 8_000);
+    // setTimeout(() => {
+    //     console.log(somePromise);
+    // }, 8_000);
 
 
 
-    // // somePromise.substring(0, 5); // string or number?
+    // somePromise.substring(0, 5); // string or number?
 
-    // // setTimeout(() => {
-    // //     console.log(somePromise.substring(0, 5)); // error
-    // // }, 9_000);
+    // setTimeout(() => {
+    //     console.log(somePromise.substring(0, 5)); // error
+    // }, 9_000);
 
 
 
@@ -63,17 +63,17 @@
 
     // setTimeout(() => {
     //     console.log(somePromise);
-    //     console.log(somePromise.value); // nope
+    //     console.log(somePromise.value); /* nope */
 
     //     const result = somePromise[["PromiseResult"]];
-    //     console.log(result); // nope as well
+    //     console.log(result); /* nope as well */
     // }, 8_000);
 
 </script>
 
 <script id="Then callback - getting value">
 
-    // // let value;
+    // let value;
     // let value = null;
 
     // const abc = createSomePromise().then((promisedValue) => {
@@ -82,13 +82,13 @@
     // });
 
     // console.log("abc:", abc);
-    // console.log("value:", value); // no value yet.
+    // console.log("value:", value); /* no value yet. */
 
-    // // // Big NO NO!
-    // // while (value === null) {
-    //     // console.log("Wating...");
-    // // }
-    // // console.log("We got value:", value);
+    /* Big NO NO! */
+    // while (value === null) {
+    //     console.log("Wating...");
+    // }
+    // console.log("We got value:", value);
 
 
 
@@ -123,6 +123,10 @@
     // createSomePromise(true).then(calculateResult).then(console.log);
 
 
+    // const logThrough = (value) => {
+    //     console.log(value);
+    //     return value;
+    // }
     
     // const promiseOne = createSomePromise(true)
     //     .then((resolvedValue) => resolvedValue * 2)
@@ -131,11 +135,11 @@
     //         number = number / 4;
     //         console.log(number);
 
-    //         // return number;
     //         return number;
     //     })
+    //     // .then(result => console.log("Result:", result))
+    //     // .then(logThrough)
     //     // .then(result => console.log("Result:", result));
-    //     .then(result => console.log("Result:", result));
 
     // promiseOne.then(result => console.log("Result:", result));
 
@@ -152,18 +156,22 @@
 
     // createSomePromise(false)
     //     .then((resolvedValue) => console.log("Success:", resolvedValue));
-    //     // no error handling - might break our program.
+        /* no error handling - might break our program. */
 
 
 
     // createSomePromise(false)
     //     .then((resolvedValue) => console.log("Success:", resolvedValue))
+    //     // .catch((error) => error)
+    //     .catch((error) => {
+    //         throw error;
+    //     })
     //     .catch((error) => {
     //         const errorMessage = Math.random() > .5 ? "Abc": "Xyz";
     //         throw new Error(errorMessage);
     //     })
-    //     // .catch((somethingMore) => console.log("More:", somethingMore))
-    //     .catch((error) => console.error("Failure:", error)) // handles the possible error
+    //     .catch((somethingMore) => console.log("More:", somethingMore))
+    //     .catch((error) => console.error("Failure:", error)) /* handles the possible error */
     //     .catch((somethingMore) => console.log("More:", somethingMore))
 
 
@@ -177,7 +185,7 @@
     //         console.warn("There was an error. 44 not found!");
     //         throw error;
     //     })
-    //     // .catch(e => console.error(e))
+    //     .catch(e => console.error(e))
     //     .catch(e => {
     //         console.error(e);
             
@@ -185,7 +193,7 @@
     //         return 44;
     //     })
     //     .then(x => x * 2)
-    //     // .then(x => console.log("Result:", x))
+    //     // .then(x => console.log("Result:", x));
         
     //     result.then(res => console.log("Result: ", res));
 
@@ -195,9 +203,7 @@
 
     // createSomePromise(true)
     //     .then(v => console.log("Resolved: ", v))
-    //     // .then(v => console.log("Resolved: ", v))
-    //     // .then(v => console.log("Resolved: ", v))
-    //     // .then(v => console.log("Resolved: ", v))
+    //     .then(console.log)
     //     .catch(e => console.error("Error:", e))
     //     .finally(() => console.log("Promise settled."))
     //     .finally(() => console.log("Bye bye!"));
@@ -238,16 +244,16 @@
 
     
     // const log = (x) => console.log(x);
-    // createSomePromise(true)
-    //     .then(log);
+    // // createSomePromise(true)
+    // //     .then(log);
 
     // createSomePromise()
     //     .then(console.log)
-    //     // .then(val => console.log(val)) // void = undefined
+    //     // .then(val => console.log(val)) /* void = undefined */
 
     //     .then(val => {
-    //         const double = val + 2; // undefined + 2
-    //         console.log(double); // NaN
+    //         const plusTwo = val + 2; /* undefined + 2 */
+    //         console.log(plusTwo); /* NaN */
     //     })
     //     .catch(error => console.error("Ooopsie", error))
     //     .finally(() => console.log("Promise finished!"));

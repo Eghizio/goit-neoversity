@@ -2,7 +2,7 @@
 
 <script id="External system setup">
 
-    // Database
+    /* Database */
     const booksDatabase = [
         { name: "A",    author: "Adam" },
         { name: "Aa",   author: "Adam" },
@@ -17,7 +17,7 @@
         { name: "Ccc",  author: "Cecil" },
     ];
 
-    // Server function
+    /* Server function */
     const getBookByAuthorFromDatabase = (author) => {
         return booksDatabase.filter(book => book.author === author);
     };
@@ -26,7 +26,7 @@
 
 <script id="With callbacks passed">
 
-    // // Client code
+    /* Client code */
     // const getAuthorBooksFromServer = (author, onSuccess, onFailure) => {
     //     console.log("Requesting books...");
 
@@ -50,11 +50,11 @@
     //     (books) => console.log(books),
     //     (failureMessage) => console.error(failureMessage)
     // );
-    // console.log(result); // undefined
+    // console.log(result); /* undefined */
 
 
     // setTimeout(() => {
-    //     console.log(result); // still undefined :c
+    //     console.log(result); /* still undefined :c */
     // }, 4_000);
 
 </script>
@@ -84,14 +84,15 @@
     //     .then(books => console.log(books))
     //     .catch(failureMessage => console.error(failureMessage));
 
-    // console.log(result); // Promise
+    // console.log(result); /* Promise */
 
 
 
     // promisifiedGetAuthorBooksFromServer("Beth").then(console.log).catch(console.error);
 
     // promisifiedGetAuthorBooksFromServer("Cecil")
-    //     .then(books => books.map((book, i) => ({ id: i, ...book })))
+    //     // .then(books => books.map((book, i) => ({ id: i, ...book })))
+    //     .then(books => books.map((book, i) => ({ id: crypto.randomUUID(), ...book })))
     //     .then(console.log)
     //     .catch(console.error)
     //     .finally(() => alert("Finished getting books from author Cecil"));
@@ -112,16 +113,11 @@
     //     document.write(`Result = ${promise}`);
     // };
 
+    // consumeAsyncNumber();
 
     // const consumeAsyncNumber = async () => {
-    //     // const promise = getNumber();
-    //     // const resultFromPromise = await getNumber();
-        
-    //     // console.log(promise);
-    //     // console.log(resultFromPromise);
-
     //     const promise = getNumber();
-    //     const result = await promise; // unwrapping the promise to get value
+    //     const result = await promise; /* unwrapping the promise to get value */
 
     //     console.log(result);
 
@@ -169,7 +165,7 @@
 
 
     // const callback = (books) => {
-    //     // do something more with the books :D
+    //     /* do something more with the books :D */
     //     console.log("We got dem boooooks! Yaaaay!");
     // };
 
