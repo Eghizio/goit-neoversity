@@ -1,6 +1,32 @@
 <title>Query Params & HTTP Status Codes</title>
 
-<main id="main"></main>
+<style>
+
+    @keyframes spin {
+        from { rotate: 0deg; }
+        to { rotate: 360deg; }
+    }
+
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid dodgerblue;
+        border-left-color: transparent;
+        animation: spin 1s infinite ease-in-out;
+    }
+
+</style>
+
+<body>
+    <!-- <header>
+        <form>
+            <input type="number" placeholder="Limit" min="-10" max="10" step="1" style="width:100px;">
+            <button type="submit">Get users</button>
+        </form>
+    </header> -->
+    <main id="main"></main>
+</body>
 
 <script id="URLSearchParams">
 
@@ -23,11 +49,15 @@
 <script id="Query params usage">
 
     // const queryParams = new URLSearchParams({
-    //     _limit: 5,
-    //     _sort: "name",
+    //     // _sort: "name",
+    //     _sort: "username",
+    //     // _limit: 5,
+    //     _limit: 7,
     // });
 
-    // const urlWithQueryParams = `https://jsonplaceholder.typicode.com/users?${queryParams}`;
+    // const BASE_URL = `https://jsonplaceholder.typicode.com`;
+
+    // const urlWithQueryParams = `${BASE_URL}/users?${queryParams}`;
     
     // fetch(urlWithQueryParams)
     //     .then(res => res.json())
@@ -50,7 +80,8 @@
         
     //     list.append(...items);
 
-    //     document.querySelector("main#main").append(list);
+    //     // document.querySelector("main#main").append(list);
+    //     document.querySelector("main#main").replaceChildren(list);
     // };
 
 
@@ -62,6 +93,34 @@
     //     // .then(console.log)
     //     .then(renderUsers)
     //     .catch(console.error);
+
+
+
+    // const getUsersWithLimit = (_limit = 5) => {
+    //     const params = new URLSearchParams({ _limit }).toString();
+    //     const url = `${usersEndpoint}?${params}`;
+
+    //     return fetch(url)
+    //         .then(res => res.json())
+    //         .catch(console.error);
+    // };
+
+    // const renderSpinner = () => document.querySelector("main#main").replaceChildren(el("div", { className: "spinner" }));
+
+    // document.querySelector("button").addEventListener("click", (event) => {
+    //     event.preventDefault();
+    //     renderSpinner();
+
+    //     const limit = document.querySelector("input").valueAsNumber;
+
+    //     if (Number.isNaN(limit)) {
+    //         return alert("Invalid limit");
+    //     }
+
+    //     getUsersWithLimit(limit)
+    //         .then(users => users.sort(() => Math.random() - 0.5)) /* Random shuffle */    
+    //         .then(renderUsers);
+    // });
 
 </script>
 
@@ -75,6 +134,7 @@
     // const httpStatusCodes = [200, 201, 202, 204, 400, 401, 403, 404, 418, 500, 501, 503];
     // const randomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
+    // /* API Call */
     // const sendRequest = (status) => {
     //     status = status || randomElement(httpStatusCodes);
 
@@ -93,7 +153,7 @@
     // };
 
 
-
+    // /* Rendering HTML */
     // const el = (tag, props) => Object.assign(document.createElement(tag), props);
 
     // const select = el("select");
@@ -103,6 +163,7 @@
 
     // const btn = el("button", { textContent: "Send request" });
 
+    // /* Putting it all together */
     // btn.addEventListener("click", () => {
     //     sendRequest(select.value);
     // });
