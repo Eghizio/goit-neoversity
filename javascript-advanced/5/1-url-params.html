@@ -1,0 +1,113 @@
+<title>Query Params & HTTP Status Codes</title>
+
+<main id="main"></main>
+
+<script id="URLSearchParams">
+
+    // const searchParams = new URLSearchParams({
+    //     _limit: 5,
+    // });
+
+    // searchParams.append("_sort", "name");
+
+    // const url = `https://jsonplaceholder.typicode.com/users?${searchParams}`;
+
+    
+
+    // console.log(searchParams.toString());
+
+    // console.log(url);
+
+</script>
+
+<script id="Query params usage">
+
+    // const queryParams = new URLSearchParams({
+    //     _limit: 5,
+    //     _sort: "name",
+    // });
+
+    // const urlWithQueryParams = `https://jsonplaceholder.typicode.com/users?${queryParams}`;
+    
+    // fetch(urlWithQueryParams)
+    //     .then(res => res.json())
+    //     .then(console.log)
+    //     .catch(console.error);
+
+</script>
+
+<script id="Updating DOM with new data">
+
+    // const el = (tag, props) => Object.assign(document.createElement(tag), props);
+
+    // const createListItem = ({ name, email }) => el("li", { textContent: `${name} (${email})` });
+
+    // const renderUsers = (users) => {
+    //     const list = el("ol");
+    //     const items = users
+    //         .toSorted((a, b) => a.name > b.name ? 1 : -1)
+    //         .map(createListItem);
+        
+    //     list.append(...items);
+
+    //     document.querySelector("main#main").append(list);
+    // };
+
+
+
+    // const usersEndpoint = `https://jsonplaceholder.typicode.com/users`;
+    
+    // fetch(usersEndpoint)
+    //     .then(res => res.json())
+    //     // .then(console.log)
+    //     .then(renderUsers)
+    //     .catch(console.error);
+
+</script>
+
+<script id="Query & HTTP Status codes">
+
+    /* https://http.cat */
+    /* https://httpstatusdogs.com */
+
+    // alert(`Open "server" and run "npm start" or "node server.js"`);
+
+    // const httpStatusCodes = [200, 201, 202, 204, 400, 401, 403, 404, 418, 500, 501, 503];
+    // const randomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+    // const sendRequest = (status) => {
+    //     status = status || randomElement(httpStatusCodes);
+
+    //     return fetch(`http:localhost:3000?status=${status}`)
+    //         .then(res => {
+    //             console.log(res.status, res.statusText);
+
+    //             if (!res.ok) {
+    //                 throw new Error("Ooopsie!");
+    //             }
+
+    //             return res.json();
+    //         })
+    //         .then(console.log)
+    //         .catch(console.error);
+    // };
+
+
+
+    // const el = (tag, props) => Object.assign(document.createElement(tag), props);
+
+    // const select = el("select");
+    // const random = el("option", { value: "", textContent: "Random", selected: true });
+    // const options = httpStatusCodes
+    //     .map(status => el("option", { value: status, textContent: status }));
+
+    // const btn = el("button", { textContent: "Send request" });
+
+    // btn.addEventListener("click", () => {
+    //     sendRequest(select.value);
+    // });
+
+    // select.append(random, ...options);
+    // document.querySelector("main#main").append(select, btn);
+
+</script>
