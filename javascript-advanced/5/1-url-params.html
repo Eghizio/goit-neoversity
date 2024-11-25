@@ -1,0 +1,174 @@
+<title>Query Params & HTTP Status Codes</title>
+
+<style>
+
+    @keyframes spin {
+        from { rotate: 0deg; }
+        to { rotate: 360deg; }
+    }
+
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid dodgerblue;
+        border-left-color: transparent;
+        animation: spin 1s infinite ease-in-out;
+    }
+
+</style>
+
+<body>
+    <!-- <header>
+        <form>
+            <input type="number" placeholder="Limit" min="-10" max="10" step="1" style="width:100px;">
+            <button type="submit">Get users</button>
+        </form>
+    </header> -->
+    <main id="main"></main>
+</body>
+
+<script id="URLSearchParams">
+
+    // const searchParams = new URLSearchParams({
+    //     _limit: 5,
+    // });
+
+    // searchParams.append("_sort", "name");
+
+    // const url = `https://jsonplaceholder.typicode.com/users?${searchParams}`;
+
+    
+
+    // console.log(searchParams.toString());
+
+    // console.log(url);
+
+</script>
+
+<script id="Query params usage">
+
+    // const queryParams = new URLSearchParams({
+    //     // _sort: "name",
+    //     _sort: "username",
+    //     // _limit: 5,
+    //     _limit: 7,
+    // });
+
+    // const BASE_URL = `https://jsonplaceholder.typicode.com`;
+
+    // const urlWithQueryParams = `${BASE_URL}/users?${queryParams}`;
+    
+    // fetch(urlWithQueryParams)
+    //     .then(res => res.json())
+    //     .then(console.log)
+    //     .catch(console.error);
+
+</script>
+
+<script id="Updating DOM with new data">
+
+    // const el = (tag, props) => Object.assign(document.createElement(tag), props);
+
+    // const createListItem = ({ name, email }) => el("li", { textContent: `${name} (${email})` });
+
+    // const renderUsers = (users) => {
+    //     const list = el("ol");
+    //     const items = users
+    //         .toSorted((a, b) => a.name > b.name ? 1 : -1)
+    //         .map(createListItem);
+        
+    //     list.append(...items);
+
+    //     // document.querySelector("main#main").append(list);
+    //     document.querySelector("main#main").replaceChildren(list);
+    // };
+
+
+
+    // const usersEndpoint = `https://jsonplaceholder.typicode.com/users`;
+    
+    // fetch(usersEndpoint)
+    //     .then(res => res.json())
+    //     // .then(console.log)
+    //     .then(renderUsers)
+    //     .catch(console.error);
+
+
+
+    // const getUsersWithLimit = (_limit = 5) => {
+    //     const params = new URLSearchParams({ _limit }).toString();
+    //     const url = `${usersEndpoint}?${params}`;
+
+    //     return fetch(url)
+    //         .then(res => res.json())
+    //         .catch(console.error);
+    // };
+
+    // const renderSpinner = () => document.querySelector("main#main").replaceChildren(el("div", { className: "spinner" }));
+
+    // document.querySelector("button").addEventListener("click", (event) => {
+    //     event.preventDefault();
+    //     renderSpinner();
+
+    //     const limit = document.querySelector("input").valueAsNumber;
+
+    //     if (Number.isNaN(limit)) {
+    //         return alert("Invalid limit");
+    //     }
+
+    //     getUsersWithLimit(limit)
+    //         .then(users => users.sort(() => Math.random() - 0.5)) /* Random shuffle */    
+    //         .then(renderUsers);
+    // });
+
+</script>
+
+<script id="Query & HTTP Status codes">
+
+    /* https://http.cat */
+    /* https://httpstatusdogs.com */
+
+    // alert(`Open "server" and run "npm start" or "node server.js"`);
+
+    // const httpStatusCodes = [200, 201, 202, 204, 400, 401, 403, 404, 418, 500, 501, 503];
+    // const randomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+    // /* API Call */
+    // const sendRequest = (status) => {
+    //     status = status || randomElement(httpStatusCodes);
+
+    //     return fetch(`http:localhost:3000?status=${status}`)
+    //         .then(res => {
+    //             console.log(res.status, res.statusText);
+
+    //             if (!res.ok) {
+    //                 throw new Error("Ooopsie!");
+    //             }
+
+    //             return res.json();
+    //         })
+    //         .then(console.log)
+    //         .catch(console.error);
+    // };
+
+
+    // /* Rendering HTML */
+    // const el = (tag, props) => Object.assign(document.createElement(tag), props);
+
+    // const select = el("select");
+    // const random = el("option", { value: "", textContent: "Random", selected: true });
+    // const options = httpStatusCodes
+    //     .map(status => el("option", { value: status, textContent: status }));
+
+    // const btn = el("button", { textContent: "Send request" });
+
+    // /* Putting it all together */
+    // btn.addEventListener("click", () => {
+    //     sendRequest(select.value);
+    // });
+
+    // select.append(random, ...options);
+    // document.querySelector("main#main").append(select, btn);
+
+</script>
