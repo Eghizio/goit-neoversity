@@ -22,8 +22,8 @@ app.use((req, res, next) => {
 /* Logger Middleware */
 app.use((req, res, next) => {
     const date = new Date().toISOString();
-    const { method, path } = req
-    console.log(`${date} - [${method}] "${path}"`);
+    const { method, url } = req
+    console.log(`${date} - [${method}] "${url}"`);
     next();
 });
 

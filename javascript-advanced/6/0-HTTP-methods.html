@@ -102,7 +102,7 @@
 
 
 
-        fetch(url(endpoint), {
+        return fetch(url(endpoint), {
             method,
             body,
             headers: {
@@ -114,10 +114,11 @@
 
                 if (!res.ok) throw new Error("Ooopsie!");
                 
-                res.json()
+                return res.json()
                     .then(data => {
                         console.log(data);
                         result.textContent = JSON.stringify(data, null, 2);
+                        return data;
                     })
                     .catch(console.error);
                 
