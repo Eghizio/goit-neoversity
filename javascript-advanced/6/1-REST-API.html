@@ -1,0 +1,204 @@
+<title>HTTP Methods - REST API</title>
+
+<style>
+
+    * {
+        font-size: larger;
+    }
+
+    button {
+        width: 200px;
+    }
+
+</style>
+
+<main id="main">
+    <fieldset>
+        <select id="get"></select>
+        <button style="color:limegreen;" id="get">GET</button>
+    </fieldset>
+
+    <fieldset>
+        <button style="color:dodgerblue;" id="post">POST</button>
+    </fieldset>
+
+    <fieldset>
+        <button style="color:purple;" id="put">PUT</button>
+    </fieldset>
+
+    <fieldset>
+        <button style="color:violet;" id="patch">PATCH</button>
+    </fieldset>
+
+    <fieldset>
+        <button style="color:red;" id="delete">DELETE</button>
+    </fieldset>
+
+    <pre></pre>
+</main>
+
+<script id="Setup">
+
+    const api = (endpoint) => `http://localhost:3000${endpoint}`;
+
+    const handleResponse = (res) => {
+        console.log("Response:", res.status, res.statusText);
+            
+        if (res.ok) return res;
+        
+        throw new Error(`Response not OK. ${res.status} ${res.statusText}`);
+    }
+
+    const parseJSON = (res) => res.json();
+    
+    const result = document.querySelector("pre");
+    const renderResponseBody = (body) => {
+        result.textContent = JSON.stringify(body, null, 2);
+        return body;
+    };
+
+    const onClick = (selector, handler) => {
+        document.querySelector(selector).addEventListener("click", handler);
+    };
+
+</script>
+
+<script id="GET">
+
+    const getProducts = {
+        all: api("/products"),
+        category: {
+            dupa: api("/products?category=dupa"),
+            food: api("/products?category=FOOD"),
+            furniture: api("/products?category=FURNITURE"),
+        },
+        byId: {
+            unknown: api("/products/unknown"),
+            jappko: {
+                default: api("/products/_jappko"),
+                discount: {
+                    invalid: api("/products/_jappko?discount=abc"),
+                    lowerCase: api("/products/_jappko?discount=dupa"),
+                    upperCase: api("/products/_jappko?discount=DUPA"),
+                }
+            }
+        }
+    };
+
+    const getEndpoints = [
+        getProducts.all,
+        getProducts.category.dupa,
+        getProducts.category.food,
+        getProducts.category.furniture,
+        getProducts.byId.unknown,
+        getProducts.byId.jappko.default,
+        getProducts.byId.jappko.discount.invalid,
+        getProducts.byId.jappko.discount.lowerCase,
+        getProducts.byId.jappko.discount.upperCase,
+    ];
+
+    const options = getEndpoints.map(endpoint => {
+        const option = document.createElement("option");
+        option.value = endpoint;
+        option.textContent = endpoint;
+        return option;
+    });
+    const select = document.querySelector("select#get");
+    select.append(...options);
+
+
+
+    const get = (endpoint) => fetch(endpoint, { method: "GET" })
+        .then(handleResponse)
+        .then(parseJSON)
+        .then(renderResponseBody)
+        .then(console.log)
+        .catch(console.error);
+
+
+
+    onClick("button#get", () => get(select.value));
+
+</script>
+
+<script id="POST">
+
+    const productToCreate = {
+        "category": "FURNITURE",
+        "name": "Desk",
+        "price": 5000
+    };
+
+    const postProduct = () => fetch(api("/products"), {
+        method: "POST",
+        body: JSON.stringify(productToCreate),
+        headers: { "Content-Type": "application/json" },
+    })
+        .then(handleResponse)
+        .then(parseJSON)
+        .then(renderResponseBody)
+        .then(console.log)
+        .catch(console.error);
+
+
+    onClick("button#post", postProduct);
+
+</script>
+
+<script id="PUT">
+
+    const productToOverwrite = {
+        "category": "FRUIT",
+        "name": "Apfel",
+        "price": 3.14
+    };
+
+    const putApple = () => fetch(api("/products/_jappko"), {
+        method: "PUT",
+        body: JSON.stringify(productToOverwrite),
+        headers: { "Content-Type": "application/json" },
+    })
+        .then(handleResponse)
+        .then(parseJSON)
+        .then(renderResponseBody)
+        .then(console.log)
+        .catch(console.error);
+
+    onClick("button#put", putApple);
+
+</script>
+
+<script id="PATCH">
+
+    const productFieldsToUpdate = {
+        "price": 4.20
+    };
+
+    const patchApple = () => fetch(api("/products/_jappko"), {
+        method: "PATCH",
+        body: JSON.stringify(productFieldsToUpdate),
+        headers: { "Content-Type": "application/json" },
+    })
+        .then(handleResponse)
+        .then(parseJSON)
+        .then(renderResponseBody)
+        .then(console.log)
+        .catch(console.error);
+        
+
+    onClick("button#patch", patchApple);
+
+</script>
+
+<script id="DELETE">
+    
+    const deleteApple = () => fetch(api("/products/_jappko"), {
+        method: "DELETE",
+    })
+        .then(handleResponse)
+        .then(console.log)
+        .catch(console.error);
+
+    onClick("button#delete", deleteApple);
+
+</script>
