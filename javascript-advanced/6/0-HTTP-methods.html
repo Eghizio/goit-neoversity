@@ -1,0 +1,131 @@
+<title>HTTP Methods</title>
+
+<style>
+
+    * {
+        font-size: larger;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    input[type="checkbox"] {
+        --size: 30px;
+        width: var(--size);
+        height: var(--size);
+    }
+
+    textarea:disabled {
+        text-decoration: line-through;
+    }
+
+</style>
+
+<form class="column">
+    <label for="method">
+        HTTP Method & Endpoint:
+        <select id="method">
+            <option value="GET /posts">
+                GET /posts
+            </option>
+            <option value="GET /posts/1">
+                GET /posts/1
+            </option>
+            <option value="GET /posts/1/comments">
+                GET /posts/1/comments
+            </option>
+            <option value="GET /comments?postId=1">
+                GET /comments?postId=1
+            </option>
+            <option value="POST /posts">
+                POST /posts
+            </option>
+            <option value="PUT /posts/1">
+                PUT /posts/1
+            </option>
+            <option value="PATCH /posts/1">
+                PATCH /posts/1
+            </option>
+            <option value="DELETE /posts/1">
+                DELETE /posts/1
+            </option>
+        </select>
+    </label>
+
+    <label for="body" class="column">
+        <span>
+            <input type="checkbox" id="include-body">
+            Body:
+        </span>
+        <textarea
+            id="body"
+            placeholder="JSON Body"
+            rows="5"
+            disabled
+        >{"title": "foo","body":"bar","userId":1}</textarea>
+    </label>
+    
+    <button type="submit">
+        Send Request
+    </button>
+</form>
+<pre id="result"></pre>
+
+
+<script id="HTTP Methods - Placeholder API">
+
+    const url = (endpoint) => "https://jsonplaceholder.typicode.com" + endpoint;
+
+    const checkbox = document.querySelector("input#include-body");
+    const textarea = document.querySelector("textarea#body");
+    checkbox.addEventListener("change", () => {
+        const shouldIncludeBody = !checkbox.checked;
+        textarea.disabled = shouldIncludeBody;
+    });
+
+    const result = document.querySelector("pre#result");
+
+    const sendRequest = (event) => {
+        result.textContent = "";
+        event.preventDefault();
+        const f = event.target.elements;
+
+        const [method, endpoint] = f.method.value.trim().split(" ");
+
+        const bodyValue = f.body.value.trim();
+        const body = checkbox.checked ? bodyValue : undefined;
+
+        console.log({ method, endpoint, bodyValue, body });
+
+
+
+        fetch(url(endpoint), {
+            method,
+            body,
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then(res => {
+                console.log(`Response:`, res.status, res.statusText);
+
+                if (!res.ok) throw new Error("Ooopsie!");
+                
+                res.json()
+                    .then(data => {
+                        console.log(data);
+                        result.textContent = JSON.stringify(data, null, 2);
+                    })
+                    .catch(console.error);
+                
+            })
+            .catch(console.error);
+    };
+
+    document.querySelector("form")
+        .addEventListener("submit", sendRequest);
+
+</script>
