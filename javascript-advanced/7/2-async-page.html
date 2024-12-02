@@ -1,0 +1,241 @@
+<title>Blog Posts with Comments</title>
+
+<style>
+
+    #main {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+        align-items: center;
+        padding: 4rem 0;
+    }
+
+    article {
+        width: 50%;
+        padding: 1rem;
+    }
+
+    .post {
+        padding: 0.5rem;
+        /* width: 50%; */
+        box-shadow: 0 0 10px black;
+        
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+    }
+
+    .post:hover {
+        box-shadow: 0 0 30px black;
+    }
+
+    h2, h3, p {
+        text-transform: capitalize;
+    }
+
+    span, h4 {
+        font-style: italic;
+        font-weight: normal;
+    }
+
+    .comments ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .comment {
+        padding: 0.5rem;
+        box-shadow: 0 0 6px dodgerblue;
+    }
+
+    h2[data-expandable="true"] {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    h2[data-expandable="true"]:hover {
+        color: blue;
+    }
+
+    .comments ul:not(.expanded) {
+        display: none;
+    }
+
+    @keyframes spin {
+        from { rotate: 0deg; }
+        to { rotate: 360deg; }
+    }
+
+    .spinner {
+        --size: 50px;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        border: 2px solid black;
+        border-top: 2px solid white;
+        animation: spin 0.5s ease-in-out infinite;
+    }
+
+    .spinner.disabled {
+        display: none;
+    }
+
+</style>
+
+<main id="main">
+    <div class="spinner disabled"></div>
+</main>
+
+<template>
+    <article>
+        <section class="post">
+            <main>
+                <h2>{title}</h2>
+                <span>by {user.name} @{user.username}</span>
+                <p>{body}</p>
+            </main>
+
+            <aside>
+                <img src="{user.avatar}" alt="{user.avatar}">
+            </aside>
+        </section>
+
+        <section class="comments">
+            <h2 data-expandable="true">Comments ({comments.length})</h2>
+            <ul>
+                <li class="comment">
+                    <h3>{comment.name}</h3>
+                    <h4>{comment.email}</h4>
+                    <p>{comment.body}</p>
+                </li>
+            </ul>
+        </section>
+    </article>
+</template>
+
+<script id="Expandable & Loader">
+
+    document.addEventListener("click", (event) => {
+        if (event.target.dataset["expandable"] !== "true") return;
+        event.target.nextElementSibling.classList.toggle("expanded");
+    });
+
+    const Loader = {
+        enable: () => document.querySelector(".spinner").classList.remove("disabled"),
+        disable: () => document.querySelector(".spinner").classList.add("disabled"),
+    };
+
+    const shuffle = (arr) => arr.toSorted(() => .5 - Math.random());
+
+</script>
+
+<script id="Rendering elements">
+
+    const renderComments = (comments) => {
+        const commentHtml = (comment) =>
+        `<li class="comment">
+            <h3>${comment.name}</h3>
+            <h4>${comment.email}</h4>
+            <p>${comment.body}</p>
+        </li>`;
+
+        return comments.map(commentHtml).join("");
+    };
+
+    const renderPost = ({ user, post, comments }) => {
+        const commentsHtml = renderComments(comments);
+
+        const postHtml = 
+        `<article>
+            <section class="post">
+                <main>
+                    <h2>${post.title}</h2>
+                    <span>by ${user.name} @${user.username}</span>
+                    <p>${post.body}</p>
+                </main>
+
+                <aside>
+                    <img src="${user.avatar}" alt="${user.avatar}">
+                </aside>
+            </section>
+
+            <section class="comments">
+                <h2 data-expandable="true">Comments (${comments.length})</h2>
+                <ul>${commentsHtml}</ul>
+            </section>
+        </article>`;
+
+        document.querySelector("main#main").innerHTML += postHtml;
+    };
+
+</script>
+
+<script type="module" id="Async code in action">
+
+    import axios from "https://cdn.jsdelivr.net/npm/axios@1.7.2/+esm";
+    
+
+    const client = axios.create({
+        baseURL: "https://jsonplaceholder.typicode.com",
+    });
+
+    const get = (url, options = {}) => client
+        .get(url, options)
+        .then(res => res.data);
+
+
+    const Api = {
+        getPosts: (options) => get("/posts", options),
+        getPostComments: (postId, options) => get(`/posts/${postId}/comments`, options),
+        getUser: (userId, options) => get(`/users/${userId}`, options),
+    };
+
+
+
+    const options = {
+        params: {
+            _limit: 3,
+        }
+    };
+
+    const init = async () => {
+        Loader.enable();
+        const posts = await Api.getPosts(options);
+
+        const postsWithCommentsAndUsers = await Promise.all(
+            posts.map(async (post) => {
+                /* Synchronous execution */
+                // const user = await Api.getUser(post.userId).catch(_ => "Anonymous");
+                // const comments = await Api.getPostComments(post.id).catch(_ => []);
+
+                /* Parallel execution */
+                const [user, comments] = await Promise.all([
+                    Api.getUser(post.userId).catch(_ => "Anonymous"),
+                    Api.getPostComments(post.id).catch(_ => []),
+                ]);
+
+                const avatar = `https://picsum.photos/id/${post.userId}/200/300`;
+
+                return { user: { ...user, avatar }, post, comments };
+            })
+        );
+
+        console.log(postsWithCommentsAndUsers);
+        /*  Data shape:
+            const user = { id, name, avatar, username, company: { catchPhrase } };
+            const post = { body, id, title, userId };
+            const comment = { body, email, id, name, postId };
+        */
+        shuffle(postsWithCommentsAndUsers).forEach(data => renderPost(data));
+        
+        Loader.disable();
+    };
+
+    init().catch(console.error);
+
+</script>
