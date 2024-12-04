@@ -1,0 +1,109 @@
+<title>Pagination</title>
+
+<script type="module" id="Pagination basics">
+
+    // import axios from "https://cdn.jsdelivr.net/npm/axios@1.7.2/+esm";
+    
+    // const getPosts = (_page) => axios.get("https://jsonplaceholder.typicode.com/posts", {
+    //         params: {
+    //             _page,
+    //             _limit: 5,
+    //         }
+    //     })
+    //     .then(res => res.data);
+
+    // getPosts(1).then(console.log);
+    // getPosts(2).then(console.log);
+    // getPosts(3).then(console.log);
+
+</script>
+
+<script type="module" id="Agregating paginated data with async/await">
+
+    // import axios from "https://cdn.jsdelivr.net/npm/axios@1.7.2/+esm";
+    
+    // const getPostsFromPage = (_page) => axios.get("https://jsonplaceholder.typicode.com/posts", {
+    //         params: {
+    //             _page,
+    //             _limit: 5,
+    //         }
+    //     })
+    //     .then(res => res.data);
+
+
+    // const getPostsFromFirstPages = async () => [
+    //     ...await getPostsFromPage(1),
+    //     ...await getPostsFromPage(2),
+    //     ...await getPostsFromPage(3)
+    // ];
+
+    // const getPostsFromFirstPages = async () => (await Promise.all([
+    //         getPostsFromPage(1),
+    //         getPostsFromPage(2),
+    //         getPostsFromPage(3),
+    //     ])).flat();
+
+    // getPostsFromFirstPages().then(console.log);
+
+</script>
+
+<script type="module" id="Star Wars API Pagination & Crawling/Scraping">
+
+    // const swapiPage = (page = 1) => `https://swapi.dev/api/people/?page=${page}`;
+    // const endpoints = Array.from({ length: 9 }, (_, i) => swapiPage(i + 1));
+    // console.log(endpoints);
+
+    // const getAllStarWarsPeople = () => Promise.all(
+    //         endpoints.map((url) => fetch(url)
+    //             .then(res => res.json())
+    //             .then(data => data.results)
+    //         )
+    //     ).then(pages => pages.flat());
+
+    // getAllStarWarsPeople().then(console.log);
+        
+
+
+    // const url = "https://swapi.dev/api/people";
+    // const get = (url) => fetch(url).then(res => res.json());
+
+    // const getAllStarWarsPeopleLoop = async () => {
+    //     const people = [];
+
+    //     let data = await get(url);
+    //     people.push(...data.results);
+
+    //     console.log(data);
+
+    //     /* Load more people. */
+
+    //     while (data.next) {
+    //         data = await get(data.next);
+    //         people.push(...data.results);
+    //     }
+
+    //     return people;
+    // };
+
+    // getAllStarWarsPeopleLoop().then(console.log);
+
+
+
+    // const getAllStarWarsPeopleRecursion = async (url, people = []) => {
+    //     console.log(`Getting people from ${url}`);
+
+    //     const data = await get(url);
+    //     people.push(...data.results);
+
+    //     if (data.next === null) return people;
+    //     return await getAllStarWarsPeopleRecursion(data.next, people);
+    // };
+    
+    // getAllStarWarsPeopleRecursion(url).then(console.log);
+
+
+    
+    /* Node.js Web Scraping */
+    // fetch("https://demotywatory.pl/").then(res => res.text()).then(console.log);
+
+</script>

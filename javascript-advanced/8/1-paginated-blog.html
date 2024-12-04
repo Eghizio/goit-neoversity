@@ -1,0 +1,113 @@
+<head>
+    <title>Posts</title>
+    <link rel="stylesheet" href="./1-paginated-blog/styles.css">
+</head>
+
+
+<main id="main">
+    <nav>
+        <button type="button" data-page="previous">
+            Previous posts
+        </button>
+
+        <span id="currentPage"></span>
+
+        <button type="button" data-page="next">
+            Next posts
+        </button>
+    </nav>
+
+    <ul id="posts"></ul>
+</main>
+
+
+<script type="module" id="Pagination demo">
+
+    import { Api } from "./1-paginated-blog/api.js";
+    import { paginate } from "./1-paginated-blog/pagination.js";
+
+
+    const getPostData = async (page) => {
+        const posts = await Api.getPostsPage(page);
+
+        return Promise.all(
+            posts.map(async (post) => ({
+                ...post,
+                author: {
+                    ...await Api.getUser(post.userId),
+                    avatar: `https://picsum.photos/id/${post.userId}/200/300`,
+                },
+            }))
+        );
+    };
+
+
+    const createPost = ({ id, title, body, author }) => {
+        const article = document.createElement("article");
+        article.id = id;
+
+        article.innerHTML =
+        `<section class="post">
+            <main>
+                <h2>${title}</h2>
+                <span>by ${author.name} @${author.username}</span>
+                <p>${body}</p>
+            </main>
+
+            <aside>
+                <img src="${author.avatar}" alt="${author.avatar}" width="200px" height="300px">
+            </aside>
+        </section>`;
+
+        return article;
+    };
+
+    const createSpinner = () => Object.assign(document.createElement("div"), { className: "spinner" });
+
+
+
+    const renderPostsForPage = async (page) => {
+        const root = document.querySelector("ul#posts");
+        root.replaceChildren(createSpinner());
+
+        document.title = `Posts (${page})`;
+        document.querySelector("span#currentPage").textContent = page;
+
+        const posts = await getPostData(page);
+        const elems = posts.map(createPost);
+        root.replaceChildren(...elems);
+    };
+
+    
+
+    paginate(1, renderPostsForPage);
+
+</script>
+
+<template>
+    <script id="Express Controller with pagination - example">
+
+        const posts = Array.from({ length: 100 }, (_, i) => i+1);
+
+        app.get("/posts", (req, res) => {
+            const { page, limit } = req.query;
+
+            const start = (page - 1) * limit;
+            const end = start + limit;
+            const paginatedPosts = posts.slice(start, end);
+
+            return res.json(paginatedPosts);
+        });
+
+
+
+        const _paginate = (arr, page, limit) => {
+            const start = (page - 1) * limit;
+            const end = start + limit;
+            return arr.slice(start, end);
+        };
+
+        app.get("/posts", ({ query: q }, res) => res.json(_paginate(posts, q.page, q.limit)));
+
+    </script>
+</template>
