@@ -7,6 +7,13 @@
         padding: 2rem;
     }
 
+    .warning {
+        width: 100%;
+        text-align: center;
+        color: red;
+        font-size: 48px;
+    }
+
 </style>
 
 <main id="main">
@@ -58,9 +65,24 @@
         return article;
     };
 
+    const endOfPagination = Object.assign(
+        document.createElement("p"),
+        {
+            textContent: "No more posts to display.",
+            className: "warning"
+        });
+
     const renderMorePosts = (page = 1) => async () => {
         console.log({ page })
         const posts = await getPostData(page++);
+
+        if (posts.length === 0) {
+            observer.unobserve(document.querySelector("div#infinitescroll"));
+            document.querySelector(".spinner").remove();
+            document.querySelector("ul#items").append(endOfPagination);
+            return;
+        }
+
         const elems = posts.map(createPost);
         document.querySelector("ul#items").append(...elems);
     };

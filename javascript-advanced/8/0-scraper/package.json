@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "node demoty.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

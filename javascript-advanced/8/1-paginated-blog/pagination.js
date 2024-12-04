@@ -33,7 +33,7 @@ class Page {
 }
 
 export const paginate = (initialPage = 1, renderer) => {
-    const page = new Page(initialPage, renderer, { minPage: 1, maxPage: 20 });
+    const page = new Page(initialPage, renderer, { minPage: 1, maxPage: 10 });
 
     document.addEventListener("click", (event) => {
         if (event.target.nodeName !== "BUTTON") return;

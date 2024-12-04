@@ -19,7 +19,7 @@ const getUser = (userId, options) => get(`/users/${userId}`, options);
 const getPostsPage = (_page = 1) => getPosts({
     params: {
         _page,
-        _limit: 5,
+        _limit: 10,
     }
 });
 
