@@ -1,0 +1,27 @@
+<title>Demoty</title>
+<body>
+    <ul></ul>
+</body>
+
+<script>
+    const demoty = [
+        "https://img8.dmty.pl//uploads/202412/1733247421_matgam_600.jpg",
+        "https://img22.dmty.pl//uploads/202412/1733259940_ihp5sl_600.jpg",
+        "https://img14.dmty.pl//uploads/202412/1733326156_06asbh_600.jpg",
+        "https://img18.dmty.pl//uploads/202412/1733316661_sswwab_600.jpg",
+        "https://img2.dmty.pl//uploads/202412/1733214024_g9tgdt_600.jpg",
+        "https://img28.dmty.pl//uploads/202412/1733171321_w1igca_600_tv.jpg",
+        "https://img14.dmty.pl//uploads/202412/1733227445_qswfas_600.jpg",
+        "https://img25.demotywatoryfb.pl//uploads/202412/1733307778_y03zom_600.jpg",
+        "https://img17.demotywatoryfb.pl//uploads/202412/1733225491_l5lh5x_600.jpg",
+        "https://img22.dmty.pl//uploads/202412/1733312174_8rtd67_600_tv.jpg"
+    ];
+
+    const items = demoty.map(demotUrl => {
+        const img = document.createElement("img");
+        img.src = demotUrl;
+        return img;
+    });
+
+    document.querySelector("ul").append(...items);
+</script>

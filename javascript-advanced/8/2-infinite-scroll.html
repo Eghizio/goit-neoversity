@@ -1,0 +1,103 @@
+<title>Infinite Scroll</title>
+<link rel="stylesheet" href="./1-paginated-blog/styles.css">
+
+<style>
+
+    #infinitescroll {
+        padding: 2rem;
+    }
+
+    .warning {
+        width: 100%;
+        text-align: center;
+        color: red;
+        font-size: 48px;
+    }
+
+</style>
+
+<main id="main">
+    <h1>Posts</h1>
+    <ul id="items">
+        
+    </ul>
+    <div id="infinitescroll">
+        <div class="spinner"></div>
+    </div>
+</main>
+
+<script type="module">
+
+    import { Api } from "./1-paginated-blog/api.js";
+
+    const getPostData = async (page) => {
+        const posts = await Api.getPostsPage(page);
+
+        return Promise.all(
+            posts.map(async (post) => ({
+                ...post,
+                author: {
+                    ...await Api.getUser(post.userId),
+                    avatar: `https://picsum.photos/id/${post.userId}/200/300`,
+                },
+            }))
+        );
+    };
+
+
+    const createPost = ({ id, title, body, author }) => {
+        const article = document.createElement("article");
+        article.id = id;
+
+        article.innerHTML =
+        `<section class="post">
+            <main>
+                <h2>${title}</h2>
+                <span>by ${author.name} @${author.username}</span>
+                <p>${body}</p>
+            </main>
+
+            <aside>
+                <img src="${author.avatar}" alt="${author.avatar}" width="200px" height="300px">
+            </aside>
+        </section>`;
+
+        return article;
+    };
+
+    const endOfPagination = Object.assign(
+        document.createElement("p"),
+        {
+            textContent: "No more posts to display.",
+            className: "warning"
+        });
+
+    const renderMorePosts = (page = 1) => async () => {
+        console.log({ page })
+        const posts = await getPostData(page++);
+
+        if (posts.length === 0) {
+            observer.unobserve(document.querySelector("div#infinitescroll"));
+            document.querySelector(".spinner").remove();
+            document.querySelector("ul#items").append(endOfPagination);
+            return;
+        }
+
+        const elems = posts.map(createPost);
+        document.querySelector("ul#items").append(...elems);
+    };
+
+
+
+    const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1,
+        delay: 2_000,
+    };
+
+    const observer = new IntersectionObserver(renderMorePosts(1), options);
+
+    observer.observe(document.querySelector("div#infinitescroll"));
+
+</script>
