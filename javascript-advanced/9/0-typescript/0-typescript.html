@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TypeScript</title>
+  
+    <script type="module" src="./javascript.js"></script>
+    <script type="module" src="./typescript.js"></script>
+
+    <style>
+      :root {
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .ts {
+        background-color: dodgerblue;
+      }
+
+      .js {
+        background-color: gold;
+      }
+
+      .code {
+        padding: 1rem;
+        font-size: xx-large;
+        background-color: black;
+        color: hotpink;
+      }
+
+      .border {
+        padding: 0 1rem;
+        border: 1px solid dodgerblue;
+      }
+    </style>
+  </head>
+
+  <body class="column">
+    <h1>
+      <span class="ts">TypeScript</span> = Superset of
+      <span class="js">JavaScript</span>
+    </h1>
+
+    <section class="border">
+      <p class="code">npm install -g typescript</p>
+      <p class="code">tsc ./script.ts</p>
+      <p class="code">tsc -w ./modified.ts</p>
+      <p class="code">tsc -watch ./modified.ts</p>
+      <p class="code">tsc --init</p>
+      <p class="code">tsc</p>
+      <p class="code">tsc -watch</p>
+    </section>
+
+    <section class="border">
+      <p class="code">npm install -g tsx</p>
+      <p class="code">tsx ./script.ts</p>
+    </section>
+
+    <section class="border">
+      <p class="code">npm install -g http-server</p>
+      <p class="code">http-server --port 8080</p>
+      <p class="code">npx http-server -p 8080</p>
+    </section>
+  </body>
+</html>
