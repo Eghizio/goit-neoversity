@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -watch",
+    "serve": "http-server --port 8080 -c-1",
+    "start": "npm run build && npm run serve"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
