@@ -1,5 +1,18 @@
 {
   "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run $EXAMPLE",
+    "0": "tsx ./src/0-basic-types.ts",
+    "1": "tsx ./src/1-more-types.ts",
+    "2": "tsx ./src/2-function-types.ts",
+    "3": "tsx ./src/3-custom-types.ts",
+    "4": "tsx ./src/4-optional-types.ts",
+    "5": "tsx ./src/5-interfaces.ts",
+    "6": "tsx ./src/6-advanced-types.ts",
+    "7": "tsx ./src/7-generics.ts",
+    "8": "tsx ./src/8-utility-types.ts"
+  },
   "devDependencies": {
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"

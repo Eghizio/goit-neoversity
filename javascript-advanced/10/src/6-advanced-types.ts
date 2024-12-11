@@ -80,10 +80,21 @@ if (isCar(airplane)) {
   airplane.drive(); /* Never happening, unless we do some JS Runtime bamboozle */
 }
 
+let vehicle: Car | Airplane = new Airplane();
+
+if (isCar(vehicle)) {
+  vehicle.drive(); /* Never happening, unless we reasign vehicle to Car */
+}
+
+if (isCar(vehicle)) {
+  vehicle.drive();
+}
+
 /* Type Casting */
 
 const honda: unknown = new Car();
 
+// honda.drive(); /* Ooopsie */
 (honda as Car).drive();
 
 // honda.fly(); /* Ooopsie */
@@ -92,6 +103,26 @@ const honda: unknown = new Car();
 const form = document.querySelector("#our-form");
 // const elems = form.elements; /* Ooopsie */
 const elements = (form as HTMLFormElement).elements; /* Ok */
+
+const realForm = document.querySelector("form");
+// const formElements = realForm.elements; /* Ooopsie */
+const formElements2 = realForm?.elements; /* Ok */
+if (realForm) {
+  const formElements2 = realForm.elements; /* Ok */
+}
+
+const getElement = <T extends keyof HTMLElementTagNameMap>(selector: T) => {
+  const element = document.querySelector(selector);
+  if (element === null) {
+    throw new Error(`Element not found: ${selector}`);
+  }
+  return element;
+};
+
+const formElement = getElement("form");
+formElement.elements;
+
+getElement("button").click();
 
 /* Indexed properties */
 
@@ -116,3 +147,12 @@ function greet(name: any): string {
 
 greet("Adam");
 greet(42);
+
+function returnOther(value: string): string;
+function returnOther(value: number): number;
+function returnOther(value: string | number): string | number {
+  return value;
+}
+
+const x = returnOther("42");
+const y = returnOther(42);

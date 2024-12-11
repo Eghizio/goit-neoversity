@@ -4,11 +4,12 @@ export {};
 type User = {
   name: string;
   age: number;
+  friends: User[];
 };
 
 let users: User[] = [
-  { name: "Alice", age: 25 },
-  { name: "Bob", age: 30 },
+  { name: "Alice", age: 25, friends: [] },
+  { name: "Bob", age: 30, friends: [{ name: "Cecil", age: 42, friends: [] }] },
 ];
 
 type Point = { x: number; y: number };
@@ -21,6 +22,12 @@ moveUserTo({ x: 10, y: 20 });
 
 type Player = User & Point;
 
-const playerOne: Player = { name: "Parzival", age: 18, x: -42, y: 1337 };
+const playerOne: Player = {
+  name: "Parzival",
+  age: 18,
+  friends: [],
+  x: -42,
+  y: 1337,
+};
 
 moveUserTo(playerOne); /* Type Player satisfies Point requirements */

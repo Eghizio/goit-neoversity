@@ -4,18 +4,19 @@ export {};
 let anyVar: any = 123;
 anyVar = "Hello, World!";
 anyVar = true;
+anyVar = undefined;
 
 let num: number = 42;
 num = anyVar;
 
-const double = (a: number) => a * 2;
+const double = (x: number) => x * 2;
 
-console.log(double(num)); /* Ooopsie */
+// console.log(double(num)); /* Ooopsie */
 
 /* Unknown */
 let unknownVar: unknown = 123;
-anyVar = "Hello, World!";
-anyVar = true;
+unknownVar = "Hello, World!";
+unknownVar = true;
 
 // num = unknownVar; /* Ooopsie */
 
@@ -50,6 +51,7 @@ enum Status {
 }
 
 console.log(Status.Active);
+// console.log(Status[Status.Active]); /* Ooopsie */
 
 const makeStatusMessage = (status: Status): string => {
   switch (status) {
@@ -77,7 +79,8 @@ const enum ConstColor {
 
 const offlineColor = ConstColor.RED; /* Check transpilation output */
 
-// for (const color in ConstColor) { /* Ooopsie */
+// for (const color in ConstColor) {
+//   /* Ooopsie */
 //   console.log(color);
 // }
 
@@ -141,6 +144,14 @@ const Donald: Animal & Bird = {
   age: 1,
   wings: 2,
 };
+
+const dualDuck: Flyable & Swimmable = {
+  fly() {},
+  swim() {},
+};
+
+swimmingContest(dualDuck); /* Ok */
+flyingContest(dualDuck); /* Ok */
 
 /* Type Literals */
 type ColorLiteral = "red" | "green" | "blue";

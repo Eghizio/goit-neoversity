@@ -20,3 +20,7 @@ greetPlayer(playerOne);
 const upper = (text: string) => text.toUpperCase();
 
 // upper(playerOne.name); /* Ooopsie */
+
+if (playerOne.name) {
+  upper(playerOne.name); /* Ok */
+}

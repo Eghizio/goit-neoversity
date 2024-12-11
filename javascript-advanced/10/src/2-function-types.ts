@@ -31,9 +31,9 @@ function error(message: string): never {
   throw new Error(message);
 }
 
-// function infiniteLoop(): never {
-//   while (true) {}
-// }
+function infiniteLoop(): never {
+  while (true) {}
+}
 
 function getCriticalChance(damage: number): number | never {
   const chance = Math.random();
@@ -52,6 +52,7 @@ function getCriticalChance(damage: number): number | never {
 let nope: never;
 // nope = 1; /* Ooopsie */
 
+/* Custom Function type */
 type Callback = (element: number, index: number, array: number[]) => number;
 
 function arrayMap(arr: number[], callback: Callback): number[] {
