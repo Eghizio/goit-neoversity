@@ -15,7 +15,7 @@
     "9": "tsx ./src/9-dip.ts",
     "10": "tsx ./src/10-classes-revisited.ts",
     "11": "tsx ./src/11-interfaces.ts",
-    "12": "tsx ./src/12-uml.ts"
+    "12": "tsx ./src/12-uml-diagrams.ts"
   },
   "devDependencies": {
     "tsx": "^4.19.2",
