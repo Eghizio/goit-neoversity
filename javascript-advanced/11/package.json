@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run $EXAMPLE",
+    "0": "tsx ./src/0-class.ts",
+    "1": "tsx ./src/1-encapsulation.ts",
+    "2": "tsx ./src/2-inheritance.ts",
+    "3": "tsx ./src/3-polymorphism.ts",
+    "4": "tsx ./src/4-abstraction.ts",
+    "5": "tsx ./src/5-srp.ts",
+    "6": "tsx ./src/6-ocp.ts",
+    "7": "tsx ./src/7-lsp.ts",
+    "8": "tsx ./src/8-isp.ts",
+    "9": "tsx ./src/9-dip.ts",
+    "10": "tsx ./src/10-classes-revisited.ts",
+    "11": "tsx ./src/11-interfaces.ts",
+    "12": "tsx ./src/12-uml.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
