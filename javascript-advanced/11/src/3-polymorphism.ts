@@ -52,3 +52,25 @@ const adam = new Profesor("Adam", 42);
 john.introduceYourself();
 beth.introduceYourself();
 adam.introduceYourself();
+
+/* Function overloading, polymorphic function. Does not work in TypeScript as is. */
+type Rectangle = { width: number; height: number };
+type Square = { side: number };
+// function calculateRectangleArea({ width, height }: Rectangle): number {
+//   return width * height;
+// }
+// function calculateRectangleArea({ side }: Square): number {
+//   return side * side;
+// }
+function calculateRectangleArea(width: number, height: number): number {
+  return width * height;
+}
+
+/* Adapter */
+const getAreaForRectangle = (rectangle: Rectangle): number => {
+  return calculateRectangleArea(rectangle.width, rectangle.height);
+};
+
+const getAreaForSquare = (square: Square): number => {
+  return calculateRectangleArea(square.side, square.side);
+};

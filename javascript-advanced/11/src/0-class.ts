@@ -10,6 +10,7 @@ class User {
     this.id = crypto.randomUUID();
     this.name = name;
     this.age = age;
+
     this.hobby = [];
   }
 
@@ -30,10 +31,10 @@ const adam = new User("Adam", 42);
 adam.addHobby("Coding");
 adam.addHobby("Cooking");
 
-const beth = new User("Adam", 21);
-adam.addHobby("Coding");
-adam.addHobby("Hiking");
-adam.addHobby("Running");
+const beth = new User("Beth", 21);
+beth.addHobby("Coding");
+beth.addHobby("Hiking");
+beth.addHobby("Running");
 
 const students: User[] = [adam, beth];
 

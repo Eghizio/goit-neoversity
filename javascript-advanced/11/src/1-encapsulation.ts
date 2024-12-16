@@ -21,8 +21,8 @@ class User {
     this.age = newAge;
   }
 
-  public sendEmail({ name }: User, message: string) {
-    const footer = this.createEmailFooter(name);
+  public receiveEmail(sender: User, message: string) {
+    const footer = this.createEmailFooter(sender.name);
 
     const emailBody = `${message}\n${footer}`;
 
@@ -30,10 +30,10 @@ class User {
     console.log(emailBody);
   }
 
-  private createEmailFooter(name: string): string {
+  private createEmailFooter(senderName: string): string {
     const sentDate = new Date().toLocaleString();
 
-    return `Sent by ${name} on ${sentDate}`;
+    return `Sent by ${senderName} on ${sentDate}`;
   }
 }
 
@@ -44,4 +44,4 @@ const beth = new User("Beth", 21, "beth@beth.com");
 beth.setAge(16);
 // beth.createEmailFooter(beth.name); /* Ooopsie */
 
-adam.sendEmail(beth, "Hi Adam, how are you?");
+adam.receiveEmail(beth, "Hi Adam, how are you?");

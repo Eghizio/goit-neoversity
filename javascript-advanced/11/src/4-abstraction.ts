@@ -88,22 +88,22 @@ class Student extends User {
 
 /* Abstract class instances are not allowed */
 // const john = new User("John", 69, "john@doe.com"); /* Ooopsie */
+// john.introduceYourself();
 
-/* Array of abstract Super type containing children type objects */
-const users: User[] = [
-  new Student("Viktor", 30),
-  new Profesor("Heimerdinger", 301),
-];
+// /* Array of abstract Super type containing children type objects */
+// const users: User[] = [
+//   new Student("Viktor", 30),
+//   new Profesor("Heimerdinger", 301),
+// ];
 
-users.forEach((user) => {
-  user.introduceYourself();
-});
+// users.forEach((user) => {
+//   user.introduceYourself();
+// });
 
 const beth = new Student("Beth", 21);
 
 const adam = new Profesor("Adam", 42);
 
-// john.introduceYourself();
 beth.introduceYourself();
 adam.introduceYourself();
 
@@ -147,24 +147,27 @@ class Scientist {
 
 class Mathematician extends Scientist {
   power(x: number, y: number): number {
-    if (typeof x !== "number" || typeof y !== "number") {
-      throw new Error("Invalid argument type");
-    }
+    return super.power(x, y);
 
-    if (y === 0) return 1;
+    // // some implematation.
+    // if (typeof x !== "number" || typeof y !== "number") {
+    //   throw new Error("Invalid argument type");
+    // }
 
-    if (y % 2 === 0) {
-      return (
-        this.power(x, parseInt((y / 2).toFixed(0))) *
-        this.power(x, parseInt((y / 2).toFixed(0)))
-      );
-    }
+    // if (y === 0) return 1;
 
-    return (
-      x *
-      this.power(x, parseInt((y / 2).toFixed(0))) *
-      this.power(x, parseInt((y / 2).toFixed(0)))
-    );
+    // if (y % 2 === 0) {
+    //   return (
+    //     this.power(x, parseInt((y / 2).toFixed(0))) *
+    //     this.power(x, parseInt((y / 2).toFixed(0)))
+    //   );
+    // }
+
+    // return (
+    //   x *
+    //   this.power(x, parseInt((y / 2).toFixed(0))) *
+    //   this.power(x, parseInt((y / 2).toFixed(0)))
+    // );
   }
 }
 
@@ -174,17 +177,17 @@ class Physicist extends Scientist {
   }
 }
 
-// const scientistA = new Scientist("A");
-// const scientistB = new Mathematician("B");
-// const scientistC = new Physicist("C");
+const scientistA = new Scientist("A");
+const scientistB = new Mathematician("B");
+const scientistC = new Physicist("C");
 
-// const a = scientistA.power(2, 3);
-// const b = scientistB.power(2, 3);
-// const c = scientistC.power(2, 3);
+const a = scientistA.power(2, 3);
+const b = scientistB.power(2, 3);
+const c = scientistC.power(2, 3);
 
-// console.log({ a, b, c });
+console.log("\nScientists power(2,3):", { a, b, c });
 
-// const scientists = [scientistA, scientistB, scientistC];
-// const results = scientists.map((scientist) => scientist.power(2, 4));
+const scientists: Scientist[] = [scientistA, scientistB, scientistC];
+const results = scientists.map((scientist) => scientist.power(2, 4));
 
-// console.log(results);
+console.log("\nScientists power(2,4):", results);

@@ -1,3 +1,5 @@
+/* https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color */
+
 const FgBlack = "\x1b[30m";
 const FgRed = "\x1b[31m";
 const FgGreen = "\x1b[32m";

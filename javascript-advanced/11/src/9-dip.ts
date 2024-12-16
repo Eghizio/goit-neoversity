@@ -1,3 +1,5 @@
+import { Colors } from "./colors";
+
 export {};
 
 /* SOLID - Dependency Inversion Principle */
@@ -18,7 +20,10 @@ class BadTaxi {
   }
 
   drive() {
-    console.log(`[${this.plate}] ${this.driver.name} will be your driver!`);
+    console.log(
+      Colors.Red,
+      `[${this.plate}] ${this.driver.name} will be your driver!`
+    );
   }
 }
 

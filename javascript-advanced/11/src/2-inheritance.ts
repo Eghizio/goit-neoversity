@@ -27,8 +27,8 @@ class User {
     this.age = newAge;
   }
 
-  public sendEmail({ name }: User, message: string) {
-    const footer = this.createEmailFooter(name);
+  public receiveEmail(sender: User, message: string) {
+    const footer = this.createEmailFooter(sender.name);
 
     const emailBody = `${message}\n${footer}`;
 
@@ -36,15 +36,17 @@ class User {
     console.log(emailBody, "\n");
   }
 
-  private createEmailFooter(name: string): string {
+  private createEmailFooter(senderName: string): string {
     const sentDate = new Date().toLocaleString();
 
-    return `Sent by ${name} on ${sentDate}`;
+    return `Sent by ${senderName} on ${sentDate}`;
   }
 }
 
+type StudentId = string;
+
 export class Student extends User {
-  readonly studentId: string;
+  readonly studentId: StudentId;
 
   constructor(name: string, age: number) {
     super(name, age, `${name.toLowerCase()}@student.com`);
@@ -58,7 +60,7 @@ export class Student extends User {
 }
 
 class Profesor extends User {
-  private students: Map<string, Student>;
+  private students: Map<StudentId, Student>;
 
   constructor(name: string, age: number) {
     super(`Profesor ${name}`, age, `${name.toLowerCase()}@professor.com`);
@@ -67,7 +69,7 @@ class Profesor extends User {
 
   /* overriding base method from User parent class */
   introduceYourself() {
-    console.log(`I'm Profesor ${this.name}.`);
+    console.log(Colors.Magenta, `I'm ${this.name}.`);
   }
 
   addStudent(student: Student) {
@@ -89,17 +91,17 @@ const beth = new Student("Beth", 21);
 
 const adam = new Profesor("Adam", 42);
 
-// john.introduceYourself();
-// beth.introduceYourself();
-// adam.introduceYourself();
+john.introduceYourself();
+beth.introduceYourself();
+adam.introduceYourself();
 
-// adam.addStudent(beth);
+adam.addStudent(beth);
 
-// console.log("\nIs Beth Adam's student:", adam.hasStudent(beth));
+console.log("\nIs Beth Adam's student:", adam.hasStudent(beth));
 
-// beth.sendEmail(adam, "Congratulations on Your graduation!");
+beth.receiveEmail(adam, "Congratulations on Your graduation!");
 
-// console.log("Beth graduated and is no longer a student.");
-// adam.removeStudent(beth);
+console.log("Beth graduated and is no longer a student.");
+adam.removeStudent(beth);
 
-// console.log("Is Beth Adam's student:", adam.hasStudent(beth));
+console.log("Is Beth Adam's student:", adam.hasStudent(beth));
