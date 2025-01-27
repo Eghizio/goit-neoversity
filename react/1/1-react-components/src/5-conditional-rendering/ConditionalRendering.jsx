@@ -37,10 +37,15 @@ export const ConditionalRendering = () => {
   // return null;
   // return <p>Please log in!</p>;
 
+  // if (!isLoggedIn) {
+  //   return <h1>Please log in!</h1>;
+  // }
+
   return (
     <main>
       {isLoggedIn && <UserAvatar />}
       {/* {0 && false} */}
+      {/* {Boolean(0) && false} */}
 
       {/* {isLoggedIn ? <UserAvatar /> : null} */}
 

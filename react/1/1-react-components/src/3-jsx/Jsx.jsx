@@ -1,6 +1,7 @@
 import React from "react";
 
 const text = "Red Text";
+// const text = 0;
 
 const textStyles = {
   textDecoration: "underline",
@@ -18,17 +19,23 @@ export const Jsx = () => {
   const title = "Hello from JSX";
 
   return (
-    <React.Fragment>
-      <h1>{title}</h1>
+    <>
+      <div id="elomelo">
+        <h1>Elo</h1>
 
-      <RedText />
-      <RedText />
-      <RedText />
-      <>
-        <RedText />
-        <RedText />
-        <RedText />
-      </>
-    </React.Fragment>
+        <React.Fragment>
+          <h1>{title}</h1>
+
+          <RedText />
+          <RedText />
+          <RedText />
+          <>
+            <RedText />
+            <RedText />
+            <RedText />
+          </>
+        </React.Fragment>
+      </div>
+    </>
   );
 };

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import React from "react";
 
 /* TypeScript Props interface */
 // interface Props {
@@ -30,6 +31,10 @@ export const CompWithPropTypes = () => (
     <Card />
 
     {/* <Card name={42} /> */}
+
+    {/* <Card name={"42"} /> */}
+
+    {/* <Card name={"42"} price={69} /> */}
 
     {/* <Card
       name="Adam"

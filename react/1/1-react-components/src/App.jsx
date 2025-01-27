@@ -1,5 +1,5 @@
 import { Setup } from "./0-setup/Setup";
-import { Components } from "./1-components/Card";
+import { Components } from "./1-components/Components";
 import { Modules } from "./2-modules/Modules";
 import { Jsx } from "./3-jsx/Jsx";
 import { Props } from "./4-props/Props";

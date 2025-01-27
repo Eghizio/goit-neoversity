@@ -1,5 +1,6 @@
-import Default from "./Default";
-// import Dupa from "./Default";
+// import Default from "./Default";
+import Dupa from "./Default";
+
 import {
   Named,
   AnotherComponent as First,

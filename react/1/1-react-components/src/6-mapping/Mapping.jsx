@@ -43,6 +43,7 @@ export const Mapping = () => {
     <main>
       {products.map((product, index) => (
         <Card
+          // key={Math.random()}
           // key={index}
           // key={product.title}
           key={product.id}
