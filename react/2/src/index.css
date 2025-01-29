@@ -1,0 +1,39 @@
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  filter: brightness(0.8);
+}
+
+.title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 96px;
+  text-decoration: none;
+}
+
+/* button {
+  background-color: dodgerblue;
+  color: white;
+  font-weight: bold;
+} */
+
+.btn {
+  cursor: pointer;
+  border: none;
+  padding: 1rem 2rem;
+}
+
+.btn:hover {
+  filter: brightness(0.8);
+}
