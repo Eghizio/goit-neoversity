@@ -1,0 +1,15 @@
+.info {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.danger {
+  background-color: crimson;
+  color: white;
+}
+
+/* Cascade Matters in case of 2 classes at the same time. */
+/* .info {
+  background-color: dodgerblue;
+  color: white;
+} */

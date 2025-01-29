@@ -1,0 +1,11 @@
+.card {
+  padding: 1rem;
+  border: 1px solid orange;
+  background-color: dodgerblue;
+  color: white;
+}
+
+.title {
+  margin: 0;
+  color: red;
+}
