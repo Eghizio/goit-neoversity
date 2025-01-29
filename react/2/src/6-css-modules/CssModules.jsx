@@ -1,4 +1,4 @@
-import { Card } from "./Card";
+import { Card } from "./Card/Card";
 import "./styles.css";
 import s from "./styles.module.css";
 
@@ -10,12 +10,14 @@ export const CssModules = () => {
   return (
     <main>
       <h1>CssModules</h1>
+
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt
         libero doloremque nobis blanditiis, magni repellendus mollitia, deserunt
         recusandae ipsa nostrum nihil laudantium sapiente quibusdam delectus
         nulla voluptas voluptate, eum et!
       </p>
+
       <ul>
         <li>
           <Card
@@ -23,13 +25,17 @@ export const CssModules = () => {
             img={img}
             description="Spiderman, spiderman! NaNaNaNaN"
           />
+        </li>
 
+        <li>
           <article className="card">
             <h2 className="title">Spiderman</h2>
             <img src={img} alt="Spiderman" width="200px" />
             <p>Spiderman, spiderman! NaNaNaNaN</p>
           </article>
+        </li>
 
+        <li>
           <article className={s.card}>
             <h2 className="title">Spiderman</h2>
             <img src={img} alt="Spiderman" width="200px" />

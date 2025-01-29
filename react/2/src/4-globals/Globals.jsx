@@ -2,8 +2,8 @@
 import "./styles.css";
 
 export const Globals = () => {
-  const className = "title";
-  // const className = "my-title";
+  // const className = "title";
+  const className = "my-title";
 
   return (
     <main>

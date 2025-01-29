@@ -3,7 +3,10 @@ import { rndBool } from "../utils";
 import "./styles.css";
 
 const cs = (shouldApply, className) => (shouldApply ? " " + className : "");
-const classNames = (classes) => classes.toString().replaceAll(",", " ");
+
+const classNames = (classes) => classes.toString();
+// const classNames = (classes) => classes.toString().replaceAll(",", " ");
+// const classNames = (classes) => classes.join(" ");
 // const classNames = (classes) => classes.flatMap((c) => (c ? c : [])).join(" ");
 // const classNames = (classes) => classes.filter(Boolean).join(" ");
 
@@ -13,7 +16,6 @@ export const ClassComposition = () => {
   const titleClass = `title${isDanger && " danger"}`;
   // const titleClass = `title${isDanger ? " danger" : ""}`;
   // const titleClass = `title${cs(isDanger, "danger")}`;
-  // const titleClass = classNames(["title", isDanger && "danger"]);
   // const titleClass = classNames(["title", isDanger && "danger"]);
 
   return (

@@ -1,6 +1,7 @@
 .card {
   padding: 1rem;
   border: 1px solid orange;
-  background-color: crimson;
   color: white;
+
+  background-color: crimson;
 }

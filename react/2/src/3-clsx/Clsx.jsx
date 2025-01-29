@@ -2,34 +2,34 @@ import "./styles.css";
 import clsx from "clsx"; /* https://www.npmjs.com/package/clsx */
 import { rndBool } from "../utils";
 
-const className = clsx(
-  "title",
-  undefined && "unused",
-  true && "danger",
-  rndBool() ? "active" : "inactive"
-);
+// const className = clsx(
+//   "title",
+//   undefined && "unused",
+//   true && "danger",
+//   rndBool() ? "active" : "inactive"
+// );
 
-// const isActive = rndBool();
+const isActive = rndBool();
 
 // const activeCls = isActive ? { active: true } : { inactive: true };
 // const activeCls = { [isActive ? "active" : "inactive"]: true };
 
-// const className = clsx({
-//   // title: true,
-//   unused: false,
-//   danger: true,
+const className = clsx({
+  title: true,
+  unused: false,
+  danger: true,
 
-//   // active: rndBool(),
-//   // inactive: rndBool(),
+  // active: rndBool(),
+  // inactive: rndBool(),
 
-//   // ...{ ...(isActive && { active: true }) },
-//   // ...{ ...(!isActive && { inactive: true }) },
+  // ...{ ...(isActive && { active: true }) },
+  // ...{ ...(!isActive && { inactive: true }) },
 
-//   // ...activeCls,
+  // ...activeCls,
 
-//   active: isActive,
-//   inactive: !isActive,
-// });
+  active: isActive,
+  inactive: !isActive,
+});
 
 export const Clsx = () => {
   return (

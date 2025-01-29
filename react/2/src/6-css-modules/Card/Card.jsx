@@ -8,7 +8,7 @@ export const Card = ({ title, description, img }) => {
 
   return (
     <article className={s.card}>
-      <Title>Spiderman</Title>
+      <Title>{title}</Title>
       <img src={img} alt={title} width="200px" />
       <p>{description}</p>
     </article>

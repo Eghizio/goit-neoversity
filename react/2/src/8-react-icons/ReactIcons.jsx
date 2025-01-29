@@ -4,6 +4,7 @@ import { IoMdBeer } from "react-icons/io";
 
 const Icon = ({ type }) => {
   const size = 256;
+
   switch (type) {
     case "hamburger":
       return <HiMenu size={size} color="red" />;

@@ -1,7 +1,8 @@
-/* .title {
-  color: red;
-} */
+.title {
+  color: blue;
+}
 
 .my-title {
-  color: red;
+  color: dodgerblue;
+  text-decoration: underline;
 }
