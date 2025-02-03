@@ -28,24 +28,27 @@ const StatefullClicker = () => {
   // let [clicks, setClicks] = useState(0);
   const [clicks, setClicks] = useState(0);
 
-  // const onClick = () => {
-  //   // clicks = clicks + 1; /* Illegal */
-  //   // console.log(clicks);
+  const onClick = () => {
+    // clicks = clicks + 1; /* Illegal */
+    // console.log(clicks);
 
-  //   setClicks(clicks + 1);
-  //   // console.log(clicks);
-  //   setClicks(clicks + 1);
-  // };
+    setClicks(clicks + 1);
+    console.log(clicks);
+    setClicks(clicks + 1);
+  };
 
-  console.log(clicks);
+  console.log("Rerender: ", clicks);
 
   const increment = () => {
     setClicks((previousState) => previousState + 1);
     setClicks((previousState) => previousState + 1);
   };
 
+  // const clickHandler = onClick;
+  const clickHandler = increment;
+
   return (
-    <button style={style.green} onClick={increment}>
+    <button style={style.green} onClick={clickHandler}>
       Clicked {clicks} times
     </button>
   );

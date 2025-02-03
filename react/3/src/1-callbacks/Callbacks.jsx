@@ -23,7 +23,7 @@ const staticSpook = () => {
 
 export const Callbacks = () => {
   const spook = () => {
-    console.log("Spooky scaryy skeleton!");
+    console.log("Spooky scary skeleton!");
   };
 
   return (

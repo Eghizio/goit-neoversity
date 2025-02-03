@@ -54,6 +54,7 @@ const Child = ({ changeNumber }) => {
     const number = event.target.elements["num"].valueAsNumber;
 
     changeNumber(number);
+    // changeNumber(() => number); /* Hack ;) */
 
     event.target.reset();
   };
@@ -70,6 +71,7 @@ const Child = ({ changeNumber }) => {
           New favorite number:
           <input type="number" name="num" placeholder="Number" />
         </label>
+
         <button type="submit">Change number</button>
       </form>
 

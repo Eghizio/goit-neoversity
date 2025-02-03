@@ -20,7 +20,7 @@ const StatsCounter = ({ statistics }) => {
     setStats((previous) => ({ ...previous, [stat]: previous[stat] + 1 }));
 
   return (
-    <div className="col">
+    <div className="col border">
       <div className="row">
         <button style={style.red} type="button" onClick={decrement("likes")}>
           -
@@ -76,9 +76,11 @@ const SingleStatCounter = ({ statName, statistics, updateStatistics }) => {
       <button style={style.red} type="button" onClick={decrement}>
         -
       </button>
+
       <span style={{ textTransform: "capitalize" }}>
         {statName}: {statistics[statName]}
       </span>
+
       <button style={style.green} type="button" onClick={increment}>
         +
       </button>
@@ -94,9 +96,11 @@ const SimplifiedStatsCounter = ({ statistics }) => {
     ...statistics,
   });
 
+  // const total = Object.values(stats).reduce((acc, n) => acc + n, 0);
+
   /* How can we simplify it? Common and different things. Decoupling. */
   return (
-    <div className="col">
+    <div className="col border">
       {Object.keys(stats).map((statName) => (
         <SingleStatCounter
           key={statName}
@@ -109,6 +113,13 @@ const SimplifiedStatsCounter = ({ statistics }) => {
   );
 };
 
+const socialMediaPostStatistics = {
+  likes: 42,
+  comments: 7,
+  shares: 69,
+  favourites: 1,
+};
+
 export const ComplexState = () => {
   return (
     <main className="col wide-gap">
@@ -119,6 +130,7 @@ export const ComplexState = () => {
         <StatsCounter
           statistics={{ likes: 42, comments: 7, shares: 69, favourites: 1 }}
         />
+        <StatsCounter statistics={socialMediaPostStatistics} />
       </div>
 
       <div className="col wide-gap border" id="Extendable Stats Counter">
@@ -129,8 +141,11 @@ export const ComplexState = () => {
             comments: 7,
             shares: 69,
             favourites: 1,
+
+            starred: 123,
           }}
         />
+        <SimplifiedStatsCounter statistics={socialMediaPostStatistics} />
       </div>
     </main>
   );

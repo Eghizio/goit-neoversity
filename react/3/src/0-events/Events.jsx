@@ -5,17 +5,19 @@ const Buttons = () => {
     console.log("Button clicked!");
   };
 
+  const onDivClick = () => console.log("Div clicked!");
+
   return (
-    <div className="row border">
-      <button onClick={handleClick} role="button">
+    <div className="row border" onClick={onDivClick}>
+      <button onClick={handleClick} type="button">
         Click me!
       </button>
 
-      <button onClick={() => handleClick()} role="button">
+      <button onClick={() => handleClick()} type="button">
         Click me as well!
       </button>
 
-      <button onClick={() => console.log("Button clicked!")} role="button">
+      <button onClick={() => console.log("Button clicked!")} type="button">
         Click me too!
       </button>
     </div>
@@ -23,6 +25,7 @@ const Buttons = () => {
 };
 
 const Form = ({ formType = "Login" }) => {
+  /* onClick */
   const handleSubmit = () => {
     console.log("Now you see me, now you don't!");
   };
@@ -42,7 +45,8 @@ const Form = ({ formType = "Login" }) => {
   return (
     <form
       className="col border"
-      onSubmit={(event) => handleEvent(event)}
+      // onSubmit={(event) => handleEvent(event)}
+      onSubmit={handleEvent}
       autoComplete="off"
     >
       <h2>{formType}</h2>
@@ -70,6 +74,8 @@ export const Events = () => {
       <h1>Events</h1>
 
       <Buttons />
+
+      {/* <Form /> */}
 
       <Form formType="Login" />
       <Form formType="Register" />
