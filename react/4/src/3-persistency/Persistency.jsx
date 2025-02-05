@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 
 const LOCAL_STORAGE_KEY = "__fav_number";
-
 const FavouriteNumber = ({ initialNumber = 42 }) => {
   const [number, setNumber] = useState(() => {
     try {

@@ -1,10 +1,13 @@
 /* useEffect Hook, timeouts & intervals */
 import { useEffect, useState } from "react";
 
-const timeLeft = (date) => {
-  const diff = date.getTime() - Date.now();
-  return diff <= 0 ? 0 : diff;
-};
+const timeLeft = (date) => Math.max(date.getTime() - Date.now(), 0);
+
+// const timeLeft = (date) => {
+//   const diff = date.getTime() - Date.now();
+//   return diff <= 0 ? 0 : diff;
+//   // return Math.max(diff, 0);
+// };
 
 const Human = ({ expirationDate }) => {
   const [remainingLifespan, setRemainingLifespan] = useState(
@@ -24,7 +27,10 @@ const Human = ({ expirationDate }) => {
       setRemainingLifespan(() => {
         const updatedLifespan = timeLeft(expirationDate);
 
-        if (updatedLifespan <= 0) clearInterval(interval);
+        if (updatedLifespan <= 0) {
+          console.log("Lifespan expired.");
+          clearInterval(interval);
+        }
 
         return updatedLifespan;
       });
@@ -47,7 +53,7 @@ const Human = ({ expirationDate }) => {
       <p>
         I have <span>{remainingLifespan} ms</span> left.
       </p>
-      <p>{isAlive ? "My time has come!" : "I'm alive!"}</p>
+      <p>{isAlive ? "I'm alive!" : "My time has come!"}</p>
     </div>
   );
 };
@@ -64,9 +70,32 @@ const Tracker = () => {
   return null;
 };
 
+const TrackerWithSignal = () => {
+  useEffect(() => {
+    const controler = new AbortController();
+    const options = { signal: controler.signal };
+
+    document.addEventListener(
+      "mousemove",
+      ({ clientX: x, clientY: y }) => console.log({ x, y }),
+      options
+    );
+
+    document.addEventListener("click", () => console.log("Clicked!"), options);
+
+    return () => {
+      controler.abort();
+    };
+  }, []);
+
+  return null;
+};
+
 export const Effects = () => {
   const [isVisible, setVisibile] = useState(true);
   const [key, setKey] = useState(Math.random().toString());
+
+  console.log("Loggin something anyways...");
 
   useEffect(() => {
     console.log("New key value:", { key }); // This will get logged only upon key change.
@@ -86,8 +115,9 @@ export const Effects = () => {
 
         {isVisible ? (
           <>
-            <Human key={key} expirationDate={new Date(Date.now() + 15_000)} />
-            {/* <Tracker /> */}
+            <Human key={key} expirationDate={new Date(Date.now() + 9_000)} />
+            <Tracker />
+            <TrackerWithSignal />
           </>
         ) : (
           <p>"Visibility & Tracking off."</p>

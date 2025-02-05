@@ -56,6 +56,8 @@ export const ComponentLifecycle = () => {
       <If condition={isRendered}>
         <Component label={label} />
       </If>
+
+      {/* {isRendered ? <Component label={label} /> : null} */}
     </main>
   );
 };

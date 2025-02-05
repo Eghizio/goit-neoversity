@@ -1,5 +1,15 @@
 /* Custom Hooks & Rule of Hooks */
-// https://react.dev/warnings/invalid-hook-call-warning
+
+/* https://react.dev/warnings/invalid-hook-call-warning
+✅ Call them at the top level in the body of a function component.
+✅ Call them at the top level in the body of a custom Hook.
+
+🔴 Do not call Hooks inside conditions or loops.
+🔴 Do not call Hooks after a conditional return statement.
+🔴 Do not call Hooks in event handlers.
+🔴 Do not call Hooks in class components.
+🔴 Do not call Hooks inside functions passed to useMemo, useReducer, or useEffect.
+*/
 import { useEffect, useState } from "react";
 
 // Must start with "use"
@@ -45,9 +55,10 @@ const useModal = (initiallyOpened = false, onStateChange = undefined) => {
   return { isOpen, open, close, toggle };
 };
 
-const Modal = () => <h2>Modal</h2>;
+const Modal = () => <h2 style={{ color: "dodgerblue" }}>Modal</h2>;
 
 export const CustomHooks = () => {
+  // const onModalToggle = (currentState) => console.log("State changed to: ", currentState);
   const { isOpen, open, close } = useModal(true, (currentState) => {
     console.log("State changed to: ", currentState);
   });
@@ -61,8 +72,8 @@ export const CustomHooks = () => {
       {/* <BreakingRulesOfHooks /> */}
 
       <div className="col wide-gap border">
-        <button onClick={open}>Open Modal</button>
-        <button onClick={close}>Close Modal</button>
+        <button onClick={open}>✅ Open Modal</button>
+        <button onClick={close}>❌ Close Modal</button>
 
         {isOpen ? <Modal /> : null}
       </div>
