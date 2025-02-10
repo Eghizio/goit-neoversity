@@ -85,6 +85,8 @@ export const FieldIdentifier = () => {
     form.reset();
   };
 
+  const login = (user) => console.log("Logged in:", user);
+
   return (
     <main className="col wide-gap">
       <h1>Field identifiers</h1>
@@ -99,8 +101,8 @@ export const FieldIdentifier = () => {
       <section className="col">
         {/* <h2>Forms with field identifiers</h2>
 
-        <FormWithFieldIdentifiers label="Login" onSubmit={onSubmit} /> */}
-        {/* <FormWithFieldIdentifiers label="Login" onSubmit={onSubmit} /> */}
+        <FormWithFieldIdentifiers label="Login" uponSubmission={login} /> */}
+        {/* <FormWithFieldIdentifiers label="Login" uponSubmission={login} /> */}
       </section>
     </main>
   );

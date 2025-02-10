@@ -2,7 +2,7 @@ const RegisterForm = ({ uponSubmission }) => {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    const form = event.target;
+    const form = event.currentTarget;
     const { username, password } = form.elements;
 
     const user = {
@@ -104,7 +104,9 @@ export const UncontrolledForms = () => (
       <h2>Simple</h2>
       <RegisterForm />
 
-      <LoginForm />
+      <LoginForm
+        uponSubmission={(user) => console.log(`Hello ${user.username}`)}
+      />
     </section>
 
     <section id="Non unique form field id & name" className="col">

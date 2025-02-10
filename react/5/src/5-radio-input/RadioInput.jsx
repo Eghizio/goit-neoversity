@@ -59,6 +59,7 @@ const ControlledRadioField = ({ name, label, checked, value, onChange }) => {
         id={id}
         name={name}
         checked={checked}
+        // defaultChecked
         value={value}
         onChange={onChange}
       />
@@ -75,8 +76,8 @@ const allServers = [
 ];
 
 const ControlledRadio = ({ label, uponSubmission }) => {
-  const [server, setServer] = useState(allServers.at(-1).id); // Will fail with empty array.
-  // const [server, setServer] = useState(allServers?.at(-1)?.id ?? "");
+  // const [server, setServer] = useState(allServers.at(-1).id); // Will fail with empty array.
+  const [server, setServer] = useState(allServers?.at(-1)?.id ?? "");
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -120,12 +121,12 @@ export const RadioInput = () => {
       </section>
 
       <section className="col">
-        {/* <h2>Controlled Form with Radio</h2>
+        <h2>Controlled Form with Radio</h2>
 
         <ControlledRadio
           label="Zagraj na tym serwerze"
           uponSubmission={pickServer}
-        /> */}
+        />
       </section>
     </main>
   );

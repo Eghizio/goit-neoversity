@@ -91,13 +91,48 @@ export const ManagingCollections = () => {
     name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // const updateFriendName = (friendId, newName) => {};
+
   return (
     <main className="col wide-gap">
       <h1>Managing Collections</h1>
 
-      {/* <AddFriendForm addFriend={addFriend} /> */}
-      {/* <SearchBar query={searchQuery} updateSearch={setSearchQuery} /> */}
+      <AddFriendForm addFriend={addFriend} />
+      <SearchBar query={searchQuery} updateSearch={setSearchQuery} />
       <FriendsList friends={displayedFriends} deleteFriend={deleteFriend} />
     </main>
   );
 };
+
+// const FriendEditor = ({ friend, updateFriend }) => {
+//   const id = useId();
+//   const [updatedName, setUpdatedName] = useState(friend.name);
+
+//   const onSubmit = (event) => {
+//     event.preventDefault();
+
+//     updateFriend(friend.id, updatedName);
+//   };
+
+//   return (
+//     <form onSubmit={onSubmit}>
+//       <label htmlFor={id}>
+//         Friend name:
+//         <input
+//           id={id}
+//           type="text"
+//           name="name"
+//           placeholder="Friends name"
+//           value={updatedName}
+//           onChange={(e) => setUpdatedName(e.target.value)}
+//           required
+//           minLength={2}
+//         />
+//       </label>
+
+//       <button className="green" type="submit">
+//         Update friends name
+//       </button>
+//     </form>
+//   );
+// };

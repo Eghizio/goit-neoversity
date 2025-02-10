@@ -143,6 +143,20 @@ const ControlledRegisterPlayerForm = ({ label, uponSubmission }) => {
         onChange={(e) => setPassword(e.target.value)}
       />
 
+      <ControlledSelectField
+        label="Server"
+        name="server"
+        value={server}
+        onChange={(e) => setServer(e.target.value)}
+      >
+        <option value="">Wybierz server</option>
+        {allServers.map(({ id, name }) => (
+          <option key={id} value={id}>
+            {name}
+          </option>
+        ))}
+      </ControlledSelectField>
+
       <label htmlFor={serverFieldId}>
         Server:
         <select
@@ -158,20 +172,6 @@ const ControlledRegisterPlayerForm = ({ label, uponSubmission }) => {
           <option value="s4">Twierdza</option>
         </select>
       </label>
-
-      <ControlledSelectField
-        label="Server"
-        name="server"
-        value={server}
-        onChange={(e) => setServer(e.target.value)}
-      >
-        <option value="">Wybierz server</option>
-        {allServers.map(({ id, name }) => (
-          <option key={id} value={id}>
-            {name}
-          </option>
-        ))}
-      </ControlledSelectField>
 
       <button className="green" type="submit">
         {label}
@@ -199,9 +199,9 @@ export const SelectInput = () => {
       </section>
 
       <section className="col">
-        {/* <h2>Controlled Form with Select</h2>
+        <h2>Controlled Form with Select</h2>
 
-        <ControlledRegisterPlayerForm label="Login" uponSubmission={login} /> */}
+        <ControlledRegisterPlayerForm label="Login" uponSubmission={login} />
       </section>
     </main>
   );

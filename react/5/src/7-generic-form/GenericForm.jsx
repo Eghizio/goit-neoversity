@@ -21,8 +21,8 @@ const RegisterForm = ({ label, uponSubmission, values, onValueChange }) => {
         required
       />
       <Checkbox
-        name="tos"
         label="Akceptuję regulamin"
+        name="tos"
         checked={values["tos"] ?? false}
         onChange={onValueChange}
         required
@@ -103,18 +103,23 @@ const getValue = (target) =>
 export const GenericForm = () => {
   const [values, setValues] = useState(initialValues);
 
+  console.log({ values });
+
   const onSubmit = (event) => {
     event.preventDefault();
+
     console.log("Submitted: ", values);
-    setValues(initialValues);
+    setValues(initialValues); // Reset state.
+
     event.target.reset();
   };
 
   const onInputChange = (event) => {
+    const input = event.target;
     setValues((prev) => ({
       ...prev,
-      // [event.target.name]: event.target.value,
-      [event.target.name]: getValue(event.target),
+      [input.name]: input.value,
+      // [event.target.name]: getValue(event.target),
     }));
   };
 

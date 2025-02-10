@@ -84,6 +84,7 @@ const AuthForms = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
   console.log(registeredUsers);
+  console.log(loggedInUser);
 
   const register = (user) => {
     if (user.username.length === 0) {
@@ -91,8 +92,15 @@ const AuthForms = () => {
       return console.error("Username cannot be empty!");
     }
 
+    if (user.password.length < 8) {
+      /* This could belong to Form component. */
+      return console.error("Password must be at least 8 characters long!");
+    }
+
+    // Can you spot the bug?
     const id = crypto.randomUUID();
     setRegisteredUsers((prev) => [...prev, { id, ...user }]);
+    // We could login user already here after successful registration.
   };
 
   const login = (user) => {
@@ -101,6 +109,7 @@ const AuthForms = () => {
     );
 
     if (!foundUser) {
+      // OWASP: It is better to just log: "Invalid credentials."
       return console.error(
         `No user registered with username: "${user.username}"`
       );
@@ -152,6 +161,7 @@ const ConditionalAuthForms = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
   console.log(registeredUsers);
+  console.log(loggedInUser);
 
   const register = (user) => {
     const id = crypto.randomUUID();
@@ -217,6 +227,86 @@ const ConditionalAuthForms = () => {
   );
 };
 
+const ConditionalAuthFormsEarlyReturn = () => {
+  console.log(
+    "Error with non unique input fields id and name. We will solve that later."
+  );
+
+  const [registeredUsers, setRegisteredUsers] = useState([
+    { id: crypto.randomUUID(), username: "Kuba", password: "admin" },
+  ]);
+
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+  console.log(registeredUsers);
+  console.log(loggedInUser);
+
+  const register = (user) => {
+    const id = crypto.randomUUID();
+    setRegisteredUsers((prev) => [...prev, { id, ...user }]);
+  };
+
+  const login = (user) => {
+    const foundUser = registeredUsers.find(
+      ({ username }) => username === user.username
+    );
+
+    if (!foundUser) {
+      return console.error(
+        `No user registered with username: "${user.username}"`
+      );
+    }
+
+    const isCorrectPassword = foundUser.password === user.password;
+
+    if (!isCorrectPassword) {
+      return console.error(
+        `Invalid credentials for username: "${user.username}"`
+      );
+    }
+
+    alert("Logged in successfully!");
+
+    setLoggedInUser(foundUser);
+  };
+
+  const logout = () => {
+    console.log(`Logging out user: ${loggedInUser.username}`);
+    setLoggedInUser(null);
+  };
+
+  if (!loggedInUser) {
+    return (
+      <section id="Conditional rendered UI" className="col">
+        <RegisterForm uponSubmission={register} />
+
+        <LoginForm uponSubmission={login} />
+      </section>
+    );
+  }
+
+  return (
+    <section id="Conditional rendered UI" className="col">
+      <div className="col border">
+        <p>Logged in as {loggedInUser.username}</p>
+        <p>Have fun!</p>
+
+        <button
+          className="blue"
+          type="button"
+          onClick={() => console.log(new Date())}
+        >
+          Get current date
+        </button>
+
+        <button className="red" type="button" onClick={logout}>
+          Logout
+        </button>
+      </div>
+    </section>
+  );
+};
+
 export const ConfigurableForms = () => (
   <main className="col wide-gap">
     <h1>Configurable Uncontrolled Forms</h1>
@@ -231,6 +321,7 @@ export const ConfigurableForms = () => (
       {/* <h2>Conditional Forms</h2>
 
       <ConditionalAuthForms /> */}
+      {/* <ConditionalAuthFormsEarlyReturn /> */}
     </section>
   </main>
 );

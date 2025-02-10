@@ -76,12 +76,14 @@ const ControlledAuthForm = ({ label, uponSubmission }) => {
   const onSubmit = (event) => {
     // Enter will work upon form submission if the button type is "submit"
     event.preventDefault();
+
     handleSubmission();
+
     event.target.reset();
   };
 
   return (
-    <form className="col border" autoComplete="off">
+    <form className="col border" autoComplete="off" onSubmit={onSubmit}>
       <label htmlFor={usernameFieldId}>
         Username:
         <input
@@ -101,12 +103,15 @@ const ControlledAuthForm = ({ label, uponSubmission }) => {
           id={passwordFieldId}
           value={password}
           onChange={onPasswordChange}
+          // onChange={(e) => setPassword(e.target.value)}
         />
       </label>
 
-      <button className="green" type="button" onClick={handleSubmission}>
+      <button className="green">{label}</button>
+
+      {/* <button className="green" type="button" onClick={handleSubmission}>
         {label}
-      </button>
+      </button> */}
     </form>
   );
 };
@@ -127,9 +132,9 @@ export const ControlledForms = () => {
       </section>
 
       <section className="col">
-        {/* <h2>Controlled Form</h2>
+        <h2>Controlled Form</h2>
 
-        <ControlledAuthForm label="Login" uponSubmission={login} /> */}
+        <ControlledAuthForm label="Login" uponSubmission={login} />
       </section>
     </main>
   );

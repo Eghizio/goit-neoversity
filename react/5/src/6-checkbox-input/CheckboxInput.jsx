@@ -9,7 +9,7 @@ const UncontrolledCheckbox = ({ label, uponSubmission }) => {
     const form = event.target;
     const { marketing } = form.elements;
 
-    console.log(marketing.value);
+    console.log(marketing.value); // We use "checked" property instead.
 
     const data = {
       marketing: marketing.checked,
@@ -96,12 +96,12 @@ export const CheckboxInput = () => {
       </section>
 
       <section className="col">
-        {/* <h2>Controlled Form with Checkbox</h2>
+        <h2>Controlled Form with Checkbox</h2>
 
         <ControlledCheckbox
           label="Zgadzam się z regulaminem strony"
           uponSubmission={uponAcceptingTOS}
-        /> */}
+        />
       </section>
     </main>
   );
