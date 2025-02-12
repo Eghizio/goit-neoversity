@@ -12,7 +12,11 @@ export const FormikLibrary = () => {
   const passwordFieldId = useId();
 
   const handleSubmit = (values, actions) => {
+    // Do something with the values here ;)
     console.log(values);
+
+    console.log({ actions });
+
     actions.resetForm();
   };
 
