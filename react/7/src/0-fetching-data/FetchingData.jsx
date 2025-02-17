@@ -32,6 +32,7 @@ const NaiveWay = () => {
   const [users, setUsers] = useState([]);
 
   const [counter, bumpCounter] = useCounter(0);
+
   console.log(counter);
 
   fetch(PLACEHOLDER_API_URL)
@@ -67,7 +68,7 @@ const ProperWay = () => {
       .then(setUsers)
       .catch(console.error)
       .finally(bumpCounter);
-  }, []); /* Don't put `users` here - Rerender Loop */
+  }, []); /* Don't put `users` or `counter` here - Rerender Loop */
 
   return (
     <section className="border">
@@ -118,7 +119,7 @@ const HackernewsArticles = () => {
     //   setArticles(mappedArticles);
     // };
     // fetchArticles();
-    // /* IIFE */
+    /* IIFE */
     // (async () => {
     //   await sleep(5_000);
     //   const data = await get(HACKERNEWS_API_URL);
@@ -150,12 +151,12 @@ export const FetchingData = () => (
       <NaiveWay />
     </RenderPolice>
 
-    {/* <RenderPolice shouldRender>
+    <RenderPolice shouldRender>
       <ProperWay />
-    </RenderPolice> */}
+    </RenderPolice>
 
-    {/* <RenderPolice shouldRender={false}>
+    <RenderPolice shouldRender={false}>
       <HackernewsArticles />
-    </RenderPolice> */}
+    </RenderPolice>
   </main>
 );

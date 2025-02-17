@@ -6,5 +6,5 @@ const FancyLoader = () => (
   <HashLoader size={200} color="#ff6600" aria-label="Loader" />
 );
 
-export const Loader = SimpleLoader;
-// export const Loader = FancyLoader;
+// export const Loader = SimpleLoader;
+export const Loader = FancyLoader;

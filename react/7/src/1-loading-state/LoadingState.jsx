@@ -37,7 +37,7 @@ const HackernewsArticles = () => {
 
       const data = await get(HACKERNEWS_API_URL);
       const mappedArticles = mapArticles(data);
-      // throw new Error("404");
+      /* throw new Error("404"); */
 
       setArticles(mappedArticles);
     })();
