@@ -20,12 +20,12 @@ export const CustomHooks = () => {
         useFetch -&gt; React Query
       </a>
 
-      {/* <Boxes amount={360} /> */}
+      <Boxes amount={360} />
 
-      {/* <TitleChanger /> */}
+      <TitleChanger />
 
-      {/* <MusicPlayer source="/brainpower.mp3" /> */}
-      {/* <MusicPlayer source="/romantic-song.mp3" /> */}
+      <MusicPlayer source="/brainpower.mp3" />
+      <MusicPlayer source="/romantic-song.mp3" />
     </main>
   );
 };

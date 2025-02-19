@@ -9,6 +9,8 @@ const FavouriteNumber = () => {
     favourite.current = number;
   };
 
+  // console.log(favourite.current);
+
   return (
     <div className="border">
       <input
@@ -39,20 +41,37 @@ const Box = ({ id }) => (
 const Boxes = ({ amount }) => {
   const ref = useRef();
 
-  useEffect(() => {
-    const onBoxClick = ({ target }) => {
-      console.log(target.id);
+  // useEffect(() => {
+  //   const onBoxClick = ({ target }) => {
+  //     console.log(target.id);
 
-      document.body.style.backgroundColor = target.style.backgroundColor;
-    };
+  //     document.body.style.backgroundColor = target.style.backgroundColor;
+  //   };
+
+  //   if (ref.current) {
+  //     ref.current.addEventListener("click", onBoxClick);
+  //   }
+
+  //   return () => {
+  //     ref?.current?.removeEventListener("click", onBoxClick);
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
 
     if (ref.current) {
-      ref.current.addEventListener("click", onBoxClick);
+      ref.current.addEventListener(
+        "click",
+        ({ target }) => {
+          console.log(target.id);
+          document.body.style.backgroundColor = target.style.backgroundColor;
+        },
+        { signal: controller.signal }
+      );
     }
 
-    return () => {
-      ref?.current?.removeEventListener("click", onBoxClick);
-    };
+    return () => controller.abort();
   }, []);
 
   const boxes = Array.from({ length: amount }, (_, i) => (
@@ -72,8 +91,8 @@ export const Ref = () => (
 
     <VideoPlayer source="http://media.w3.org/2010/05/sintel/trailer.mp4" />
 
-    {/* <FavouriteNumber /> */}
+    <FavouriteNumber />
 
-    {/* <Boxes amount={420} /> */}
+    <Boxes amount={420} />
   </main>
 );

@@ -56,7 +56,7 @@ export const Context = () => {
       </CartProvider>
 
       <footer className="col">
-        <span>Shop @ 2024</span>
+        <span>Shop @ 2025</span>
       </footer>
     </main>
   );

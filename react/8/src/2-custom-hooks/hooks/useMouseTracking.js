@@ -8,7 +8,7 @@ export const useMouseTracking = () => {
       setXY({ x, y });
     };
 
-    document.body.addEventListener("mousemove", trackMouse);
+    document.addEventListener("mousemove", trackMouse);
   }, []);
 
   return xy;

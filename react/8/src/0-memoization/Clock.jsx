@@ -8,18 +8,19 @@ export const Clock = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setDate(new Date());
-    }, 234);
+    }, 123);
 
     return () => clearInterval(interval);
   }, []);
 
   const hours = pad(date.getHours());
   const minutes = pad(date.getMinutes());
+  const seconds = pad(date.getSeconds());
   const miliseconds = pad(date.getMilliseconds(), 3);
 
   return (
-    <div>
-      {hours}:{minutes}:{miliseconds}
+    <div style={{ fontSize: "xxx-large" }}>
+      {hours}:{minutes}:{seconds}:{miliseconds}
     </div>
   );
 };

@@ -3,8 +3,8 @@ import { useColorPicker } from "../hooks/useColorPicker";
 
 const randomColour = () => "#" + ((Math.random() * 0xffffff) << 0).toString(16);
 
-/* memo */
-const Box = ({ id }) => (
+/* memo - randomColour */
+const UnmemoizedBox = ({ id }) => (
   <div
     id={id}
     className="hoverable"
@@ -12,7 +12,8 @@ const Box = ({ id }) => (
   />
 );
 
-const MemoizedBox = memo(Box);
+const Box = UnmemoizedBox;
+// const Box = memo(UnmemoizedBox);
 
 export const Boxes = ({ amount }) => {
   const ref = useRef(null);

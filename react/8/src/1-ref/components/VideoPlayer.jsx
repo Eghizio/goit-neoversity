@@ -32,18 +32,18 @@ export const VideoPlayer = ({ source }) => {
 
   return (
     <div style={css.player}>
-      <video ref={playerRef} src={source}>
+      <video ref={playerRef} src={source} controls={false}>
         Sorry, your browser does not support embedded videos.
       </video>
 
-      {/* <div style={css.row}>
+      <div style={css.row}>
         <button style={css.btn} className="hoverable" onClick={play}>
           <FaPlay size={24} />
         </button>
         <button style={css.btn} className="hoverable" onClick={pause}>
           <FaPause size={24} />
         </button>
-      </div> */}
+      </div>
     </div>
   );
 };

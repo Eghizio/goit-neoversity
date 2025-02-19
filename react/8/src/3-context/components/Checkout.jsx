@@ -62,16 +62,39 @@ const CheckoutSummary = ({ products }) => {
   );
 };
 
+const toReceipt = (productIds) => {
+  const products = toProducts(productIds);
+  const summary = reduceSummary(products);
+  const total = summary.reduce((acc, product) => product.sum + acc, 0);
+
+  const list = summary.reduce(
+    (acc, product) => acc + `${product.name} x ${product.amount}\n`,
+    ""
+  );
+
+  return `Purchased:\n${list}\nTotal: $ ${total.toFixed(2)}`;
+};
+
 export const Checkout = () => {
   const { cart, checkout } = useCart();
 
   const cartProducts = toProducts(cart);
 
+  const completeCheckout = () => {
+    const purchasedProductIds = checkout();
+
+    alert(toReceipt(purchasedProductIds));
+  };
+
   return (
     <section className={css.checkout}>
       <CheckoutSummary products={cartProducts} />
 
-      <button className={css.checkoutBtn} type="button" onClick={checkout}>
+      <button
+        className={css.checkoutBtn}
+        type="button"
+        onClick={completeCheckout}
+      >
         Checkout
       </button>
     </section>

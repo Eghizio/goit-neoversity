@@ -5,16 +5,20 @@ const fibonacci = (n) =>
   n < 1 ? 0 : n <= 2 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
 
 const Answer = () => {
+  const nth = 42;
+
   const start = performance.now();
-  const answer = fibonacci(42);
+  const answer = fibonacci(nth);
   const end = performance.now();
 
   const computeTime = end - start;
 
   return (
     <article className="border">
-      <p>Fib (42): {answer}</p>
-      <p>Time to compute: {computeTime} miliseconds</p>
+      <p>
+        Fib ({nth}): {answer}
+      </p>
+      <p>Time to compute: {computeTime.toFixed(6)} miliseconds</p>
     </article>
   );
 };
@@ -43,31 +47,6 @@ const Fibonacci = ({ nth = 42 }) => {
 
       <p>
         Time to compute: <span>{computeTime.toFixed(6)} miliseconds</span>
-      </p>
-    </article>
-  );
-};
-
-const MemoizedFibonacci = ({ nth = 42 }) => {
-  if (isNaN(nth)) nth = 1;
-
-  console.log("Rerendering Memoized Fibonacci...");
-
-  const start = performance.now();
-  const answer = useMemo(() => {
-    console.log(`[${Date.now()}] Computing fibonacci(${nth})...`);
-    return fibonacci(nth);
-  }, [nth]);
-  const end = performance.now();
-
-  return (
-    <article>
-      <p>
-        Fibonacci ({nth}): <span>{answer ? answer : "Computing..."}</span>
-      </p>
-
-      <p>
-        Time to compute: <span>{end - start} miliseconds</span>
       </p>
     </article>
   );
@@ -121,6 +100,34 @@ const MemoizationExplained = () => {
   );
 };
 
+const MemoizedFibonacci = ({ nth = 42 }) => {
+  if (isNaN(nth)) nth = 1;
+
+  console.log("Rerendering Memoized Fibonacci...");
+
+  const start = performance.now();
+  const answer = useMemo(() => {
+    const timestamp = new Date().toLocaleTimeString();
+    console.log(`[${timestamp}] Computing fibonacci(${nth})...`);
+    return fibonacci(nth);
+  }, [nth]);
+  const end = performance.now();
+
+  const computeTime = end - start;
+
+  return (
+    <article>
+      <p>
+        Fibonacci ({nth}): <span>{answer ? answer : "Computing..."}</span>
+      </p>
+
+      <p>
+        Time to compute: <span>{computeTime.toFixed(6)} miliseconds</span>
+      </p>
+    </article>
+  );
+};
+
 export const Memoization = () => {
   const [n, setN] = useState(7);
   const [x, setX] = useState(7);
@@ -131,7 +138,7 @@ export const Memoization = () => {
 
       <Clock />
 
-      {/* <Answer /> */}
+      <Answer />
 
       {/* <section className="border">
         <input
@@ -152,11 +159,11 @@ export const Memoization = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            setX(e.target.elements["n"].valueAsNumber);
+            setX(e.target.elements["x"].valueAsNumber);
           }}
         >
           <input
-            name="n"
+            name="x"
             type="number"
             step="1"
             min="0"
