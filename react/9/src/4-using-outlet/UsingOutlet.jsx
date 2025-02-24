@@ -70,30 +70,33 @@ export const UsingOutlet = () => (
     <h1>Using Outlet</h1>
     <Timer />
 
-    {/* <BrowserRouter
-      future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
-    >
-      <Routes>
-        <Route exact path="/" element={<Layout />}>
-          <Route path="blog" element={<Blog />} />
-          <Route path="about" element={<About />} />
-        </Route>
-
-        <Route path="/products">
-          <Route path="" element={<Products />} />
-          <Route path=":category">
-            <Route path="" element={<ProductCategory />} />
-            <Route path=":productId" element={<ProductDetails />} />
-          </Route>
-        </Route>
-
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter> */}
-
+    <RouterSingleScopedLayout />
     {/* <RouterSeperateLayouts /> */}
-    <RouterSharedLayout />
+    {/* <RouterSharedLayout /> */}
   </div>
+);
+
+const RouterSingleScopedLayout = () => (
+  <BrowserRouter
+    future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+  >
+    <Routes>
+      <Route exact path="/" element={<Layout />}>
+        <Route path="blog" element={<Blog />} />
+        <Route path="about" element={<About />} />
+      </Route>
+
+      <Route path="/products">
+        <Route path="" element={<Products />} />
+        <Route path=":category">
+          <Route path="" element={<ProductCategory />} />
+          <Route path=":productId" element={<ProductDetails />} />
+        </Route>
+      </Route>
+
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </BrowserRouter>
 );
 
 const RouterSeperateLayouts = () => (

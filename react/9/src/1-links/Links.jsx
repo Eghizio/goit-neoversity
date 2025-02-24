@@ -4,15 +4,15 @@ import { Products } from "./pages/Products";
 import { NotFound } from "./pages/NotFound";
 import { Timer } from "./components/Timer";
 
-const fullLinks = [
+const absoluteLinks = [
   "http://localhost:5173/",
   "http://localhost:5173/products",
   "http://localhost:5173/dupa",
 ];
 
-const links = ["/", "/products", "/dupa"];
+const relativeLinks = ["/", "/products", "/dupa"];
 
-const ReloadingNavigation = ({ navigationLinks = fullLinks }) => (
+const ReloadingNavigation = ({ navigationLinks = absoluteLinks }) => (
   <nav>
     <ul>
       {navigationLinks.map((link) => (
@@ -47,14 +47,15 @@ const PersistentNavigation = ({ navigationLinks }) => (
 export const Links = () => (
   <>
     <h1>Links</h1>
-    {/* <ReloadingNavigation navigationLinks={links} /> */}
+    {/* <ReloadingNavigation navigationLinks={relativeLinks} /> */}
+    {/* <PersistentNavigation navigationLinks={relativeLinks} /> */}
 
     <Timer />
 
     <BrowserRouter
       future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
     >
-      <PersistentNavigation navigationLinks={links} />
+      <PersistentNavigation navigationLinks={relativeLinks} />
 
       <Routes>
         <Route path="/" element={<Home />} />
