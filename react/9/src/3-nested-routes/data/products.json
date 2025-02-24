@@ -1,0 +1,194 @@
+[
+  {
+    "id": 1001,
+    "name": "Classic Watch",
+    "image": "https://picsum.photos/id/123/200/200",
+    "price": 79.99,
+    "description": "A stylish, everyday watch with a leather strap and silver casing.",
+    "category": "Accessories"
+  },
+  {
+    "id": 1002,
+    "name": "Handmade Scarf",
+    "image": "https://picsum.photos/id/45/200/200",
+    "price": 25.99,
+    "description": "Soft, hand-knitted scarf to keep you warm and cozy.",
+    "category": "Apparel"
+  },
+  {
+    "id": 1003,
+    "name": "Vintage Sunglasses",
+    "image": "https://picsum.photos/id/299/200/200",
+    "price": 49.99,
+    "description": "Classic aviator sunglasses with UV protection.",
+    "category": "Accessories"
+  },
+  {
+    "id": 1004,
+    "name": "Leather Wallet",
+    "image": "https://picsum.photos/id/321/200/200",
+    "price": 39.99,
+    "description": "Premium leather wallet with multiple compartments.",
+    "category": "Accessories"
+  },
+  {
+    "id": 1005,
+    "name": "Fitness Tracker",
+    "image": "https://picsum.photos/id/76/200/200",
+    "price": 89.99,
+    "description": "Advanced fitness tracker with heart rate monitor and step counter.",
+    "category": "Electronics"
+  },
+  {
+    "id": 1006,
+    "name": "Bluetooth Headphones",
+    "image": "https://picsum.photos/id/89/200/200",
+    "price": 59.99,
+    "description": "Noise-canceling Bluetooth headphones for an immersive experience.",
+    "category": "Electronics"
+  },
+  {
+    "id": 1007,
+    "name": "Perfume Set",
+    "image": "https://picsum.photos/id/221/200/200",
+    "price": 99.99,
+    "description": "A set of floral and fresh perfumes, perfect for any occasion.",
+    "category": "Beauty"
+  },
+  {
+    "id": 1008,
+    "name": "Handcrafted Earrings",
+    "image": "https://picsum.photos/id/134/200/200",
+    "price": 29.99,
+    "description": "Elegant handcrafted earrings made from sterling silver.",
+    "category": "Jewelry"
+  },
+  {
+    "id": 1009,
+    "name": "Yoga Mat",
+    "image": "https://picsum.photos/id/156/200/200",
+    "price": 45.99,
+    "description": "Eco-friendly yoga mat with excellent grip and cushioning.",
+    "category": "Sports"
+  },
+  {
+    "id": 1010,
+    "name": "Travel Backpack",
+    "image": "https://picsum.photos/id/487/200/200",
+    "price": 64.99,
+    "description": "Durable and spacious backpack, ideal for travel and outdoor adventures.",
+    "category": "Apparel"
+  },
+  {
+    "id": 1011,
+    "name": "Essential Oil Kit",
+    "image": "https://picsum.photos/id/412/200/200",
+    "price": 55.99,
+    "description": "A selection of essential oils for relaxation and aromatherapy.",
+    "category": "Beauty"
+  },
+  {
+    "id": 1012,
+    "name": "Leather Belt",
+    "image": "https://picsum.photos/id/90/200/200",
+    "price": 34.99,
+    "description": "Classic leather belt with a matte finish buckle.",
+    "category": "Accessories"
+  },
+  {
+    "id": 1013,
+    "name": "Artisanal Soap Set",
+    "image": "https://picsum.photos/id/164/200/200",
+    "price": 19.99,
+    "description": "Handmade soap set with natural ingredients and essential oils.",
+    "category": "Beauty"
+  },
+  {
+    "id": 1014,
+    "name": "Wireless Charger",
+    "image": "https://picsum.photos/id/351/200/200",
+    "price": 29.99,
+    "description": "Convenient and fast wireless charging pad for your devices.",
+    "category": "Electronics"
+  },
+  {
+    "id": 1015,
+    "name": "Cozy Blanket",
+    "image": "https://picsum.photos/id/423/200/200",
+    "price": 49.99,
+    "description": "Ultra-soft fleece blanket perfect for cold evenings.",
+    "category": "Home"
+  },
+  {
+    "id": 1016,
+    "name": "Stainless Steel Bottle",
+    "image": "https://picsum.photos/id/210/200/200",
+    "price": 19.99,
+    "description": "Reusable stainless steel bottle to keep drinks hot or cold.",
+    "category": "Home"
+  },
+  {
+    "id": 1017,
+    "name": "Running Shoes",
+    "image": "https://picsum.photos/id/147/200/200",
+    "price": 69.99,
+    "description": "Lightweight and durable running shoes with excellent grip.",
+    "category": "Sports"
+  },
+  {
+    "id": 1018,
+    "name": "Journal",
+    "image": "https://picsum.photos/id/392/200/200",
+    "price": 12.99,
+    "description": "Beautifully bound journal with blank pages for creativity.",
+    "category": "Stationery"
+  },
+  {
+    "id": 1019,
+    "name": "Coffee Mug",
+    "image": "https://picsum.photos/id/247/200/200",
+    "price": 14.99,
+    "description": "Ceramic coffee mug with an inspirational quote.",
+    "category": "Home"
+  },
+  {
+    "id": 1020,
+    "name": "Skincare Kit",
+    "image": "https://picsum.photos/id/64/200/200",
+    "price": 79.99,
+    "description": "A complete skincare kit for glowing and healthy skin.",
+    "category": "Beauty"
+  },
+  {
+    "id": 1021,
+    "name": "Digital Planner",
+    "image": "https://picsum.photos/id/190/200/200",
+    "price": 15.99,
+    "description": "Digital planner to help you stay organized and productive.",
+    "category": "Stationery"
+  },
+  {
+    "id": 1022,
+    "name": "Portable Speaker",
+    "image": "https://picsum.photos/id/412/200/200",
+    "price": 54.99,
+    "description": "Compact and powerful Bluetooth speaker for on-the-go music.",
+    "category": "Electronics"
+  },
+  {
+    "id": 1023,
+    "name": "Crystal Necklace",
+    "image": "https://picsum.photos/id/231/200/200",
+    "price": 34.99,
+    "description": "Elegant necklace with a natural crystal pendant.",
+    "category": "Jewelry"
+  },
+  {
+    "id": 1024,
+    "name": "Camping Lantern",
+    "image": "https://picsum.photos/id/111/200/200",
+    "price": 24.99,
+    "description": "Portable LED lantern, perfect for camping and outdoor activities.",
+    "category": "Outdoor"
+  }
+]
