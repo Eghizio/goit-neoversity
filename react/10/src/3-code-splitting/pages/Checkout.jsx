@@ -5,7 +5,7 @@ import { useProductsApi } from "../hooks/useProductsApi";
 import { Spinner } from "../components/Spinner";
 
 const ProductSummary = lazy(() =>
-  import("../components/ProductSummary").then((module) => ({
+  import("../components/ProductSummary.jsx").then((module) => ({
     default: module["ProductSummary"],
   }))
 );

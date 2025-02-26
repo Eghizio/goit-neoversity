@@ -20,12 +20,13 @@ import { links } from "./routing/links";
 
 import css from "./Location.module.css";
 
+// import { Breadcrumbs } from "./components/Breadcrumbs";
+
 const Layout = () => (
   <main>
     <h2>Layout</h2>
     <Header navigationLinks={links} />
     {/* <Breadcrumbs /> in Header */}
-
     <Outlet />
   </main>
 );

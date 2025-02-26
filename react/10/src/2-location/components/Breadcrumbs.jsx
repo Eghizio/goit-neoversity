@@ -38,6 +38,8 @@ export const Breadcrumbs = () => {
       path: "/" + crumbs.slice(0, i + 1).join("/"),
     }));
 
+  console.log({ crumbs });
+
   return (
     <nav>
       <ul style={css.list}>

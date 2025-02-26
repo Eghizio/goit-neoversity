@@ -18,8 +18,14 @@ import { sleep } from "./api/utils";
 
 /* Lazy import - default import */
 /* const ComponentToLazilyLoad = lazy(() => import("./path/to/Component.jsx")); */
+// const ComponentToLazilyLoad = lazy(() => import("./path/to/Component.jsx"));
 /* Lazy import - named import */
 /* const ComponentToLazilyLoad = lazy(() => import("./path/to/Component.jsx").then((module) => ({ default: module["Component"] }))); */
+// const ComponentToLazilyLoad = lazy(() =>
+//   import("./path/to/Component.jsx").then((module) => ({
+//     default: module["Component"],
+//   }))
+// );
 
 // // /* import paths should be preferably static */
 // // /* https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations */
@@ -284,9 +290,9 @@ export const CodeSplitting = () => (
   <div className={css.app}>
     <h1>Code Splitting</h1>
 
-    <SuspensedApplication />
+    {/* <SuspensedApplication /> */}
 
-    {/* <SuspensedPages /> */}
+    <SuspensedPages />
 
     {/* <SuspensedPagesWithWrapper /> */}
   </div>

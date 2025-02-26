@@ -15,6 +15,7 @@ export const Header = ({ navigationLinks }) => (
       <Breadcrumbs />
       <Navigation navigationLinks={navigationLinks} />
     </div>
+
     <TopBar />
   </header>
 );

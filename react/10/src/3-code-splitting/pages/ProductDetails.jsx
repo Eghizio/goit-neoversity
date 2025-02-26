@@ -7,7 +7,7 @@ import { useCheckout } from "../hooks/useCheckout";
 import { Spinner } from "../components/Spinner";
 
 const ProductSummary = lazy(() =>
-  import("../components/ProductSummary").then((module) => ({
+  import("../components/ProductSummary.jsx").then((module) => ({
     default: module["ProductSummary"],
   }))
 );
