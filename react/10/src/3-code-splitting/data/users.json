@@ -1,0 +1,14 @@
+[
+  {
+    "id": "74e66718-a478-4d5e-9eaa-baf5c7c5d673",
+    "email": "user@user.com",
+    "password": "user123",
+    "name": "User"
+  },
+  {
+    "id": "4c5f9bd4-0a33-4633-9beb-b69250ad37ab",
+    "email": "kuba@koduj.se",
+    "password": "kuba123",
+    "name": "Kuba"
+  }
+]

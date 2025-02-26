@@ -1,0 +1,17 @@
+export const links = [
+  "/",
+  "/products",
+  "/products/accessories",
+  "/products/accessories/1001",
+  "/products/apparel",
+  "/products/apparel/1002",
+  "/products/electronics/non-existing-id",
+  `/products/electronics/1005/dupa`,
+  "/dupa",
+  "/login",
+  "/profile",
+  "/checkout",
+  "/checkout?productId=1001",
+  "/thank-you",
+  "/thank-you?productId=1001",
+];
