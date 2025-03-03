@@ -44,8 +44,13 @@ export const TaskForm = () => {
     event.preventDefault();
 
     const form = event.target;
+    const taskText = form.elements["text"].value;
 
-    dispatch(addTask(form.elements["text"].value));
+    /* Dispatch (send) Action for Adding Task to Redux Root Reducer. */
+    const action = addTask(taskText);
+    dispatch(action);
+
+    // dispatch(addTask(taskText));
 
     form.reset();
   };
@@ -58,30 +63,26 @@ export const TaskForm = () => {
   );
 };
 
-const App = () => {
-  return (
-    <main>
-      <p>Check Redux Devtools for dispatched actions</p>
+const App = () => (
+  <main>
+    <p>Check Redux Devtools for dispatched actions</p>
 
-      <section className="border">
-        <TaskForm />
-      </section>
+    <section className="border">
+      <TaskForm />
+    </section>
 
-      <section className="border">
-        <h2>Tasks</h2>
-        <TaskCounter />
-        <StatusFilter />
-        <TaskList />
-      </section>
-    </main>
-  );
-};
+    <section className="border">
+      <h2>Tasks</h2>
+      <TaskCounter />
+      <StatusFilter />
+      <TaskList />
+    </section>
+  </main>
+);
 
-export const Actions = () => {
-  return (
-    <Provider store={store}>
-      <h1>Redux Actions</h1>
-      <App />
-    </Provider>
-  );
-};
+export const Actions = () => (
+  <Provider store={store}>
+    <h1>Redux Actions</h1>
+    <App />
+  </Provider>
+);

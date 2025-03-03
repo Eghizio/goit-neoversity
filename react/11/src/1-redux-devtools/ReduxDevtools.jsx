@@ -23,51 +23,47 @@ const enhancer = devToolsEnhancer();
 
 export const store = createStore(rootReducer, enhancer);
 
-const Devtools = () => {
-  return (
-    <main>
-      <h2>Redux Devtools Extension for:</h2>
+const Devtools = () => (
+  <main>
+    <h2>Redux Devtools Extension for:</h2>
 
-      <ul>
-        <li>
-          <a
-            href="https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Chrome
-          </a>
-        </li>
+    <ul>
+      <li>
+        <a
+          href="https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Chrome
+        </a>
+      </li>
 
-        <li>
-          <a
-            href="https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Firefox
-          </a>
-        </li>
+      <li>
+        <a
+          href="https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Firefox
+        </a>
+      </li>
 
-        <li>
-          <a
-            href="https://microsoftedge.microsoft.com/addons/detail/redux-devtools/nnkgneoiohoecpdiaponcejilbhhikei"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Edge
-          </a>
-        </li>
-      </ul>
-    </main>
-  );
-};
+      <li>
+        <a
+          href="https://microsoftedge.microsoft.com/addons/detail/redux-devtools/nnkgneoiohoecpdiaponcejilbhhikei"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Edge
+        </a>
+      </li>
+    </ul>
+  </main>
+);
 
-export const ReduxDevtools = () => {
-  return (
-    <Provider store={store}>
-      <h1>Redux DevTools</h1>
-      <Devtools />
-    </Provider>
-  );
-};
+export const ReduxDevtools = () => (
+  <Provider store={store}>
+    <h1>Redux DevTools</h1>
+    <Devtools />
+  </Provider>
+);

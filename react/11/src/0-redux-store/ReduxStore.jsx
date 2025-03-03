@@ -20,15 +20,11 @@ const rootReducer = (state = initialState, action) => {
 
 export const store = createStore(rootReducer);
 
-const App = () => {
-  return <p>Application using Redux</p>;
-};
+const App = () => <p>Application using Redux</p>;
 
-export const ReduxStore = () => {
-  return (
-    <Provider store={store}>
-      <h1>Redux Store</h1>
-      <App />
-    </Provider>
-  );
-};
+export const ReduxStore = () => (
+  <Provider store={store}>
+    <h1>Redux Store</h1>
+    <App />
+  </Provider>
+);

@@ -41,9 +41,11 @@ const getVisibleTasks = (tasks, statusFilter) => {
     case STATUS_FILTERS.ACTIVE: {
       return tasks.filter((task) => !task.completed);
     }
+
     case STATUS_FILTERS.COMPLETED: {
       return tasks.filter((task) => task.completed);
     }
+
     case STATUS_FILTERS.ALL:
     default: {
       return tasks;
@@ -72,10 +74,7 @@ const getTasks = (state) => state.tasks;
 
 const useTasksSelector = () => useSelector(getTasks);
 
-const TaskCounter = () => {
-  // const tasks = useSelector(getTasks);
-  const tasks = useTasksSelector();
-
+const getTasksCount = (tasks) => {
   const { active, completed } = tasks.reduce(
     (acc, task) => {
       if (task.completed) {
@@ -87,6 +86,29 @@ const TaskCounter = () => {
     },
     { active: 0, completed: 0 }
   );
+
+  // const { active, completed } = tasks.reduce(
+  //   (acc, task) => {
+  //     if (task.completed) acc.completed += 1;
+  //     else acc.active += 1;
+  //     return acc;
+  //   },
+  //   { active: 0, completed: 0 }
+  // );
+
+  // const { active, completed } = tasks.reduce(
+  //   (acc, task) => (acc[task.completed ? "completed" : "active"]++, acc),
+  //   { active: 0, completed: 0 }
+  // );
+
+  return { active, completed };
+};
+
+const TaskCounter = () => {
+  // const tasks = useSelector(getTasks);
+  const tasks = useTasksSelector();
+
+  const { active, completed } = getTasksCount(tasks);
 
   return (
     <div>
