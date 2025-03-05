@@ -35,7 +35,8 @@ const userSlice = createSlice({
     },
     logout(state) {
       state = null;
-      storage.removeItem(LOCAL_STORAGE_KEY);
+      storage.removeItem(LOCAL_STORAGE_KEY); // Won't work - Redux Persist prepends key with `persist:_key_`
+      // storage.removeItem("persist:" + LOCAL_STORAGE_KEY); // Will work - as we added the Redux Persist prefix.
       return state;
     },
   },
@@ -101,6 +102,7 @@ const UserProfile = () => {
 
   /* Add some tasks while logged in, Purge, reload. */
   const handleLogout = () => {
+    // dispatch(userSlice.actions.logout());
     persistor.purge();
   };
 
@@ -108,7 +110,7 @@ const UserProfile = () => {
     <article>
       {user !== null ? (
         <button className="hoverable red" type="button" onClick={handleLogout}>
-          Logout (PURGE)
+          Logout "{user}" (PURGE)
         </button>
       ) : (
         <form onSubmit={handleLogin} autoComplete="off">
@@ -126,36 +128,34 @@ const UserProfile = () => {
   );
 };
 
-const App = () => {
-  return (
-    <main>
-      <p>
-        <a
-          href="https://www.npmjs.com/package/redux-persist"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Redux Persist documentation
-        </a>
-      </p>
+const App = () => (
+  <main>
+    <p>
+      <a
+        href="https://www.npmjs.com/package/redux-persist"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Redux Persist documentation
+      </a>
+    </p>
 
-      <section className="border">
-        <UserProfile />
-      </section>
+    <section className="border">
+      <UserProfile />
+    </section>
 
-      <section className="border">
-        <TaskForm />
-      </section>
+    <section className="border">
+      <TaskForm />
+    </section>
 
-      <section className="border">
-        <h2>Tasks</h2>
-        <TaskCounter />
-        <StatusFilter />
-        <TaskList />
-      </section>
-    </main>
-  );
-};
+    <section className="border">
+      <h2>Tasks</h2>
+      <TaskCounter />
+      <StatusFilter />
+      <TaskList />
+    </section>
+  </main>
+);
 
 const Spinner = () => {
   console.log("Loading...");

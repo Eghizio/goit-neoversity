@@ -5,22 +5,20 @@ import { TaskCounter } from "./components/TaskCounter";
 import { StatusFilter } from "./components/StatusFilter";
 import { TaskList } from "./components/TaskList";
 
-const App = () => {
-  return (
-    <main>
-      <section className="border">
-        <TaskForm />
-      </section>
+const App = () => (
+  <main>
+    <section className="border">
+      <TaskForm />
+    </section>
 
-      <section className="border">
-        <h2>Tasks</h2>
-        <TaskCounter />
-        <StatusFilter />
-        <TaskList />
-      </section>
-    </main>
-  );
-};
+    <section className="border">
+      <h2>Tasks</h2>
+      <TaskCounter />
+      <StatusFilter />
+      <TaskList />
+    </section>
+  </main>
+);
 
 export const ActionCreators = () => (
   <Provider store={store}>
