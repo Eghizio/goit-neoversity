@@ -11,9 +11,11 @@ export const selectVisibleTasks = (state) => {
     case STATUS_FILTERS.ACTIVE: {
       return tasks.filter((task) => !task.completed);
     }
+
     case STATUS_FILTERS.COMPLETED: {
       return tasks.filter((task) => task.completed);
     }
+
     case STATUS_FILTERS.ALL:
     default: {
       return tasks;

@@ -10,5 +10,3 @@ export const App = () => (
     <CreateSelector />
   </Tabs>
 );
-
-// Zaraz zaczynamy ;)
