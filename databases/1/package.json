@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "credentials": "echo \"Host: host.docker.internal\nUsername: root\nPassword: mysql\"",
+    "docker:phpmyadmin:run": "docker run --name=phpmyadmin-goit -d -p 8080:80 -e PMA_ARBITRARY=1 phpmyadmin",
+    "docker:phpmyadmin:start": "docker start phpmyadmin-goit",
+    "docker:phpmyadmin:stop": "docker stop phpmyadmin-goit",
+    "docker:mysql:run": "docker run --name=mysql-goit -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mysql mysql",
+    "docker:mysql:start": "docker start mysql-goit",
+    "docker:mysql:stop": "docker stop mysql-goit"
+  }
+}
