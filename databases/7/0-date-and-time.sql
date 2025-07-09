@@ -1,0 +1,51 @@
+CREATE TABLE IF NOT EXISTS calendar (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    datetime DATETIME,
+    timestamp TIMESTAMP,
+    date DATE,
+    time TIME,
+    year YEAR
+);
+
+SELECT @@system_time_zone;
+
+SELECT @@session.time_zone;
+
+INSERT INTO calendar VALUES (
+    DEFAULT,
+    'Zajecia',
+    NOW(),
+    NOW(),
+    NOW(),
+    NOW(),
+    2025
+);
+
+SELECT TIMEDIFF('2025-07-07 19:00:00', NOW());
+
+SELECT
+    '2025-07-07 19:00:00' AS current,
+    '2025-07-07 19:00:00' - INTERVAL 3 HOUR as past,
+    '2025-07-07 19:00:00' + INTERVAL 3 HOUR as future;
+
+SELECT CURDATE();
+SELECT CURTIME();
+SELECT CURDATE() as date, CURTIME() as time;
+SELECT CONCAT(CURDATE(), ' ', CURTIME()) as date_with_time;
+
+SELECT DATE_FORMAT(NOW(), '%Y y %M m %D d time %H h %I i %S s');
+
+SELECT YEAR(NOW());
+SELECT MONTH(NOW());
+SELECT DAY(NOW());
+
+SELECT DATE_ADD(NOW(), INTERVAL 2 DAY);
+SELECT DATE_SUB(NOW(), INTERVAL 3 DAY);
+
+SELECT UNIX_TIMESTAMP(NOW());
+
+SELECT MAKEDATE(2025, DAY(DATE_ADD(NOW(), INTERVAL 2 DAY))) + INTERVAL 6 MONTH;
+
+SELECT '2025-07-07' IN ('2025-07-06', '2025-07-07');
+SELECT '2025-07-07' IN ('2025-07-06', '2025-07-05');
