@@ -1,0 +1,3 @@
+ALTER TABLE b_tree_table
+    PARTITION BY HASH(id)
+    PARTITIONS 8;
