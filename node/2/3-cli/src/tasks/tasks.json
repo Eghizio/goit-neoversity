@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "text": "Get good at JavaScript",
+    "completed": true
+  },
+  {
+    "id": "2",
+    "text": "Master React",
+    "completed": true
+  },
+  {
+    "id": "3",
+    "text": "Discover Redux",
+    "completed": true
+  },
+  {
+    "id": "4",
+    "text": "Build amazing apps",
+    "completed": false
+  },
+  {
+    "id": "5",
+    "text": "Hello from Node.js 👋",
+    "completed": false
+  },
+  {
+    "id": "1fc65c74-652b-4c07-b46c-4f8ebbba932d",
+    "text": "Learn HTML and CSS",
+    "completed": true
+  },
+  {
+    "id": "e3261d51-c386-46ec-9fdd-8edb8b4149f8",
+    "text": "Hello there",
+    "completed": false
+  }
+]
