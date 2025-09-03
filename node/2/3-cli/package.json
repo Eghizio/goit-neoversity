@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "node src/cli.js",
+    "list": "node src/cli.js --action list",
+    "get-by-id": "node src/cli.js -a getById -i 5",
+    "get-by-status": "node src/cli.js -a getByStatus -c true",
+    "add": "node src/cli.js -a add -t \"Study hard\"",
+    "remove": "node src/cli.js -a remove -i some-id"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

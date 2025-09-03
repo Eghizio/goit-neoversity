@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "scripts": {
+    "no-args": "node ./src/arguments.js",
+    "colors": "node ./src/arguments.js color=red",
+    "msg": "node ./src/arguments.js msg=\"hello there\"",
+    "both": "node ./src/arguments.js color=rainbow msg=\"hello there\"",
+    "multiple-args": "node ./src/arguments.js color=rainbow msg=\"hello there\" dupa=123 foo=bar"
+  },
+  "dependencies": {
+    "colors": "^1.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
