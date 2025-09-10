@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "npm run start:dotenv && npm run start:var && npm run start:dotenvx",
+    "start:dotenv": "node app.js",
+    "start:var": "API_KEY=\"HELLO_FROM_TERMINAL\" node app.js",
+    "start:dotenvx": "dotenvx run -- node app.js",
+    "start:prod": "dotenvx run -f .env.production -- node app.js",
+    "start:dev": "dotenvx run -f .env.development -- node app.js",
+    "env:export": "export API_KEY=\"HELLO_FROM_SYSTEM\"",
+    "env:echo": "echo $API_KEY",
+    "env:unset": "unset API_KEY",
+    "env:copy": "cp .env.example .env.copied"
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.32.0",
+    "dotenv": "^16.4.7"
+  }
+}

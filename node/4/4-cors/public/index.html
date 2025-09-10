@@ -1,0 +1,18 @@
+<script>
+  /* Try to run it from other origin than localhost:3000. */
+  /* Try to run it from Postman */
+  fetch("http://localhost:3000/api/users")
+    .then((res) => res.json())
+    .then(console.log)
+    .catch(console.error);
+
+  fetch("http://localhost:3000/api/books")
+    .then((res) => res.json())
+    .then(console.log)
+    .catch(console.error);
+
+  fetch("http://localhost:3000/public")
+    .then((res) => res.json())
+    .then(console.log)
+    .catch(console.error);
+</script>
