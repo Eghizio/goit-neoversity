@@ -1,0 +1,11 @@
+.task {
+  font-weight: bold;
+}
+
+.task:hover {
+  filter: brightness(0.5);
+}
+
+.task.completed {
+  text-decoration: line-through;
+}
