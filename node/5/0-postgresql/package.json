@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "dotenvx run -- node ./src/index.js",
+    "docker:pg:create": "docker run --name pg-neo -d -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres",
+    "docker:pg:start": "docker start pg-neo",
+    "docker:pg:stop": "docker stop pg-neo",
+    "docker:pg-admin:create": "docker run --name pg-admin-neo -d -p 8080:80 -e PGADMIN_DEFAULT_EMAIL=user@mail.com -e PGADMIN_DEFAULT_PASSWORD=postgres dpage/pgadmin4",
+    "docker:pg-admin:start": "docker start pg-admin-neo",
+    "docker:pg-admin:stop": "docker stop pg-admin-neo"
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.49.0",
+    "pg": "^8.16.3"
+  }
+}
