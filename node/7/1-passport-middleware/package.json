@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "dotenvx run -- node ./src/index.js",
+    "mongodb:atlas": "echo https://cloud.mongodb.com/",
+    "docker:mongodb:create": "docker run --name neo-mongodb -d -p 27017:27017 -v $(pwd)/docker_volumes/data:/data/db mongo",
+    "docker:mongodb:start": "docker start neo-mongodb",
+    "docker:mongodb:stop": "docker stop neo-mongodb",
+    "secret:generate": "node -e \"import('crypto').then((m) => m.randomBytes(32).toString('hex')).then(console.log);\""
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.50.1",
+    "bcrypt": "^6.0.0",
+    "chalk": "^5.6.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.2",
+    "morgan": "^1.10.1",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1"
+  }
+}
