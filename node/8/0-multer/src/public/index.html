@@ -1,0 +1,63 @@
+<head>
+  <link
+    rel="shortcut icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>"
+    type="image/x-icon"
+  />
+  <title>File upload</title>
+  <style>
+    img {
+      max-width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="picture" />
+    <button type="submit">Upload</button>
+  </form>
+
+  <button id="load-btn" type="button">Reload images</button>
+
+  <div id="imgs"></div>
+
+  <script>
+    const imagesList = document.querySelector("div#imgs");
+
+    const createImage = (src) => {
+      const img = new Image();
+      img.src = src;
+      return img;
+    };
+
+    const renderImages = (srcs) => {
+      const images = srcs.map(createImage);
+
+      const fragment = document.createDocumentFragment();
+
+      fragment.append(...images);
+      imagesList.replaceChildren(fragment);
+    };
+
+    const getImages = async () => {
+      const response = await fetch("/api/images")
+        .then((res) => res.json())
+        .catch(console.error);
+
+      return response.images;
+    };
+
+    const rerenderLatestImages = async () => {
+      const srcs = await getImages();
+
+      renderImages(srcs);
+    };
+
+    rerenderLatestImages();
+
+    document
+      .querySelector("button#load-btn")
+      .addEventListener("click", rerenderLatestImages);
+  </script>
+</body>
