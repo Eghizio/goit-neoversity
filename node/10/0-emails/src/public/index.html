@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✉️</text></svg>"
+      type="image/x-icon"
+    />
+    <title>Email</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./script.js"></script>
+  </head>
+  <body>
+    <h1>Email 📬</h1>
+
+    <form>
+      <section class="row">
+        <p>Email Provider:</p>
+
+        <label>
+          <input type="radio" name="provider" value="nodemailer" required />
+          Nodemailer
+        </label>
+
+        <label>
+          <input type="radio" name="provider" value="sendgrid" required />
+          SendGrid
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="provider"
+            value="ethereal"
+            required
+            checked
+          />
+          Ethereal
+        </label>
+
+        <label>
+          <input type="radio" name="provider" value="test" required />
+          Test
+        </label>
+      </section>
+
+      <section>
+        <label>
+          <p>Recipients (comma delimited):</p>
+
+          <input
+            type="text"
+            id="recipients"
+            required
+            placeholder="john@doe.com, joe@moma.com"
+          />
+        </label>
+      </section>
+
+      <section>
+        <label>
+          <p>Subject:</p>
+          <input
+            type="text"
+            id="subject"
+            required
+            placeholder="Test email"
+            value="Test email"
+          />
+        </label>
+      </section>
+
+      <section class="row">
+        <label>
+          <p>Text:</p>
+          <textarea name="text" id="text" placeholder="Hello there 👋">
+Hello there 👋
+          </textarea>
+        </label>
+
+        <label>
+          <p>HTML:</p>
+          <textarea
+            name="html"
+            id="html"
+            placeholder="<h1 style='color: red;'>Hello there 👋</h1>"
+          >
+<h1 style='color: red;'>Hello there 👋</h1></textarea
+          >
+        </label>
+      </section>
+
+      <button type="submit">Send!</button>
+    </form>
+
+    <img width="200px" src="https://storage.googleapis.com/pod_public/1300/200776.jpg" alt="Meme">
+  </body>
+</html>

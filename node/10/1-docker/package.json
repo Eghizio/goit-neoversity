@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "node ./server.js",
+    "docker:dockerize": "docker build -t goit-node-app .",
+    "docker:run:it": "docker run --name goit-expressapp -it -p 8080:3001 goit-node-app",
+    "docker:run:detached": "docker run --name goit-expressapp -d -p 8080:3001 goit-node-app"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "morgan": "^1.10.1"
+  }
+}
