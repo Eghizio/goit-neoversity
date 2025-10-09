@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  background-color: lightskyblue;
+}
+
+header {
+  padding: 1rem;
+  background-color: dodgerblue;
+  color: white;
+  font-weight: 600;
+}
+
+.online {
+  color: limegreen;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.system {
+  color: magenta;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 0.5rem;
+}
+
+li:nth-child(odd) {
+  background-color: lightgray;
+}
+
+li:nth-child(even) {
+  background-color: lightskyblue;
+}
+
+input {
+  width: 100%;
+  font-size: xx-large;
+}
+
+button {
+  min-width: 200px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: large;
+}
