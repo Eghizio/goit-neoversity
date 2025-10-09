@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💬</text></svg>"
+      type="image/x-icon"
+    />
+    <title>Chat GoIT</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="./script.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Chat GoIT 💬</h1>
+
+      <a href="/" target="_blank">New client</a>
+
+      <section>
+        <div class="online">Online: <span id="online">0</span></div>
+
+        <form id="name-form">
+          <div>Name: <span id="name-display">Guest</span></div>
+
+          <div class="row">
+            <input type="text" id="name" />
+            <button type="submit">Change name</button>
+          </div>
+        </form>
+      </section>
+    </header>
+
+    <main>
+      <ul class="chat" id="chat"></ul>
+
+      <form id="chat-form" class="row">
+        <input type="text" id="msg" />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </body>
+</html>
+
+<!-- <style>
+  * {
+    transition: all 400ms;
+  }
+
+  @keyframes wololo {
+    0% {
+      background-color: red;
+      color: green;
+      transform: rotate(0deg);
+      translate: 0px;
+    }
+    50% {
+      background-color: green;
+      color: blue;
+      transform: rotate(180deg);
+      translate: 30px;
+    }
+    80% {
+      background-color: blue;
+      color: red;
+      transform: rotate(350deg);
+      translate: -30px;
+    }
+  }
+
+  li {
+    animation: wololo 3s infinite;
+  }
+</style> -->
